@@ -28,13 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
+            metroTabControl = new ReaLTaiizor.Controls.ForeverTabPage();
+            tabPage3 = new TabPage();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            metroTabControl = new ReaLTaiizor.Controls.MetroTabControl();
-            tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
             metroTabControl.SuspendLayout();
-            tabPage1.SuspendLayout();
+            tabPage3.SuspendLayout();
             SuspendLayout();
+            // 
+            // metroTabControl
+            // 
+            metroTabControl.ActiveColor = Color.FromArgb(65, 177, 225);
+            metroTabControl.ActiveFontColor = Color.White;
+            metroTabControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            metroTabControl.BaseColor = Color.White;
+            metroTabControl.BGColor = Color.White;
+            metroTabControl.Controls.Add(tabPage3);
+            metroTabControl.DeactiveFontColor = Color.DimGray;
+            metroTabControl.Font = new Font("Segoe UI", 10F);
+            metroTabControl.ItemSize = new Size(120, 40);
+            metroTabControl.Location = new Point(0, 3);
+            metroTabControl.Name = "metroTabControl";
+            metroTabControl.SelectedIndex = 0;
+            metroTabControl.Size = new Size(958, 443);
+            metroTabControl.SizeMode = TabSizeMode.Fixed;
+            metroTabControl.TabIndex = 3;
+            // 
+            // tabPage3
+            // 
+            tabPage3.BackColor = Color.White;
+            tabPage3.Controls.Add(flowLayoutPanel1);
+            tabPage3.Location = new Point(4, 44);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(3);
+            tabPage3.Size = new Size(950, 395);
+            tabPage3.TabIndex = 1;
+            tabPage3.Text = "Início";
             // 
             // flowLayoutPanel1
             // 
@@ -43,74 +71,25 @@
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(3, 3);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(777, 385);
+            flowLayoutPanel1.Size = new Size(944, 389);
             flowLayoutPanel1.TabIndex = 0;
-            // 
-            // metroTabControl
-            // 
-            metroTabControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            metroTabControl.AnimateEasingType = ReaLTaiizor.Enum.Metro.EasingType.CubeOut;
-            metroTabControl.AnimateTime = 200;
-            metroTabControl.BackgroundColor = Color.White;
-            metroTabControl.Controls.Add(tabPage1);
-            metroTabControl.Controls.Add(tabPage2);
-            metroTabControl.ControlsVisible = true;
-            metroTabControl.IsDerivedStyle = true;
-            metroTabControl.ItemSize = new Size(100, 38);
-            metroTabControl.Location = new Point(5, 1);
-            metroTabControl.MCursor = Cursors.Hand;
-            metroTabControl.Name = "metroTabControl";
-            metroTabControl.SelectedIndex = 0;
-            metroTabControl.SelectedTextColor = Color.White;
-            metroTabControl.Size = new Size(791, 437);
-            metroTabControl.SizeMode = TabSizeMode.Fixed;
-            metroTabControl.Speed = 100;
-            metroTabControl.Style = ReaLTaiizor.Enum.Metro.Style.Light;
-            metroTabControl.StyleManager = null;
-            metroTabControl.TabIndex = 0;
-            metroTabControl.ThemeAuthor = "Taiizor";
-            metroTabControl.ThemeName = "MetroLight";
-            metroTabControl.UnselectedTextColor = Color.Gray;
-            // 
-            // tabPage1
-            // 
-            tabPage1.Controls.Add(flowLayoutPanel1);
-            tabPage1.Location = new Point(4, 42);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(783, 391);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1";
-            tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            tabPage2.Location = new Point(4, 42);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(783, 391);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
             // 
             // HomeView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(957, 450);
             Controls.Add(metroTabControl);
             Name = "HomeView";
             Text = "HomeView";
             metroTabControl.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
+            tabPage3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
+        private ReaLTaiizor.Controls.ForeverTabPage metroTabControl;
+        private TabPage tabPage3;
         private FlowLayoutPanel flowLayoutPanel1;
-        private ReaLTaiizor.Controls.MetroTabControl metroTabControl;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
     }
 }

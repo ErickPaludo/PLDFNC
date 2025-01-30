@@ -1,4 +1,5 @@
-﻿using PLDFinanc.Home.Models;
+﻿using PLDFinanc.Componentes;
+using PLDFinanc.Home.Models;
 using PLDFinanc.Home.Views;
 using ReaLTaiizor.Controls;
 using System;
@@ -44,10 +45,44 @@ namespace PLDFinanc.Home.Controllers
 
                     btn.Click += (sender, e) =>
                     {
-                       System.Windows.Forms.TabPage page = new System.Windows.Forms.TabPage();
-                        page.Text = $"{btn.Text} {i.ToString()}" ;
+                        System.Windows.Forms.TabPage page = new System.Windows.Forms.TabPage();
+                        page.Text = $"{btn.Text}";
 
-                        view.Page.TabPages.Add(page);
+                        if (view.Page.TabPages.Cast<System.Windows.Forms.TabPage>()
+                       .FirstOrDefault(tp => tp.Text == page.Text) == null)
+                        {
+                            view.Page.TabPages.Add(page);
+
+                            MetroButton btnsair = new MetroButton();
+                            btnsair.Text = "Fechar";
+                            btnsair.Size = new Size(80, 30);
+                            btnsair.Location = new Point(page.Width - 90, 10); 
+                            btnsair.Anchor = AnchorStyles.Top | AnchorStyles.Right; 
+                            btnsair.Click += (s, ev) =>
+                            {                              
+                                view.Page.TabPages.Remove(page);                             
+                                view.Page.SelectedTab = view.Page.TabPages[0];
+                            };
+                            page.Controls.Add(btnsair);
+
+                            MetroButton btnhome = new MetroButton();
+                            btnhome.Text = "Início";
+                            btnhome.Size = new Size(80, 30);
+                            btnhome.Location = new Point(page.Width - 180, 10); 
+                            btnhome.Anchor = AnchorStyles.Top | AnchorStyles.Right; 
+                            btnhome.Click += (s, ev) =>
+                            {
+                                view.Page.SelectedTab = view.Page.TabPages[0];
+                            };
+                            page.Controls.Add(btnhome);
+
+                            GastosComp gastospage = new GastosComp();
+                            gastospage.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Top;
+                            gastospage.Location = new Point(0, 0);
+                            page.Controls.Add(gastospage);
+                        }
+                        view.Page.SelectedTab = view.Page.TabPages[view.Page.TabPages.Count - 1];
+
                     };
 
                     if (anos > 1)

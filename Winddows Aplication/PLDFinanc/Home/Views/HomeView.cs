@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TabPage = ReaLTaiizor.Controls.TabPage;
 
 namespace PLDFinanc.Home.Views
 {
@@ -22,10 +23,10 @@ namespace PLDFinanc.Home.Views
         }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public MetroTabControl Page { get => metroTabControl; set => metroTabControl = value; }
+        public ForeverTabPage Page { get => metroTabControl; set => metroTabControl = value; }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public FlowLayoutPanel Panael { get => flowLayoutPanel1; set => flowLayoutPanel1 = value; }
+        public FlowLayoutPanel Panael { get => flowLayoutPanel1; set => flowLayoutPanel1 = value; }   [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 
         HomeController _controller;
         public void SetController(HomeController controller)
