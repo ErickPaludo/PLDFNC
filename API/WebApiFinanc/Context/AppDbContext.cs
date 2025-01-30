@@ -13,7 +13,7 @@ namespace WebApiFinanc.Context
         public DbSet<Credito>? Credito { get; set; }
       //  public DbSet<CreditoFixo>? CreditoFixo { get; set; }
         public DbSet<Debito>? Debito { get; set; }
-        public DbSet<DebitoFixo>? DebitoFixo { get; set; }
+      //  public DbSet<DebitoFixo>? DebitoFixo { get; set; }
       //  public DbSet<Investimentos>? Investimentos { get; set; }
     }
 }

@@ -25,6 +25,9 @@ namespace WebApiFinanc.Models
         [Required]
         public int UserId { get; set; }
 
+        [ForeignKey("UserId")]
+
+        [JsonIgnore]
         public Usuarios? Usuarios { get; set; }
     }
 
