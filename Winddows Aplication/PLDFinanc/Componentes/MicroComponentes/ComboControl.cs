@@ -17,7 +17,7 @@ namespace PLDFinanc.Componentes.MicroComponentes
         public string Label { get { return metroLabelTipo.Text; } set { metroLabelTipo.Text = value; } }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public MetroComboBox Date { get { return metroComboBox1; } set { metroComboBox1 = value; } }
+        public ComboBox Combo { get { return metroComboBox1; } set { metroComboBox1 = value; } }
         public ComboControl()
         {
             InitializeComponent();

@@ -28,8 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             metroTabControl = new ReaLTaiizor.Controls.ForeverTabPage();
             tabPage3 = new TabPage();
+            poisonDataGridView1 = new ReaLTaiizor.Controls.PoisonDataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
             filtrosComp1 = new FiltrosComp();
             tabPage1 = new TabPage();
             filtrosComp2 = new FiltrosComp();
@@ -37,6 +43,7 @@
             filtrosComp3 = new FiltrosComp();
             metroTabControl.SuspendLayout();
             tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)poisonDataGridView1).BeginInit();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
             SuspendLayout();
@@ -64,6 +71,7 @@
             // tabPage3
             // 
             tabPage3.BackColor = Color.White;
+            tabPage3.Controls.Add(poisonDataGridView1);
             tabPage3.Controls.Add(filtrosComp1);
             tabPage3.Location = new Point(4, 44);
             tabPage3.Name = "tabPage3";
@@ -71,6 +79,61 @@
             tabPage3.Size = new Size(969, 517);
             tabPage3.TabIndex = 1;
             tabPage3.Text = "Geral";
+            // 
+            // poisonDataGridView1
+            // 
+            poisonDataGridView1.AllowUserToResizeRows = false;
+            poisonDataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            poisonDataGridView1.BackgroundColor = Color.FromArgb(255, 255, 255);
+            poisonDataGridView1.BorderStyle = BorderStyle.None;
+            poisonDataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            poisonDataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            poisonDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            poisonDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            poisonDataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(136, 136, 136);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            poisonDataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            poisonDataGridView1.EnableHeadersVisualStyles = false;
+            poisonDataGridView1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            poisonDataGridView1.GridColor = Color.FromArgb(255, 255, 255);
+            poisonDataGridView1.Location = new Point(6, 200);
+            poisonDataGridView1.Name = "poisonDataGridView1";
+            poisonDataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            poisonDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            poisonDataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            poisonDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            poisonDataGridView1.Size = new Size(957, 311);
+            poisonDataGridView1.TabIndex = 1;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Column1";
+            Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Column2";
+            Column2.Name = "Column2";
             // 
             // filtrosComp1
             // 
@@ -124,6 +187,7 @@
             Size = new Size(980, 571);
             metroTabControl.ResumeLayout(false);
             tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)poisonDataGridView1).EndInit();
             tabPage1.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
             ResumeLayout(false);
@@ -138,5 +202,8 @@
         private FiltrosComp filtrosComp1;
         private FiltrosComp filtrosComp2;
         private FiltrosComp filtrosComp3;
+        private ReaLTaiizor.Controls.PoisonDataGridView poisonDataGridView1;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
     }
 }

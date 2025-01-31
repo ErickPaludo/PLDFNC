@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             metroLabelTipo = new ReaLTaiizor.Controls.MetroLabel();
-            metroTextBox1 = new ReaLTaiizor.Controls.MetroTextBox();
+            metroTextBox1 = new TextBox();
             SuspendLayout();
             // 
             // metroLabelTipo
             // 
             metroLabelTipo.Font = new Font("Microsoft Sans Serif", 10F);
             metroLabelTipo.IsDerivedStyle = true;
-            metroLabelTipo.Location = new Point(2, 9);
+            metroLabelTipo.Location = new Point(2, 5);
             metroLabelTipo.Name = "metroLabelTipo";
             metroLabelTipo.Size = new Size(43, 19);
             metroLabelTipo.Style = ReaLTaiizor.Enum.Metro.Style.Light;
@@ -48,33 +48,11 @@
             // 
             // metroTextBox1
             // 
-            metroTextBox1.AutoCompleteCustomSource = null;
-            metroTextBox1.AutoCompleteMode = AutoCompleteMode.None;
-            metroTextBox1.AutoCompleteSource = AutoCompleteSource.None;
-            metroTextBox1.BorderColor = Color.FromArgb(155, 155, 155);
-            metroTextBox1.DisabledBackColor = Color.FromArgb(204, 204, 204);
-            metroTextBox1.DisabledBorderColor = Color.FromArgb(155, 155, 155);
-            metroTextBox1.DisabledForeColor = Color.FromArgb(136, 136, 136);
-            metroTextBox1.Font = new Font("Microsoft Sans Serif", 10F);
-            metroTextBox1.HoverColor = Color.FromArgb(102, 102, 102);
-            metroTextBox1.Image = null;
-            metroTextBox1.IsDerivedStyle = true;
-            metroTextBox1.Lines = null;
-            metroTextBox1.Location = new Point(84, 3);
-            metroTextBox1.MaxLength = 32767;
-            metroTextBox1.Multiline = false;
+            metroTextBox1.Location = new Point(71, 0);
             metroTextBox1.Name = "metroTextBox1";
-            metroTextBox1.ReadOnly = false;
-            metroTextBox1.Size = new Size(146, 30);
-            metroTextBox1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
-            metroTextBox1.StyleManager = null;
+            metroTextBox1.Size = new Size(171, 23);
             metroTextBox1.TabIndex = 9;
-            metroTextBox1.Text = "metroTextBox1";
-            metroTextBox1.TextAlign = HorizontalAlignment.Left;
-            metroTextBox1.ThemeAuthor = "Taiizor";
-            metroTextBox1.ThemeName = "MetroLight";
-            metroTextBox1.UseSystemPasswordChar = false;
-            metroTextBox1.WatermarkText = "";
+            metroTextBox1.KeyPress += VerifyIsNumber;
             // 
             // ImputControl
             // 
@@ -85,11 +63,12 @@
             Name = "ImputControl";
             Size = new Size(245, 39);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private ReaLTaiizor.Controls.MetroLabel metroLabelTipo;
-        private ReaLTaiizor.Controls.MetroTextBox metroTextBox1;
+        private TextBox metroTextBox1;
     }
 }

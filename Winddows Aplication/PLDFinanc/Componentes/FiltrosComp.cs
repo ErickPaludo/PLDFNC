@@ -57,7 +57,13 @@ namespace PLDFinanc.Componentes
             Datafim.Label = "Data fim";
 
             Valor.Label = "Valor";
-            Status.Check.Text = "";
+            Valor.Input.Text = "";
+            Valor.IsNumber = true;
+
+            Tipo.Combo.BackColor = Color.White;
+            Tipo.Combo.Items.Add("Todos");
+            Tipo.Combo.Items.Add("Débito");
+            Tipo.Combo.Items.Add("Crédito");
         }
     }
 }

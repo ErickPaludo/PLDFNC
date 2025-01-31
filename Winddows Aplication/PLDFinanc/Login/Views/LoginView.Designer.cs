@@ -134,7 +134,7 @@
             metroCheckBoxLogin.Location = new Point(176, 164);
             metroCheckBoxLogin.Name = "metroCheckBoxLogin";
             metroCheckBoxLogin.SignStyle = ReaLTaiizor.Enum.Metro.SignStyle.Sign;
-            metroCheckBoxLogin.Size = new Size(75, 16);
+            metroCheckBoxLogin.Size = new Size(135, 16);
             metroCheckBoxLogin.Style = ReaLTaiizor.Enum.Metro.Style.Light;
             metroCheckBoxLogin.StyleManager = null;
             metroCheckBoxLogin.TabIndex = 3;
