@@ -1,115 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
-
- <head>
-	
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="Loop Nerd" content="Create one that collects user data and sends it to another page." />
-    <meta name="description" content="This tutorial shows you how to create a simple HTML form using CSS3. The form will collect information from users and send them to a new web page."/>
-    <meta name="keywords" content="Html, Css, Jquery, Wordpress, Free Sites, Wordpress Theme, Responsive Site"/>
-    <meta name="author" content="Loop Nerd" />
-    <meta name="URL" content="https://www.loopnerd.com.br/artigos/css3/formulario-de-cadastro-html-css-pronto"/>
-    <meta http-equiv="content-language" content="pt-br" />
-    <meta name="robots" content="index, follow"/>
-    
-    <!--[if lt IE 9]>
-        <script src="js/html5shiv.js"></script>
-    <![endif]-->       
-
-	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/fonts-icones.css">
-    <link rel="shortcut icon" href="https://www.loopnerd.com.br/wp-content/themes/loopnerd/img/favicon.png"/>
-
-	<title>HTML CSS Ready Registration Form - Html Css</title>
- 
- </head>
-
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="js/script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
 <body>
-    
-<header class="main_header container">        
-    <div class="content">
-    
-
-    
-    </div>
-</header>
-
-<main class="main_content container">
-
-        
-    <section class="section-seu-codigo container">
-        
-        <div class="content">
-                        
-            <div class="box-artigo">
-                
-               
-                <!--Inícia Formulário-->
-
-                    <div class="container_form">
-            
-                            <h1>Cadastro Financ</h1>
-
-                            <form class="form" action="#" method="post">
-                                
-                                <div class="form_grupo">
-                                    <label for="nome" class="form_label">Nome</label>
-                                    <input type="text" name="nome" class="form_input" id="nome" placeholder="Nome" required>
-                                </div>
-                                <div class="form_grupo">
-                                    <label for="segundonome" class="form_label">Sobrenome</label>
-                                    <input type="text" name="lastname" class="form_input" id="lastname" placeholder="Sobrenome" required>
-                                </div>
-                                
-                                <div class="form_grupo">
-                                    <label for="e-mail" class="form_label">Email</label>
-                                    <input type="email" name="email" class="form_input" id="email" placeholder="seuemail@email.com" required>
-                                </div>   
-
-                                <div class="form_grupo">
-                                    <label for="user" class="form_label">Nome de Usuário</label>
-                                    <input type="text" name="user" class="form_input" id="user" placeholder="user" required>
-                                </div>
-                                <div class="form_grupo">
-                                    <label for="pass" class="form_label">Senha</label>
-                                    <input type="text" name="pass" class="form_input" id="pass" placeholder="pass" required>
-                                    <label for="confirmpass" class="form_label">Confirmar senha</label>
-                                    <input type="text" name="confirmpass" class="form_input" id="confirmpass" placeholder="pass" required>
-                                </div>
-                                    <div class="submit">
-
-                                      <input type="hidden" name="acao" value="enviar">
-                                      <button type="submit" name="Submit" class="submit_btn" >Cadastrar</button>
-                                    
-                                    </div>
-                            </form>
-
-                    </div><!--container_form-->
-
-                <!--Finaliza Formulário-->
-
-
-            </div><!--Box Artigo-->
-
-
-        <div class="clear"></div>
+    <div class="container">
+        <div class="form-container">
+            <h1>Cadastro de Usuário</h1>
+            <form id="cadastroForm">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input type="text" id="sobrenome" name="sobrenome" placeholder="Digite seu sobrenome" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="Digite seu telefone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                </div>
+                <div class="form-group">
+                    <label for="usuario">Nome de Usuário:</label>
+                    <input type="text" id="usuario" name="usuario" placeholder="Digite um nome de usuário" required>
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmarSenha">Confirme a Senha:</label>
+                    <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Confirme sua senha" required>
+                </div>
+                <button type="button" onclick="Cadastrar()">Cadastrar</button>
+            </form>
         </div>
-    </section><!--FECHA BOX HTML-->
-
-
-</main>
-
-<footer class="main_footer container">
-    <div class="main_footer_copy">
-
-        <p class="m-b-footer"> PLDProjects - 2025</p>     
     </div>
-</footer>
-
-<script src="js/jquery.js"></script>
-<script src="js/script.js"></script>
-                    
 </body>
 </html>
