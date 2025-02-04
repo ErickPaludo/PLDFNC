@@ -84,6 +84,14 @@ button:hover {
 button:active {
     transform: translateY(0);
 }
+#errormsg{
+display: flex;
+justify-content: center;
+color: red;
+font-weight: bold;
+font-size: 15px;
+display: none;
+}
 
 /* Responsividade */
 @media (max-width: 480px) {

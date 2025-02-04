@@ -1,3 +1,4 @@
+var errormsg = document.getElementById("errormsg");
 function Cadastrar() {
     var usuario = {
         firstName: document.getElementById("nome").value.trim(),
@@ -8,24 +9,27 @@ function Cadastrar() {
     };
 
     if (usuario.firstName === "" || usuario.lastName === "" || usuario.userName === "" || usuario.userPass === "" || usuario.email === "") {
-        console.log("Objeto Usuario:", usuario);
-        alert("Todos os campos devem ser preenchidos!");
+        errormsg.innerText = "Todos os campos devem ser preenchidos!"
+        errormsg.style.display="block"
         return;
     }
     else{
-        fetch("http://25.49.76.159:8060/api/Cadastros/eleicao", {
+        fetch("https://localhost:44394/api/Usuarios/cadastrauser", {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
             },
-            body: JSON.stringify(objeto)  // Envia o objeto convertido para JSON
+            body: JSON.stringify(usuario) 
         })
-        .then(response => response.json())  // Trata a resposta da API
+        .then(response => response.json())  
         .then(data => {
-            alert("Resposta do servidor: " + JSON.stringify(data));  // Exibe a resposta no alert
+             errormsg.style.display="none"
+            window.location.href = `/pages/cadastrado.html?nome=${encodeURIComponent(usuario.firstName)}`;
         })
         .catch(error => {
-          alert("Erro ao enviar os dados:" + error);  // Exibe erros, caso haja
+           errormsg.innerText = "Erro ao enviar os dados:"
+        errormsg.style.display="block"
         });
+        
     }
 }
