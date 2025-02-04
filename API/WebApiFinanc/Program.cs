@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using WebApiFinanc.Context;
+using WebApiFinanc.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +17,6 @@ builder.Services.AddCors(options =>
 });
 
 
-// Add services to the container.
 builder.Services.AddControllers()
       .AddJsonOptions(options =>
          options.JsonSerializerOptions
@@ -24,12 +24,15 @@ builder.Services.AddControllers()
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
 string mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
+
 
 builder.Services.AddDbContext<AppDbContext>(options =>
                     options.UseMySql(mySqlConnection,
                     ServerVersion.AutoDetect(mySqlConnection)));
+
 
 var app = builder.Build();
 app.UseCors("AllowAllOrigins");

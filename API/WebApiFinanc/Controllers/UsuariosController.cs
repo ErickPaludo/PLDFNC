@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApiFinanc.Context;
 using WebApiFinanc.Models;
+using WebApiFinanc.Repositories;
 
 namespace WebApiFinanc.Controllers
 {
@@ -10,36 +11,38 @@ namespace WebApiFinanc.Controllers
     [ApiController]
     public class UsuariosController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IUsuarioRepository _repository;
 
-        public UsuariosController(AppDbContext context)
+        public UsuariosController(IUsuarioRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         [HttpGet("/retornausers")]
-        public async Task<ActionResult<IEnumerable<Usuarios>>> RetornaUsers()
+        public ActionResult<IEnumerable<Usuarios>> RetornaUsers()
         {
-            return await _context.Usuarios.AsNoTracking().ToListAsync();
+            return Ok(_repository.GetUsuario());
         }
 
         [HttpGet("/selecionauser/{id:int}")]
-        public async Task<ActionResult<IEnumerable<Usuarios>>> SelecionaUsers(int id)
+        public ActionResult<IEnumerable<Usuarios>> SelecionaUsers(int id)
         {
-            var user = await _context.Usuarios.AsNoTracking().FirstOrDefaultAsync(x => x.UserId == id);
+            var user = _repository.GetUsers(id);
             if (user is not null)
             {
                 return Ok(user);
             }
             else { return NotFound(); }
-          
         }
 
         [HttpPost("cadastrauser")]
-        public async Task<IActionResult> CadastraUser([FromBody] Usuarios usuarios)
+        public IActionResult CadastraUser([FromBody] Usuarios usuarios)
         {
-            await _context.AddAsync(usuarios);
-            await _context.SaveChangesAsync();
+            if (_repository.UserAny(usuarios))
+            {
+                return Conflict("Usuário já cadastrado");
+            }
+           _repository.Create(usuarios);
             return Ok(usuarios);
         }
     }
