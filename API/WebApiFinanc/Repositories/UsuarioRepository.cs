@@ -26,10 +26,11 @@ namespace WebApiFinanc.Repositories
             throw new NotImplementedException();
         }
 
-
         public Usuarios Update(Usuarios usuarios)
         {
-            throw new NotImplementedException();
+            _context.Entry(usuarios).State = EntityState.Modified;
+            _context.SaveChanges();
+            return usuarios;
         }
 
         public Usuarios Create(Usuarios usuarios)

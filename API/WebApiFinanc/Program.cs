@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using WebApiFinanc.Context;
+using WebApiFinanc.Filters;
+using WebApiFinanc.Logging;
 using WebApiFinanc.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,12 +18,21 @@ builder.Services.AddCors(options =>
         });
 });
 
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add(typeof(ApiExceptionFilter));
+})
+.AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
 
-builder.Services.AddControllers()
-      .AddJsonOptions(options =>
-         options.JsonSerializerOptions
-            .ReferenceHandler = ReferenceHandler.IgnoreCycles);
+builder.Logging.AddProvider(new CustomLoggerProvider(new CustomLoggerProviderConfiguration
+{
+    LogLevel = LogLevel.Information
+}));
 
+builder.Services.AddScoped<ApiLoggingFilter>(); //Não ultilizada
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
