@@ -5,6 +5,6 @@ O Projeto contará com uma api que usufrui do entity framework core, com banco M
 
 O Front do aplicativo será em Windows Forms no momento, mas futuramente alcançará outras plataformas.
 
-v1.0.2 - Cadastro de usuários via WEB
+v1.0.2 - Cadastro de usuários via WEB - https://financpld.netlify.app
 ![image](https://github.com/user-attachments/assets/8cbe3fe3-2952-475a-8e5b-9f23d3de0634)
 
