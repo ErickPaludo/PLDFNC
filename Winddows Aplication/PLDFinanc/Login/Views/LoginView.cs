@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace PLDFinanc
 {
-    public partial class LoginView : LostForm, IloginView
+    public partial class LoginView : CrownForm, IloginView
     {
         public LoginView()
         {

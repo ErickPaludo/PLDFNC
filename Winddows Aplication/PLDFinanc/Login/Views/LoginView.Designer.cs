@@ -48,21 +48,21 @@
             metroTextBoxUser.Image = null;
             metroTextBoxUser.IsDerivedStyle = true;
             metroTextBoxUser.Lines = null;
-            metroTextBoxUser.Location = new Point(176, 87);
+            metroTextBoxUser.Location = new Point(124, 45);
+            metroTextBoxUser.Margin = new Padding(2);
             metroTextBoxUser.MaxLength = 32767;
             metroTextBoxUser.Multiline = false;
             metroTextBoxUser.Name = "metroTextBoxUser";
             metroTextBoxUser.ReadOnly = false;
-            metroTextBoxUser.Size = new Size(135, 30);
+            metroTextBoxUser.Size = new Size(142, 21);
             metroTextBoxUser.Style = ReaLTaiizor.Enum.Metro.Style.Light;
             metroTextBoxUser.StyleManager = null;
-            metroTextBoxUser.TabIndex = 0;
-            metroTextBoxUser.Text = "metroTextBox1";
+            metroTextBoxUser.TabIndex = 2;
             metroTextBoxUser.TextAlign = HorizontalAlignment.Left;
             metroTextBoxUser.ThemeAuthor = "Taiizor";
             metroTextBoxUser.ThemeName = "MetroLight";
             metroTextBoxUser.UseSystemPasswordChar = false;
-            metroTextBoxUser.WatermarkText = "";
+            metroTextBoxUser.WatermarkText = "user";
             // 
             // metroTextBoxPass
             // 
@@ -78,21 +78,21 @@
             metroTextBoxPass.Image = null;
             metroTextBoxPass.IsDerivedStyle = true;
             metroTextBoxPass.Lines = null;
-            metroTextBoxPass.Location = new Point(176, 123);
+            metroTextBoxPass.Location = new Point(124, 88);
+            metroTextBoxPass.Margin = new Padding(2);
             metroTextBoxPass.MaxLength = 32767;
             metroTextBoxPass.Multiline = false;
             metroTextBoxPass.Name = "metroTextBoxPass";
             metroTextBoxPass.ReadOnly = false;
-            metroTextBoxPass.Size = new Size(135, 30);
+            metroTextBoxPass.Size = new Size(142, 21);
             metroTextBoxPass.Style = ReaLTaiizor.Enum.Metro.Style.Light;
             metroTextBoxPass.StyleManager = null;
-            metroTextBoxPass.TabIndex = 1;
-            metroTextBoxPass.Text = "metroTextBox2";
+            metroTextBoxPass.TabIndex = 3;
             metroTextBoxPass.TextAlign = HorizontalAlignment.Left;
             metroTextBoxPass.ThemeAuthor = "Taiizor";
             metroTextBoxPass.ThemeName = "MetroLight";
-            metroTextBoxPass.UseSystemPasswordChar = false;
-            metroTextBoxPass.WatermarkText = "";
+            metroTextBoxPass.UseSystemPasswordChar = true;
+            metroTextBoxPass.WatermarkText = "senha";
             // 
             // metroButtonLogin
             // 
@@ -104,7 +104,8 @@
             metroButtonLogin.HoverColor = Color.FromArgb(95, 207, 255);
             metroButtonLogin.HoverTextColor = Color.White;
             metroButtonLogin.IsDerivedStyle = true;
-            metroButtonLogin.Location = new Point(176, 186);
+            metroButtonLogin.Location = new Point(124, 149);
+            metroButtonLogin.Margin = new Padding(2);
             metroButtonLogin.Name = "metroButtonLogin";
             metroButtonLogin.NormalBorderColor = Color.FromArgb(65, 177, 225);
             metroButtonLogin.NormalColor = Color.FromArgb(65, 177, 225);
@@ -112,11 +113,11 @@
             metroButtonLogin.PressBorderColor = Color.FromArgb(35, 147, 195);
             metroButtonLogin.PressColor = Color.FromArgb(35, 147, 195);
             metroButtonLogin.PressTextColor = Color.White;
-            metroButtonLogin.Size = new Size(145, 23);
+            metroButtonLogin.Size = new Size(142, 22);
             metroButtonLogin.Style = ReaLTaiizor.Enum.Metro.Style.Light;
             metroButtonLogin.StyleManager = null;
-            metroButtonLogin.TabIndex = 2;
-            metroButtonLogin.Text = "metroButton1";
+            metroButtonLogin.TabIndex = 1;
+            metroButtonLogin.Text = "Entrar";
             metroButtonLogin.ThemeAuthor = "Taiizor";
             metroButtonLogin.ThemeName = "MetroLight";
             // 
@@ -131,29 +132,32 @@
             metroCheckBoxLogin.DisabledBorderColor = Color.FromArgb(205, 205, 205);
             metroCheckBoxLogin.Font = new Font("Microsoft Sans Serif", 10F);
             metroCheckBoxLogin.IsDerivedStyle = true;
-            metroCheckBoxLogin.Location = new Point(176, 164);
+            metroCheckBoxLogin.Location = new Point(180, 113);
+            metroCheckBoxLogin.Margin = new Padding(2);
             metroCheckBoxLogin.Name = "metroCheckBoxLogin";
             metroCheckBoxLogin.SignStyle = ReaLTaiizor.Enum.Metro.SignStyle.Sign;
-            metroCheckBoxLogin.Size = new Size(135, 16);
+            metroCheckBoxLogin.Size = new Size(86, 16);
             metroCheckBoxLogin.Style = ReaLTaiizor.Enum.Metro.Style.Light;
             metroCheckBoxLogin.StyleManager = null;
-            metroCheckBoxLogin.TabIndex = 3;
-            metroCheckBoxLogin.Text = "metroCheckBox1";
+            metroCheckBoxLogin.TabIndex = 0;
+            metroCheckBoxLogin.Text = "Exibir senha";
             metroCheckBoxLogin.ThemeAuthor = "Taiizor";
             metroCheckBoxLogin.ThemeName = "MetroLight";
             // 
             // LoginView
             // 
-            AutoScaleDimensions = new SizeF(9F, 21F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(519, 324);
+            BackColor = Color.FromArgb(255, 255, 255);
+            ClientSize = new Size(404, 231);
             Controls.Add(metroCheckBoxLogin);
             Controls.Add(metroButtonLogin);
             Controls.Add(metroTextBoxPass);
             Controls.Add(metroTextBoxUser);
+            Margin = new Padding(2);
             Name = "LoginView";
-            Text = "Form1";
+            Padding = new Padding(16, 43, 16, 14);
+            Text = "Financ - Login";
             ResumeLayout(false);
         }
 

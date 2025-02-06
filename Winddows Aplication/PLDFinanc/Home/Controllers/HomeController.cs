@@ -79,7 +79,24 @@ namespace PLDFinanc.Home.Controllers
                             GastosComp gastospage = new GastosComp();
                             gastospage.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Top;
                             gastospage.Location = new Point(0, 0);
+                          
+                           var a = new List<string> { "Todos", "Débito", "Crédito" }; //Aqui o client deverá obter as categorias
+                            var ft = new FiltrosComp();
+
+                            foreach (var categorias in a)
+                            {
+                                System.Windows.Forms.TabPage categoriaPage = new System.Windows.Forms.TabPage();
+                                categoriaPage.Text = categorias.ToString();
+                                ft = new FiltrosComp();
+                                ft.Tipo.Combo.SelectedItem = categorias;
+                                ft.Tipo.Combo.Enabled = categorias.Equals("Todos") ? true : false;
+                                categoriaPage.Controls.Add(ft);
+
+                                gastospage.Panel.TabPages.Add(categoriaPage);
+                            }
+                         
                             page.Controls.Add(gastospage);
+
                         }
                         view.Page.SelectedTab = view.Page.TabPages[view.Page.TabPages.Count - 1];
 

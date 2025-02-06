@@ -37,6 +37,9 @@ namespace PLDFinanc.Componentes
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ComboControl Tipo { get { return comboTipo; } set { comboTipo = value; } }
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public PoisonDataGridView Datagrid { get { return poisonDataGridView1; } set { poisonDataGridView1 = value; } }
         public FiltrosComp()
         {
             InitializeComponent();

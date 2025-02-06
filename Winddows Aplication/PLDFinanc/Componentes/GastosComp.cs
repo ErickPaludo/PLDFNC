@@ -1,4 +1,6 @@
 ﻿using PLDFinanc.Componentes.MicroComponentes;
+using ReaLTaiizor.Child.Metro;
+using ReaLTaiizor.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,21 +16,11 @@ namespace PLDFinanc.Componentes
     public partial class GastosComp : UserControl
     {
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public FiltrosComp Todos { get { return filtrosComp1; } set { filtrosComp1 = value; } }
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public FiltrosComp Debito { get { return filtrosComp2; } set { filtrosComp2 = value; } }
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public FiltrosComp Credito { get { return filtrosComp3; } set { filtrosComp2 = value; } }
+        public ForeverTabPage Panel { get { return metroTabControl; } set { metroTabControl = value; } }
+
         public GastosComp()
         {
             InitializeComponent();
-
-            Todos.Tipo.Combo.SelectedIndex = 0;
-            Debito.Tipo.Combo.SelectedIndex = 1;
-            Credito.Tipo.Combo.SelectedIndex = 2;
-
-            Debito.Tipo.Combo.Enabled = false;
-            Credito.Tipo.Combo.Enabled = false;
         }
     }
 }
