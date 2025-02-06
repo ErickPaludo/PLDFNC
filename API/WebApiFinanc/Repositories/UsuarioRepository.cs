@@ -35,8 +35,8 @@ namespace WebApiFinanc.Repositories
 
         public Usuarios Create(Usuarios usuarios)
         {
-             _context.AddAsync(usuarios);
-             _context.SaveChangesAsync();
+             _context.Add(usuarios);
+             _context.SaveChanges();
             return usuarios;
         }
 

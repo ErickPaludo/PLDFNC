@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
@@ -16,6 +17,10 @@ namespace WebApiFinanc.Models
 
         [Key]
         public int UserId { get; set; }
+        [DefaultValue(true)]
+        public bool Active { get; set; }
+        [DefaultValue(1)]
+        public int Status { get; set; }
 
         [StringLength(80)]
         [Required(ErrorMessage = "Nome não pode ser nulo")]
