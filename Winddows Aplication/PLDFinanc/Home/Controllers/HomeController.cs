@@ -90,6 +90,18 @@ namespace PLDFinanc.Home.Controllers
                                 ft = new FiltrosComp();
                                 ft.Tipo.Combo.SelectedItem = categorias;
                                 ft.Tipo.Combo.Enabled = categorias.Equals("Todos") ? true : false;
+
+                                ft.ButtonCad.Click += (s, ev) => 
+                                {
+                                    model.ExecutaRec(new Object
+                                    {
+                                       int debitoId = 0,
+  "descricao": "string",
+  "valor": 9999999999999,
+  "data": "2025-02-06T19:49:47.897Z",
+  "userId": 6
+                                    })
+                                };
                                 categoriaPage.Controls.Add(ft);
 
                                 gastospage.Panel.TabPages.Add(categoriaPage);

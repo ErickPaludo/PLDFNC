@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             dataIni = new MicroComponentes.DataControl();
             dataFim = new MicroComponentes.DataControl();
             comboTipo = new MicroComponentes.ComboControl();
@@ -41,7 +41,7 @@
             inputValor = new MicroComponentes.ImputControl();
             metroButton2 = new ReaLTaiizor.Controls.MetroButton();
             metroButton1 = new ReaLTaiizor.Controls.MetroButton();
-            metroButton3 = new ReaLTaiizor.Controls.MetroButton();
+            metroButtoncadastrar = new ReaLTaiizor.Controls.MetroButton();
             poisonDataGridView1 = new ReaLTaiizor.Controls.PoisonDataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
@@ -156,31 +156,31 @@
             metroButton1.ThemeAuthor = "Taiizor";
             metroButton1.ThemeName = "MetroLight";
             // 
-            // metroButton3
+            // metroButtoncadastrar
             // 
-            metroButton3.DisabledBackColor = Color.FromArgb(120, 65, 177, 225);
-            metroButton3.DisabledBorderColor = Color.FromArgb(120, 65, 177, 225);
-            metroButton3.DisabledForeColor = Color.Gray;
-            metroButton3.Font = new Font("Microsoft Sans Serif", 10F);
-            metroButton3.HoverBorderColor = Color.FromArgb(95, 207, 255);
-            metroButton3.HoverColor = Color.FromArgb(95, 207, 255);
-            metroButton3.HoverTextColor = Color.White;
-            metroButton3.IsDerivedStyle = true;
-            metroButton3.Location = new Point(609, 125);
-            metroButton3.Name = "metroButton3";
-            metroButton3.NormalBorderColor = Color.FromArgb(65, 177, 225);
-            metroButton3.NormalColor = Color.FromArgb(65, 177, 225);
-            metroButton3.NormalTextColor = Color.White;
-            metroButton3.PressBorderColor = Color.FromArgb(35, 147, 195);
-            metroButton3.PressColor = Color.FromArgb(35, 147, 195);
-            metroButton3.PressTextColor = Color.White;
-            metroButton3.Size = new Size(54, 45);
-            metroButton3.Style = ReaLTaiizor.Enum.Metro.Style.Light;
-            metroButton3.StyleManager = null;
-            metroButton3.TabIndex = 16;
-            metroButton3.Text = "metroButton3";
-            metroButton3.ThemeAuthor = "Taiizor";
-            metroButton3.ThemeName = "MetroLight";
+            metroButtoncadastrar.DisabledBackColor = Color.FromArgb(120, 65, 177, 225);
+            metroButtoncadastrar.DisabledBorderColor = Color.FromArgb(120, 65, 177, 225);
+            metroButtoncadastrar.DisabledForeColor = Color.Gray;
+            metroButtoncadastrar.Font = new Font("Microsoft Sans Serif", 10F);
+            metroButtoncadastrar.HoverBorderColor = Color.FromArgb(95, 207, 255);
+            metroButtoncadastrar.HoverColor = Color.FromArgb(95, 207, 255);
+            metroButtoncadastrar.HoverTextColor = Color.White;
+            metroButtoncadastrar.IsDerivedStyle = true;
+            metroButtoncadastrar.Location = new Point(609, 125);
+            metroButtoncadastrar.Name = "metroButtoncadastrar";
+            metroButtoncadastrar.NormalBorderColor = Color.FromArgb(65, 177, 225);
+            metroButtoncadastrar.NormalColor = Color.FromArgb(65, 177, 225);
+            metroButtoncadastrar.NormalTextColor = Color.White;
+            metroButtoncadastrar.PressBorderColor = Color.FromArgb(35, 147, 195);
+            metroButtoncadastrar.PressColor = Color.FromArgb(35, 147, 195);
+            metroButtoncadastrar.PressTextColor = Color.White;
+            metroButtoncadastrar.Size = new Size(54, 45);
+            metroButtoncadastrar.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            metroButtoncadastrar.StyleManager = null;
+            metroButtoncadastrar.TabIndex = 16;
+            metroButtoncadastrar.Text = "metroButton3";
+            metroButtoncadastrar.ThemeAuthor = "Taiizor";
+            metroButtoncadastrar.ThemeName = "MetroLight";
             // 
             // poisonDataGridView1
             // 
@@ -190,38 +190,38 @@
             poisonDataGridView1.BorderStyle = BorderStyle.None;
             poisonDataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
             poisonDataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            poisonDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            poisonDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             poisonDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             poisonDataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            poisonDataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = Color.FromArgb(136, 136, 136);
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            poisonDataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             poisonDataGridView1.EnableHeadersVisualStyles = false;
             poisonDataGridView1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             poisonDataGridView1.GridColor = Color.FromArgb(255, 255, 255);
             poisonDataGridView1.Location = new Point(20, 186);
             poisonDataGridView1.Name = "poisonDataGridView1";
             poisonDataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            poisonDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            poisonDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             poisonDataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             poisonDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             poisonDataGridView1.Size = new Size(1182, 423);
@@ -242,7 +242,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(poisonDataGridView1);
-            Controls.Add(metroButton3);
+            Controls.Add(metroButtoncadastrar);
             Controls.Add(metroButton1);
             Controls.Add(metroButton2);
             Controls.Add(checkControl1);
@@ -270,7 +270,7 @@
         private MicroComponentes.ImputControl inputValor;
         private ReaLTaiizor.Controls.MetroButton metroButton2;
         private ReaLTaiizor.Controls.MetroButton metroButton1;
-        private ReaLTaiizor.Controls.MetroButton metroButton3;
+        private ReaLTaiizor.Controls.MetroButton metroButtoncadastrar;
         private ReaLTaiizor.Controls.PoisonDataGridView poisonDataGridView1;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
