@@ -18,7 +18,7 @@ namespace PLDFinanc.Home.Models
 
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new System.Uri("https://localhost:44394");
+                    client.BaseAddress = new System.Uri("https://financ.requestcatcher.com");
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 

@@ -1,6 +1,7 @@
 ﻿using PLDFinanc.Componentes;
 using PLDFinanc.Home.Models;
 using PLDFinanc.Home.Views;
+using PLDFinanc.ModelObjects;
 using ReaLTaiizor.Controls;
 using System;
 using System.Collections.Generic;
@@ -93,14 +94,12 @@ namespace PLDFinanc.Home.Controllers
 
                                 ft.ButtonCad.Click += (s, ev) => 
                                 {
-                                    model.ExecutaRec(new Object
+                                    model.ExecutaRec("POST","/TEST",new Debito
                                     {
-                                       int debitoId = 0,
-  "descricao": "string",
-  "valor": 9999999999999,
-  "data": "2025-02-06T19:49:47.897Z",
-  "userId": 6
-                                    })
+                                        Descricao = "Enviado da Aplicação windows",
+                                        Valor = 25.5m,
+                                        UserId = 6,
+                                    });
                                 };
                                 categoriaPage.Controls.Add(ft);
 
