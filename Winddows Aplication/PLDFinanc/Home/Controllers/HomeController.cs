@@ -5,9 +5,11 @@ using PLDFinanc.ModelObjects;
 using ReaLTaiizor.Controls;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PLDFinanc.Home.Controllers
 {
@@ -82,24 +84,34 @@ namespace PLDFinanc.Home.Controllers
                             gastospage.Location = new Point(0, 0);
                           
                            var a = new List<string> { "Todos", "Débito", "Crédito" }; //Aqui o client deverá obter as categorias
-                            var ft = new FiltrosComp();
+                           
 
                             foreach (var categorias in a)
                             {
+                                var ft = new FiltrosComp();
+
+                               ft.Anchor = AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Top;
+
                                 System.Windows.Forms.TabPage categoriaPage = new System.Windows.Forms.TabPage();
                                 categoriaPage.Text = categorias.ToString();
                                 ft = new FiltrosComp();
                                 ft.Tipo.Combo.SelectedItem = categorias;
                                 ft.Tipo.Combo.Enabled = categorias.Equals("Todos") ? true : false;
 
-                                ft.ButtonCad.Click += (s, ev) => 
+                                ft.ButtonCad.Click += async (s, ev) => 
                                 {
-                                    model.ExecutaRec("POST","/TEST",new Debito
+                                    await model.ExecutaRec<Debito>("POST", "/cadastradebito", new Debito
                                     {
                                         Descricao = "Enviado da Aplicação windows",
                                         Valor = 25.5m,
                                         UserId = 6,
                                     });
+                                    var debito = await model.ExecutaRec<List<Debito>>("GET", "/retornadebitos");
+
+                                    
+                                    ft.Datagrid.DataSource = debito;
+                                    ft.Datagrid.Anchor = AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Top;
+                                    ft.Datagrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                                 };
                                 categoriaPage.Controls.Add(ft);
 
@@ -123,7 +135,10 @@ namespace PLDFinanc.Home.Controllers
                         view.Panael.Controls.Add(btn);
                     }
                 }
+
             }
+
         }
+    
     }
 }

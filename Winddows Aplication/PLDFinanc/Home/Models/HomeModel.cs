@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using PLDFinanc.ModelObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,40 +12,42 @@ namespace PLDFinanc.Home.Models
 {
     public class HomeModel
     {
-        public async Task<dynamic> ExecutaRec(string metodo, string path, object obj = null, int id = 0)
+        public async Task<T> ExecutaRec<T>(string metodo, string path, object obj = null)
         {
             try
             {
-
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new System.Uri("https://financ.requestcatcher.com");
+                    client.BaseAddress = new Uri("https://localhost:44394");
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                    HttpResponseMessage response = new HttpResponseMessage();
-                    switch (metodo)
+                    HttpResponseMessage response;
+
+                    if (metodo == "GET")
                     {
-                        case "GET":
-                            response = await client.GetAsync(path);
-                            var retorno = await response.Content.ReadAsStringAsync();
-                            return JsonConvert.DeserializeObject<dynamic>(retorno);
-                            break;
-                        case "POST":
-                            response = await client.PostAsJsonAsync(path, obj);
-                            retorno = await response.Content.ReadAsStringAsync();
-                            return JsonConvert.DeserializeObject<dynamic>(retorno);
-                            break;
+                        response = await client.GetAsync(path);
                     }
+                    else if (metodo == "POST")
+                    {
+                        response = await client.PostAsJsonAsync(path, obj);
+                    }
+                    else
+                    {
+                        throw new ArgumentException("Método HTTP inválido.");
+                    }
+
+                    response.EnsureSuccessStatusCode(); // Verifica se a requisição foi bem-sucedida.
+
+                    var retorno = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<T>(retorno);
                 }
-                return "";
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                return "";
+                MessageBox.Show($"Erro na requisição: {ex.Message}");
+                return default; // Retorna o valor padrão de T (null para classes, 0 para números, etc.)
             }
-
         }
     }
 }
