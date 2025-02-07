@@ -3,7 +3,10 @@ using System.Text.Json.Serialization;
 using WebApiFinanc.Context;
 using WebApiFinanc.Filters;
 using WebApiFinanc.Logging;
-using WebApiFinanc.Repositories;
+using WebApiFinanc.Repositories.DebitoRepository_;
+using WebApiFinanc.Repositories.Default;
+using WebApiFinanc.Repositories.UnitWork;
+using WebApiFinanc.Repositories.UsuarioRepository_;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,9 +36,13 @@ builder.Logging.AddProvider(new CustomLoggerProvider(new CustomLoggerProviderCon
 }));
 
 builder.Services.AddScoped<ApiLoggingFilter>(); //Não ultilizada
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IDebitoRepository, DebitoRepository>();
+builder.Services.AddScoped(typeof(IRepositoryDefault<>), typeof(RepositoryDefault<>));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
 string mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 

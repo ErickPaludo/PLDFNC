@@ -8,7 +8,7 @@ namespace WebApiFinanc.Models
     public class Credito
     {
         [Key]
-        public string CreditoId { get; set; }
+        public int CreditoId { get; set; }
 
         [StringLength(200)]
         public string Descricao { get; set; }

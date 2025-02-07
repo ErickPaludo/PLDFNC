@@ -9,7 +9,7 @@ namespace WebApiFinanc.Models
     public class Debito
     {
         [Key]
-        public string DebitoId { get; set; }
+        public int DebitoId { get; set; }
 
         [StringLength(200)]
         public string Descricao { get; set; }

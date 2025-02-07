@@ -30,7 +30,7 @@ namespace WebApiFinanc.Models
         [Required(ErrorMessage = "Sobrenome não pode ser nulo")]
         public string LastName { get; set; }
 
-        [StringLength(15, MinimumLength = 3, ErrorMessage = "Usuário deve possuir entre 3 e 15 caracteres")]
+        [StringLength(15, MinimumLength = 2, ErrorMessage = "Usuário deve possuir entre 3 e 15 caracteres")]
         [Required(ErrorMessage = "Nome de usuário não pode ser nulo")]
         public string UserName { get; set; }
 

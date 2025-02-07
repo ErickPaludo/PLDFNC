@@ -5,7 +5,7 @@ using System.Text.Json;
 using WebApiFinanc.Context;
 using WebApiFinanc.Filters;
 using WebApiFinanc.Models;
-using WebApiFinanc.Repositories;
+using WebApiFinanc.Repositories.UnitWork;
 
 namespace WebApiFinanc.Controllers
 {
@@ -13,54 +13,56 @@ namespace WebApiFinanc.Controllers
     [ApiController]
     public class UsuariosController : ControllerBase
     {
-        private readonly IUsuarioRepository _repository;
+        private readonly IUnitOfWork _unit;
         private readonly ILogger<UsuariosController> _logger;
-   
-        public UsuariosController(IUsuarioRepository repository, ILogger<UsuariosController> logger)
+
+        public UsuariosController(IUnitOfWork unit, ILogger<UsuariosController> logger)
         {
-            _repository = repository;
+            _unit = unit;
             _logger = logger;
         }
 
         [HttpGet("/retornausers")]
         public ActionResult<IEnumerable<Usuarios>> RetornaUsers()
         {
-            return Ok(_repository.GetUsuario());
+            return Ok(_unit.UsuarioRepository.Get());
         }
 
-        [HttpGet("/selecionauser/{id:int}")]
+        [HttpGet("/selecionauser/{id:int}",Name ="Obter")]
         public ActionResult<IEnumerable<Usuarios>> SelecionaUsers(int id)
         {
-            var user = _repository.GetUsers(id);
-            if (user is not null)
+            var user = _unit.UsuarioRepository.GetObjects(x => x.UserId == id);
+            if (user is null)
             {
-                return Ok(user);
+                return NoContent();
             }
-            else { return NotFound(); }
+
+            return Ok(user);
         }
 
-        [HttpPost("cadastrauser")]
-        public IActionResult CadastraUser([FromBody] Usuarios usuarios)
+        [HttpPost("/cadastrauser")]
+        public IActionResult CadastraUser([FromBody] Usuarios usuario)
         {
-            if (_repository.UserAny(usuarios))
-            {
-                var msg = $"Usuário {usuarios.FirstName} {usuarios.LastName} já está cadastrado!";
-                _logger.LogInformation($"[{DateTime.Now}] - {msg}");
-                return Conflict(msg);
-            }
-           _repository.Create(usuarios);
-            _logger.LogInformation($"[{DateTime.Now}] - Usuário {usuarios.FirstName } {usuarios.LastName} /id: {usuarios.UserId} cadastrado!");
-            return Ok(usuarios);
+         
+                if (_unit.UsuarioRepository.ObjectAny(x => x.UserName == usuario.UserName || x.Email == usuario.Email))
+                {
+                    return Conflict($"Usuário {usuario.FirstName} {usuario.LastName} já está cadastrado!");
+                }
+                _unit.UsuarioRepository.Create(usuario);
+            
+            _unit.Commit();
+            return new CreatedAtRouteResult("Obter", new { id = usuario.UserId },usuario);
         }
-        [HttpPatch("alteruser")]
+        [HttpPatch("/alteruser")]
         public IActionResult AlterarUser([FromBody] Usuarios usuarios)
         {
-            if (!_repository.UserAny(usuarios))
-            { 
-                return NotFound("Usuário não encontrado");
+            if (!_unit.UsuarioRepository.ObjectAny(x => x.UserId == usuarios.UserId))
+            {
+                return NotFound();
             }
-            _repository.Update(usuarios);
-            _logger.LogInformation($"[{DateTime.Now}] - Usuário {usuarios.FirstName} {usuarios.LastName} /id: {usuarios.UserId} foi alterado!\nBody: {JsonSerializer.Serialize(usuarios)}");
+
+            _unit.UsuarioRepository.Update(usuarios);
+            _unit.Commit();
             return Ok(usuarios);
         }
     }
