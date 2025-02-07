@@ -39,7 +39,7 @@ namespace PLDFinanc.Componentes
         public ComboControl Tipo { get { return comboTipo; } set { comboTipo = value; } }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        public PoisonDataGridView Datagrid { get { return poisonDataGridView1; } set { poisonDataGridView1 = value; } } 
+        public PoisonDataGridView Datagrid { get { return poisonDataGridView1; } set { poisonDataGridView1 = value; } }
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public MetroButton ButtonCad { get { return metroButtoncadastrar; } set { metroButtoncadastrar = value; } }
         public FiltrosComp()
