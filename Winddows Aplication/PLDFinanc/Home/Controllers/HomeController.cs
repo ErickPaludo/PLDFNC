@@ -100,12 +100,12 @@ namespace PLDFinanc.Home.Controllers
 
                                 ft.ButtonCad.Click += async (s, ev) => 
                                 {
-                                    await model.ExecutaRec<Debito>("POST", "/cadastradebito", new Debito
-                                    {
-                                        Descricao = "Enviado da Aplicação windows",
-                                        Valor = 25.5m,
-                                        UserId = 6,
-                                    });
+                                    //await model.ExecutaRec<Debito>("POST", "/cadastradebito", new Debito
+                                    //{
+                                    //    Descricao = "Enviado da Aplicação windows",
+                                    //    Valor = 25.5m,
+                                    //    UserId = 6,
+                                    //});
                                     var debito = await model.ExecutaRec<List<Debito>>("GET", "/retornadebitos");
 
                                     
