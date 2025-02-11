@@ -4,7 +4,11 @@ Um Projeto de Finanças voltado principalmente para os estudos de desenvolviment
 O Projeto contará com uma api que usufrui do entity framework core, com banco MySql rodando dentro de um docker.
 
 O Front do aplicativo será em Windows Forms no momento, mas futuramente alcançará outras plataformas.
+___
+## Client Windows - 1.0.0.5 - Cadastro de Gastos
 
+![image](https://github.com/user-attachments/assets/58568f02-e000-4bab-bb1b-56639c372e90)
+![image](https://github.com/user-attachments/assets/812eae36-bb57-4fce-b88c-a0910613a588)
 ___
 
 ## Client Windows - 1.0.0.2 - Demonstração inicial
