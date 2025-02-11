@@ -85,7 +85,6 @@ namespace PLDFinanc.Home.Controllers
                           
                            var a = new List<string> { "Todos", "Débito", "Crédito" }; //Aqui o client deverá obter as categorias
                            
-
                             foreach (var categorias in a)
                             {
                                 var ft = new FiltrosComp();
@@ -106,11 +105,19 @@ namespace PLDFinanc.Home.Controllers
                                     //    Valor = 25.5m,
                                     //    UserId = 6,
                                     //});
-                                    var debito = await model.ExecutaRec<List<Debito>>("GET", "/retornadebitos");
+                                   
 
-                                    
-                                    ft.Datagrid.DataSource = debito;
-                                    ft.Datagrid.Anchor = AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Top;
+                                    if(ft.Tipo.Combo.SelectedItem.Equals("Debito"))
+                                    {
+                                        ft.Datagrid.DataSource = await model.ExecutaRec<List<Debito>>("GET", "/retornadebitos");
+                                    }
+                                    else if (ft.Tipo.Combo.SelectedItem.Equals("Credito"))
+                                    {
+                                        ft.Datagrid.DataSource = await model.ExecutaRec<List<Credito>>("GET", "/retornacreditos");
+                                    }
+
+
+                                        ft.Datagrid.Anchor = AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Top;
                                     ft.Datagrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                                 };
                                 categoriaPage.Controls.Add(ft);
