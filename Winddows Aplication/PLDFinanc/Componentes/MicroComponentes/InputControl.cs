@@ -24,6 +24,7 @@ namespace PLDFinanc.Componentes.MicroComponentes
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool IsNumber { get; set; }
+
         public InputControl()
         {
             InitializeComponent();

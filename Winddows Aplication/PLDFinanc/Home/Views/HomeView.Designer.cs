@@ -46,10 +46,11 @@
             metroTabControl.DeactiveFontColor = Color.DimGray;
             metroTabControl.Font = new Font("Segoe UI", 10F);
             metroTabControl.ItemSize = new Size(120, 40);
-            metroTabControl.Location = new Point(0, 3);
+            metroTabControl.Location = new Point(0, 4);
+            metroTabControl.Margin = new Padding(3, 4, 3, 4);
             metroTabControl.Name = "metroTabControl";
             metroTabControl.SelectedIndex = 0;
-            metroTabControl.Size = new Size(958, 443);
+            metroTabControl.Size = new Size(1095, 591);
             metroTabControl.SizeMode = TabSizeMode.Fixed;
             metroTabControl.TabIndex = 3;
             // 
@@ -58,9 +59,10 @@
             tabPage3.BackColor = Color.White;
             tabPage3.Controls.Add(flowLayoutPanel1);
             tabPage3.Location = new Point(4, 44);
+            tabPage3.Margin = new Padding(3, 4, 3, 4);
             tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(950, 395);
+            tabPage3.Padding = new Padding(3, 4, 3, 4);
+            tabPage3.Size = new Size(1087, 543);
             tabPage3.TabIndex = 1;
             tabPage3.Text = "Início";
             // 
@@ -69,17 +71,19 @@
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new Point(3, 3);
+            flowLayoutPanel1.Location = new Point(3, 4);
+            flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(944, 389);
+            flowLayoutPanel1.Size = new Size(1081, 535);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // HomeView
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(957, 450);
+            ClientSize = new Size(1094, 600);
             Controls.Add(metroTabControl);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "HomeView";
             Text = "HomeView";
             metroTabControl.ResumeLayout(false);

@@ -21,7 +21,7 @@ namespace PLDFinanc.Home.Models
                     client.BaseAddress = new Uri("http://25.2.220.24:5102");
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
- 
+
                     HttpResponseMessage response;
 
                     if (metodo == "GET")
@@ -37,16 +37,28 @@ namespace PLDFinanc.Home.Models
                         throw new ArgumentException("Método HTTP inválido.");
                     }
 
-                    response.EnsureSuccessStatusCode(); // Verifica se a requisição foi bem-sucedida.
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        // Tenta capturar a mensagem de erro retornada pela API
+                        var erroMsg = await response.Content.ReadAsStringAsync();
+                        var erro = JsonConvert.DeserializeObject<dynamic>(erroMsg);
+                        var teste = erro.errors;
+                        throw new HttpRequestException($"Erro {response.StatusCode}: {teste.ToString()}");
+                    }
 
                     var retorno = await response.Content.ReadAsStringAsync();
                     return JsonConvert.DeserializeObject<T>(retorno);
                 }
             }
-            catch (Exception ex)
+            catch (HttpRequestException ex)
             {
                 MessageBox.Show($"Erro na requisição: {ex.Message}");
-                return default; // Retorna o valor padrão de T (null para classes, 0 para números, etc.)
+                return default;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro inesperado: {ex.Message}");
+                return default;
             }
         }
     }

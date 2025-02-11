@@ -55,15 +55,15 @@
             metroTextBox1.TabIndex = 9;
             metroTextBox1.KeyPress += VerifyIsNumber;
             // 
-            // ImputControl
+            // InputControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(metroTextBox1);
             Controls.Add(metroLabelTipo);
             Margin = new Padding(3, 4, 3, 4);
-            Name = "ImputControl";
-            Size = new Size(280, 52);
+            Name = "InputControl";
+            Size = new Size(280, 30);
             ResumeLayout(false);
             PerformLayout();
         }

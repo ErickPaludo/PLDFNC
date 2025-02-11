@@ -16,5 +16,6 @@ namespace PLDFinanc.ModelObjects
         public DateTime DataVencimento { get; set; }
         public int Parcela { get; set; }      
         public int ParcelaTotal { get; set; }
+        public int UserId { get; set; }
     }
 }

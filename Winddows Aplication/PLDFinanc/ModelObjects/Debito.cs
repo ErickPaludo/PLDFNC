@@ -15,5 +15,6 @@ namespace PLDFinanc.ModelObjects
         public string Descricao { get; set; }    
         public decimal Valor { get; set; }
         public DateTime Data { get; set; }
+        public int UserId { get; set; }
     }
 }
