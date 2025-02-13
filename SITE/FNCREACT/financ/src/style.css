@@ -22,7 +22,7 @@
 .containerInput{
     background-color: rgba(255,255,255,0.2);
     padding: 15px;
-    margin: 34px 0;
+    margin: 10px 0;
     display: flex;
     border-radius: 8px;
     box-shadow: 1px 3px 8px rgba(0,0,0,0.5);
@@ -35,6 +35,7 @@
     outline: none;
     margin-right: 8px;
 }
+
 .containerInput input::placeholder{
     color: rgba(255, 255, 255, 0.785);
 }
@@ -46,6 +47,17 @@
     align-items: center;
     cursor: pointer;
     transition: transform 0.5s;
+}
+
+.buttonEnv{
+    background-color: transparent;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.5s;
+    color: white;
 }
 .buttonSearch:hover{
     transform: scale(1.2);
