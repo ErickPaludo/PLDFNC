@@ -1,6 +1,6 @@
 import axios from "axios";
 const api = axios.create({
-    baseURL: "https://viacep.com.br/ws/"
+    baseURL: "http://192.168.0.12:5102"
 });
 
 export default api;
