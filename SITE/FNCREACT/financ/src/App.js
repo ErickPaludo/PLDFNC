@@ -5,9 +5,12 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 function App() {
-  const[cadSucess, setCadSucess] = useState(false);
+  const[cadSucess, setCadSucess] = useState(0);
+
   const[firstName,setFirstName] = useState("")
   const[lastName,setLastName] = useState("")
   const[email,setLastEmail] = useState("")
@@ -71,7 +74,7 @@ function App() {
       setConfPass("")
 
 
-      setCadSucess(true)
+      setCadSucess(1)
 
     }catch(error){
       const errorMessages = Object.values(error.response?.data?.errors || {})
@@ -93,19 +96,19 @@ function App() {
      {
       <Navbar bg="light" expand="lg">
       <Container fluid className="noPadding">
-        <Navbar.Brand href="#home">Financ</Navbar.Brand>
+        <Navbar.Brand>Financ</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home" onClick={() => setCadSucess(false)}>Cadastro</Nav.Link>
-            <Nav.Link href="#features"  onClick={() => setCadSucess(true)}>Entrar</Nav.Link>
+            <Nav.Link  onClick={() => setCadSucess(0)}>Cadastro</Nav.Link>
+            <Nav.Link   onClick={() => setCadSucess(1)}>Entrar</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
      }
 
-      {cadSucess === false && (
+      {cadSucess === 0 && (
       <div>
       <div className="containerInput">
       <p>Nome: </p>
@@ -140,7 +143,7 @@ function App() {
       </div> 
          )}  
 
-    {cadSucess === true && (
+    {cadSucess === 1 && (
       <div>
       <div className="containerInput">
       <p>Usuário: </p>
@@ -155,6 +158,42 @@ function App() {
       />
         <label htmlFor="showPassword"> Visualizar senha</label>
 
+      <div className="containerInput">  
+      <button className="buttonEnv" onClick={() => setCadSucess(2)} >
+        Entrar
+      </button>
+      </div>
+      
+      </div> 
+         )}  
+
+      {cadSucess === 2 && (
+      <div>
+      <div className="containerInput">
+      <p>Título: </p>
+      <input type="text" placeholder="titulo" onChange={(e) => setUserLogin(e.target.value)} ></input>
+      </div>
+      <div className="containerInput">
+      <p>Valor: </p>
+      <input type="number" placeholder="R$ 00,00" value={userLogin} onChange={(e) => setUserLogin(e.target.value)} ></input>
+      </div>
+      <div className="containerInput">
+      <p>Data: </p>
+        <input type="datetime-local"></input>
+      </div>
+      <div className="containerInput">
+      <p>Descrição: </p>
+      <input type="text" value={userLogin} onChange={(e) => setUserLogin(e.target.value)} ></input>
+      </div>
+      <div className="containerInput">
+      <p>Gasto: </p>
+      <select id="categoria" name="categoria" required>
+                    <option value="" disabled selected>Selecione uma categoria</option>
+                    <option value="debito">Débito</option>  
+                    <option value="credito">Crédito</option>         
+                </select>
+      </div>
+      
       <div className="containerInput">  
       <button className="buttonEnv" >
         Entrar
