@@ -3,8 +3,10 @@ using System.Text.Json.Serialization;
 using WebApiFinanc.Context;
 using WebApiFinanc.Filters;
 using WebApiFinanc.Logging;
+using WebApiFinanc.Models.DTOs;
 using WebApiFinanc.Repositories.DebitoRepository_;
 using WebApiFinanc.Repositories.Default;
+using WebApiFinanc.Repositories.GastoRepository_;
 using WebApiFinanc.Repositories.UnitWork;
 using WebApiFinanc.Repositories.UsuarioRepository_;
 
@@ -38,9 +40,11 @@ builder.Logging.AddProvider(new CustomLoggerProvider(new CustomLoggerProviderCon
 builder.Services.AddScoped<ApiLoggingFilter>(); //Não ultilizada
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IDebitoRepository, DebitoRepository>();
+builder.Services.AddScoped<IGastosRepository, GastosRepository>();
 builder.Services.AddScoped(typeof(IRepositoryDefault<>), typeof(RepositoryDefault<>));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+builder.Services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

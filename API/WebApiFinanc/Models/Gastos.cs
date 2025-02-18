@@ -1,14 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace WebApiFinanc.Models
 {
-    [Table("Credito")]
-    public class Credito
+    [Table("tb_financ")]
+    public class Gastos
     {
         [Key]
-        public int CreditoId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -22,14 +22,22 @@ namespace WebApiFinanc.Models
         public decimal Valor { get; set; }
 
         [Required]
-        public DateTime DataCompra { get; set; }
+        public DateTime DthrReg { get; set; }
 
         [Required]
         public DateTime DataVencimento { get; set; }
-        [Required]
+
+        
         public int Parcela { get; set; }
+
+      
+        public bool Pago { get; set; }
+
+      
+        public char Status { get; set; }
+
         [Required]
-        public int ParcelaTotal { get; set; }
+        public char Categoria { get; set; }
 
         [Required]
         public int UserId { get; set; }

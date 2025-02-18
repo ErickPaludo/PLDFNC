@@ -11,8 +11,7 @@ namespace WebApiFinanc.Models
     {
         public Usuarios()
         {
-            Debitos = new Collection<Debito>();
-            Credito = new Collection<Credito>();
+            Gastos = new Collection<Gastos>();
         }
 
         [Key]
@@ -43,11 +42,8 @@ namespace WebApiFinanc.Models
         [Required(ErrorMessage = "Email não pode ser nulo")]
         public string Email { get; set; }
 
-
         [JsonIgnore]
-        public ICollection<Debito> Debitos { get; set; }
-        [JsonIgnore]
-        public ICollection<Credito> Credito { get; set; }
+        public ICollection<Gastos> Gastos { get; set; }
     }
 
 }

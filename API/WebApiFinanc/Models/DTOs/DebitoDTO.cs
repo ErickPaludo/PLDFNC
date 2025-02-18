@@ -1,15 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Runtime.CompilerServices;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace WebApiFinanc.Models
+namespace WebApiFinanc.Models.DTOs
 {
-    [Table("Debito")]
-    public class Debito
+    public class DebitoDTO
     {
-        [Key]
-        public int DebitoId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -33,5 +30,4 @@ namespace WebApiFinanc.Models
         [JsonIgnore]
         public Usuarios? Usuarios { get; set; }
     }
-
 }

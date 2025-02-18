@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WebApiFinanc.Migrations;
 using WebApiFinanc.Models;
+using WebApiFinanc.Models.DTOs;
 using WebApiFinanc.Repositories.UnitWork;
 
 namespace WebApiFinanc.Controllers
@@ -12,52 +13,54 @@ namespace WebApiFinanc.Controllers
     {
         private readonly IUnitOfWork _unit;
         private readonly ILogger<CreditoController> _logger;
+        private readonly IMapper _mapper;
 
-        public CreditoController(IUnitOfWork unit, ILogger<CreditoController> logger)
+        public CreditoController(IUnitOfWork unit, ILogger<CreditoController> logger,IMapper mapper)
         {
             _unit = unit;
             _logger = logger;
+            _mapper = mapper;
         }
 
         [HttpGet("/retornacreditos")]
-        public ActionResult<IEnumerable<Credito>> RetornaCredito()
+        public ActionResult<IEnumerable<CreditoDTO>> RetornaCredito()
         {
-            var credito = _unit.CreditoRepository.Get();
+            var credito = _unit.GastosRepository.Get();
             if (credito.Count() == 0) { return NoContent(); }
-            return Ok(credito);
+            return Ok(_mapper.Map<CreditoDTO>(credito));
         }
 
         [HttpGet("/selecionacredito/{id:int}", Name = "ObterCredito")]
-        public ActionResult<IEnumerable<Credito>> RetornaCreditos(int id)
+        public ActionResult<IEnumerable<CreditoDTO>> RetornaCreditos(int id)
         {
-            var credito = _unit.CreditoRepository.GetObjects(x => x.CreditoId == id);
+            var credito = _unit.GastosRepository.GetObjects(x => x.Id == id);
             if (credito is null)
             {
                 return NoContent();
             }
 
-            return Ok(credito);
+            return Ok(_mapper.Map<CreditoDTO>(credito));
         }
 
         [HttpPost("/cadastracredito")]
-        public IActionResult CadastraDebito([FromBody] Credito credito)
+        public ActionResult<CreditoDTO> CadastraDebito([FromBody] CreditoDTO creditoDto)
         {
-            if (credito is null)
+            if (creditoDto is null)
             {
                 return BadRequest("Body is null");
             }
-            _unit.CreditoRepository.Create(credito);
+            var credito = _unit.GastosRepository.Create(_mapper.Map<Gastos>(creditoDto));
             _unit.Commit();
-            return new CreatedAtRouteResult("ObterCredito", new { id = credito.CreditoId }, credito);
+            return new CreatedAtRouteResult("ObterCredito", new { id = credito.Id }, credito);
         }
         [HttpPatch("/altercredito")]
-        public IActionResult AlterarDebito([FromBody] Credito credito)
+        public IActionResult AlterarDebito([FromBody] CreditoDTO credito)
         {
             if (credito is null)
             {
                 return BadRequest("Body is null");
             }
-            if (!_unit.CreditoRepository.ObjectAny(x => x.CreditoId == credito.CreditoId))
+            if (!_unit.CreditoRepository.ObjectAny(x => x.Id == credito.Id))
             {
                 return NotFound();
             }
@@ -70,7 +73,7 @@ namespace WebApiFinanc.Controllers
         [HttpDelete("/deletecredito/{id:int}")]
         public IActionResult Deletar(int id)   
         {
-            if (!_unit.CreditoRepository.ObjectAny(x => x.CreditoId == id))
+            if (!_unit.CreditoRepository.ObjectAny(x => x.Id == id))
             {
                 return NotFound();
             }

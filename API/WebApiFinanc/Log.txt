@@ -1,0 +1,109 @@
+Information: 20101 - Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='dbfinanc' AND TABLE_NAME='__EFMigrationsHistory';
+Information: 20101 - Executed DbCommand (246ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE `__EFMigrationsHistory` (
+    `MigrationId` varchar(150) CHARACTER SET utf8mb4 NOT NULL,
+    `ProductVersion` varchar(32) CHARACTER SET utf8mb4 NOT NULL,
+    CONSTRAINT `PK___EFMigrationsHistory` PRIMARY KEY (`MigrationId`)
+) CHARACTER SET=utf8mb4;
+Information: 20101 - Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='dbfinanc' AND TABLE_NAME='__EFMigrationsHistory';
+Information: 20101 - Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+Information: 20402 - Applying migration '20250218120436_ClasseGeral'.
+Information: 20101 - Executed DbCommand (81ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER DATABASE CHARACTER SET utf8mb4;
+Information: 20101 - Executed DbCommand (117ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE `Usuarios` (
+    `UserId` int NOT NULL AUTO_INCREMENT,
+    `Active` tinyint(1) NOT NULL,
+    `Status` int NOT NULL,
+    `FirstName` varchar(80) CHARACTER SET utf8mb4 NOT NULL,
+    `LastName` varchar(80) CHARACTER SET utf8mb4 NOT NULL,
+    `UserName` varchar(15) CHARACTER SET utf8mb4 NOT NULL,
+    `UserPass` varchar(15) CHARACTER SET utf8mb4 NOT NULL,
+    `Email` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+    CONSTRAINT `PK_Usuarios` PRIMARY KEY (`UserId`)
+) CHARACTER SET=utf8mb4;
+Information: 20101 - Executed DbCommand (1,348ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE `Credito` (
+    `CreditoId` int NOT NULL AUTO_INCREMENT,
+    `Titulo` varchar(50) CHARACTER SET utf8mb4 NOT NULL,
+    `Descricao` varchar(200) CHARACTER SET utf8mb4 NOT NULL,
+    `Valor` decimal(15,2) NOT NULL,
+    `DataCompra` datetime(6) NOT NULL,
+    `DataVencimento` datetime(6) NOT NULL,
+    `Parcela` int NOT NULL,
+    `ParcelaTotal` int NOT NULL,
+    `UserId` int NOT NULL,
+    CONSTRAINT `PK_Credito` PRIMARY KEY (`CreditoId`),
+    CONSTRAINT `FK_Credito_Usuarios_UserId` FOREIGN KEY (`UserId`) REFERENCES `Usuarios` (`UserId`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+Information: 20101 - Executed DbCommand (166ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE `Debito` (
+    `DebitoId` int NOT NULL AUTO_INCREMENT,
+    `Titulo` varchar(50) CHARACTER SET utf8mb4 NOT NULL,
+    `Descricao` varchar(200) CHARACTER SET utf8mb4 NOT NULL,
+    `Valor` decimal(15,2) NOT NULL,
+    `Data` datetime(6) NOT NULL,
+    `UserId` int NOT NULL,
+    CONSTRAINT `PK_Debito` PRIMARY KEY (`DebitoId`),
+    CONSTRAINT `FK_Debito_Usuarios_UserId` FOREIGN KEY (`UserId`) REFERENCES `Usuarios` (`UserId`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+Information: 20101 - Executed DbCommand (147ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE `tb_financ` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `Titulo` varchar(50) CHARACTER SET utf8mb4 NOT NULL,
+    `Descricao` varchar(200) CHARACTER SET utf8mb4 NOT NULL,
+    `Valor` decimal(15,2) NOT NULL,
+    `DthrReg` datetime(6) NOT NULL,
+    `DataVencimento` datetime(6) NOT NULL,
+    `Parcela` int NOT NULL,
+    `Pago` tinyint(1) NOT NULL,
+    `Status` varchar(1) CHARACTER SET utf8mb4 NOT NULL,
+    `Categoria` varchar(1) CHARACTER SET utf8mb4 NOT NULL,
+    `UserId` int NOT NULL,
+    CONSTRAINT `PK_tb_financ` PRIMARY KEY (`Id`),
+    CONSTRAINT `FK_tb_financ_Usuarios_UserId` FOREIGN KEY (`UserId`) REFERENCES `Usuarios` (`UserId`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+Information: 20101 - Executed DbCommand (88ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX `IX_Credito_UserId` ON `Credito` (`UserId`);
+Information: 20101 - Executed DbCommand (99ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX `IX_Debito_UserId` ON `Debito` (`UserId`);
+Information: 20101 - Executed DbCommand (81ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX `IX_tb_financ_UserId` ON `tb_financ` (`UserId`);
+Information: 20101 - Executed DbCommand (32ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20250218120436_ClasseGeral', '8.0.2');
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Fullsoft\Estudos\PLDFNC\API\WebApiFinanc
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__usuario_UserName_0='?' (Size = 15), @__usuario_Email_1='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE (`u`.`UserName` = @__usuario_UserName_0) OR (`u`.`Email` = @__usuario_Email_1))
+Information: 20101 - Executed DbCommand (53ms) [Parameters=[@p0='?' (DbType = Boolean), @p1='?' (Size = 100), @p2='?' (Size = 80), @p3='?' (Size = 80), @p4='?' (DbType = Int32), @p5='?' (Size = 15), @p6='?' (Size = 15)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `Usuarios` (`Active`, `Email`, `FirstName`, `LastName`, `Status`, `UserName`, `UserPass`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT `UserId`
+FROM `Usuarios`
+WHERE ROW_COUNT() = 1 AND `UserId` = LAST_INSERT_ID();
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Fullsoft\Estudos\PLDFNC\API\WebApiFinanc
+Information: 20101 - Executed DbCommand (191ms) [Parameters=[@p0='?' (Size = 1), @p1='?' (DbType = DateTime), @p2='?' (Size = 200), @p3='?' (DbType = DateTime), @p4='?' (DbType = Boolean), @p5='?' (DbType = Int32), @p6='?' (Size = 1), @p7='?' (Size = 50), @p8='?' (DbType = Int32), @p9='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_financ` (`Categoria`, `DataVencimento`, `Descricao`, `DthrReg`, `Pago`, `Parcela`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+SELECT `Id`
+FROM `tb_financ`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Categoria`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Pago`, `t`.`Parcela`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_financ` AS `t`
