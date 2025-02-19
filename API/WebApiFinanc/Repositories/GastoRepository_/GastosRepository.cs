@@ -1,28 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Linq.Expressions;
-using WebApiFinanc.Context;
+﻿using WebApiFinanc.Context;
 using WebApiFinanc.Models;
 using WebApiFinanc.Repositories.Default;
 
 namespace WebApiFinanc.Repositories.GastoRepository_
 {
-    public class GastosRepository : IGastosRepository
+    public class GastosRepository : RepositoryDefault<Gastos>, IGastosRepository
     {
-        private readonly AppDbContext _context;
-        public GastosRepository(AppDbContext context) 
+        public GastosRepository(AppDbContext context) : base(context)
         {
-            _context = context;
-        }
-
-        public IEnumerable<Gastos> Get()
-        {
-            return _context.Gastos.AsNoTracking().ToList();
-        }
-
-        public Gastos? GetObjects(Expression<Func<Gastos, bool>> predicate)
-        {
-            return _context.Gastos.AsNoTracking().FirstOrDefault(predicate);
         }
     }
 }

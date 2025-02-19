@@ -18,7 +18,7 @@ namespace WebApiFinanc.Models
         [StringLength(200)]
         public string Descricao { get; set; }
 
-        [Range(minimum: 0.01, maximum: 99999999999999, ErrorMessage = "Valor mínimo de 0,01 e máximo de 99999999999999")]
+        [Range(minimum: 0.01, maximum: 9999999999999, ErrorMessage = "Valor mínimo de 0,01 e máximo de 9999999999999")]
         [Column(TypeName = "decimal(15,2)")]
         public decimal Valor { get; set; }
 
@@ -28,7 +28,7 @@ namespace WebApiFinanc.Models
         [Required]
         public DateTime DataVencimento { get; set; }
 
-        [Range(10000, 99999)]
+        [Range(1, 99999)]
         public int Parcela { get; set; }
 
         [DefaultValue(false)]

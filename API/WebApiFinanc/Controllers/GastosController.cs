@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApiFinanc.Models;
 using WebApiFinanc.Repositories.UnitWork;
@@ -18,24 +19,64 @@ namespace WebApiFinanc.Controllers
             _logger = logger;
         }
 
-        [HttpGet("/retornogastos")]
+        [HttpGet("/retornagastos")]
         public ActionResult<IEnumerable<Gastos>> RetornaCredito()
         {
-            var credito = _unit.GastosRepository.Get();
-            if (credito.Count() == 0) { return NoContent(); }
-            return Ok(credito);
+            var gasto = _unit.GastosRepository.Get();
+            if (gasto.Count() == 0) { return NoContent(); }
+            return Ok(gasto);
         }
 
         [HttpGet("/selecionagasto/{id:int}", Name = "ObterGasto")]
         public ActionResult<IEnumerable<Gastos>> RetornaCreditos(int id)
         {
-            var credito = _unit.GastosRepository.GetObjects(x => x.Id == id);
-            if (credito is null)
+            var gasto = _unit.GastosRepository.GetObjects(x => x.Id == id);
+            if (gasto is null)
             {
                 return NoContent();
             }
 
-            return Ok(credito);
+            return Ok(gasto);
+        }
+
+        [HttpPost("/cadastragasto")]
+        public ActionResult<Gastos> CadastraDebito([FromBody] Gastos gasto)
+        {
+            if (gasto is null)
+            {
+                return BadRequest("Body is null");
+            }
+            var gastoretorno = _unit.GastosRepository.Create(gasto);
+            _unit.Commit();
+            return new CreatedAtRouteResult("ObterGasto", new { id = gasto.Id }, gastoretorno);
+        }
+        [HttpPatch("/alterargasto")]
+        public IActionResult AlterarDebito([FromBody] Gastos gasto)
+        {
+            if (gasto is null)
+            {
+                return BadRequest("Body is null");
+            }
+            if (!_unit.GastosRepository.ObjectAny(x => x.Id == gasto.Id))
+            {
+                return NotFound();
+            }
+
+            _unit.GastosRepository.Update(gasto);
+            _unit.Commit();
+            return Ok(gasto);
+        }
+
+        [HttpDelete("/deletagasto/{id:int}")]
+        public IActionResult Deletar(int id)
+        {
+            if (!_unit.GastosRepository.ObjectAny(x => x.Id == id))
+            {
+                return NotFound();
+            }
+            _unit.GastosRepository.Delete(x => x.Id == id);
+            _unit.Commit();
+            return Ok();
         }
     }
 }
