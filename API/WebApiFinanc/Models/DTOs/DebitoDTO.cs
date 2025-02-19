@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using System.ComponentModel;
 
 namespace WebApiFinanc.Models.DTOs
 {
@@ -18,16 +19,18 @@ namespace WebApiFinanc.Models.DTOs
         [Column(TypeName = "decimal(15,2)")]
         public decimal Valor { get; set; }
 
+        public bool Pago { get; set; }
+
+        [DefaultValue('D')]
+        
+        public char Categoria { get; set; }
+
+
         [Required]
         public DateTime Data { get; set; }
 
-        // Chave estrangeira para a tabela Usuarios
         [Required]
         public int UserId { get; set; }
 
-        [ForeignKey("UserId")]
-
-        [JsonIgnore]
-        public Usuarios? Usuarios { get; set; }
     }
 }

@@ -49,7 +49,7 @@ namespace WebApiFinanc.Controllers
             {
                 return BadRequest("Body is null");
             }
-            var credito = _unit.GastosRepository.Create(_mapper.Map<Gastos>(creditoDto));
+            var credito = _unit.CreditoRepository.Create(creditoDto);
             _unit.Commit();
             return new CreatedAtRouteResult("ObterCredito", new { id = credito.Id }, credito);
         }

@@ -25,21 +25,21 @@ namespace WebApiFinanc.Controllers
         [HttpGet("/retornadebitos")]
         public ActionResult<IEnumerable<DebitoDTO>> RetornaDebito()
         {
-            var debitos = _unit.DebitoRepository.Get();
-            if (debitos.Count() == 0) { return NoContent(); }
-            return Ok(debitos);
+            var debito = _unit.DebitoRepository.Get();
+            if (debito.Count() == 0) { return NoContent(); }
+            return Ok(debito);
         }
 
         [HttpGet("/selecionadebito/{id:int}",Name = "ObterDebito")]
         public ActionResult<IEnumerable<DebitoDTO>> RetornaDebitos(int id)
         {
-            var credito = _unit.CreditoRepository.GetObjects(x => x.Id == id);
-            if (credito is null)
+            var debito = _unit.DebitoRepository.GetObjects(x => x.Id == id);
+            if (debito is null)
             {
                 return NoContent();
             }
 
-            return Ok(credito);
+            return Ok(debito);
         }
 
         [HttpPost("/cadastradebito")]
@@ -49,7 +49,7 @@ namespace WebApiFinanc.Controllers
             {
                 return BadRequest("Body is null");
             }
-            _unit.GastosRepository.Create(_mapper.Map<Gastos>(debito));
+            _unit.DebitoRepository.Create(debito);
             _unit.Commit();
             return new CreatedAtRouteResult("ObterDebito", new { id = debito.Id }, debito);
         }
@@ -64,7 +64,6 @@ namespace WebApiFinanc.Controllers
             {
                 return NotFound();
             }
-
             _unit.DebitoRepository.Update(debito);
             _unit.Commit();
             return Ok(debito);

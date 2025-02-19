@@ -32,15 +32,15 @@ namespace WebApiFinanc.Repositories.Default
             return userobject;
 
         }
-        T? IRepositoryDefault<T>.Delete(T userobject)
-        {
-            _context.Set<T>().Remove(userobject);
-            return userobject;
-        }
         T? IRepositoryDefault<T>.Update(T userobject)
         {
             _context.Set<T>().Update(userobject);
             return userobject;
+        }
+
+        public T? Delete(Expression<Func<T, bool>> predicate)
+        {
+            throw new NotImplementedException();
         }
     }
 }

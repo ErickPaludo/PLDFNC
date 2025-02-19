@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using System.ComponentModel;
 
 namespace WebApiFinanc.Models
 {
@@ -27,15 +28,12 @@ namespace WebApiFinanc.Models
         [Required]
         public DateTime DataVencimento { get; set; }
 
-        
+        [Range(10000, 99999)]
         public int Parcela { get; set; }
 
-      
+        [DefaultValue(false)]
         public bool Pago { get; set; }
-
       
-        public char Status { get; set; }
-
         [Required]
         public char Categoria { get; set; }
 

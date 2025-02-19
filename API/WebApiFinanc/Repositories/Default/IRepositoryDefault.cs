@@ -9,7 +9,7 @@ namespace WebApiFinanc.Repositories.Default
         T? GetObjects(Expression<Func<T, bool>> predicate);
         T? Create(T userobject);
         T? Update(T userobject);
-        T? Delete(T userobject);
+        T? Delete(Expression<Func<T, bool>> predicate);
         bool ObjectAny(Expression<Func<T, bool>> predicate);
     }
 }

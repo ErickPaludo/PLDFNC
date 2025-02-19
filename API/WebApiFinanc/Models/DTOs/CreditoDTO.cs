@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using System.ComponentModel;
 
 namespace WebApiFinanc.Models.DTOs
 {
@@ -19,15 +20,15 @@ namespace WebApiFinanc.Models.DTOs
         [Column(TypeName = "decimal(15,2)")]
         public decimal Valor { get; set; }
 
+        public bool Pago { get; set; }
+
+        [DefaultValue('C')]
+        public char Categoria { get; set; }
+
         [Required]
         public DateTime DataCompra { get; set; }
 
-        [Required]
-        public DateTime DataVencimento { get; set; }
-
-        [Required]
-        public int Parcela { get; set; }
-
+        [Range(1, 99999)]
         [Required]
         public int ParcelaTotal { get; set; }
 
