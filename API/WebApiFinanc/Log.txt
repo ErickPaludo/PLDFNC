@@ -736,3 +736,80 @@ FROM `tb_financ` AS `t`
 Information: 20101 - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT `t`.`Id`, `t`.`Categoria`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Pago`, `t`.`Parcela`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
 FROM `tb_financ` AS `t`
+Information: 20101 - Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='dbfinanc' AND TABLE_NAME='__EFMigrationsHistory';
+Information: 20101 - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='dbfinanc' AND TABLE_NAME='__EFMigrationsHistory';
+Information: 20101 - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+Information: 20402 - Applying migration '20250219024108_Inicial'.
+Information: 20101 - Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20250219024108_Inicial', '8.0.2');
+Information: 20101 - Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='dbfinanc' AND TABLE_NAME='__EFMigrationsHistory';
+Error: 20102 - Failed executing DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE `__EFMigrationsHistory` (
+    `MigrationId` varchar(150) CHARACTER SET utf8mb4 NOT NULL,
+    `ProductVersion` varchar(32) CHARACTER SET utf8mb4 NOT NULL,
+    CONSTRAINT `PK___EFMigrationsHistory` PRIMARY KEY (`MigrationId`)
+) CHARACTER SET=utf8mb4;
+Information: 20101 - Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='dbfinanc' AND TABLE_NAME='__EFMigrationsHistory';
+Information: 20101 - Executed DbCommand (41ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE `__EFMigrationsHistory` (
+    `MigrationId` varchar(150) CHARACTER SET utf8mb4 NOT NULL,
+    `ProductVersion` varchar(32) CHARACTER SET utf8mb4 NOT NULL,
+    CONSTRAINT `PK___EFMigrationsHistory` PRIMARY KEY (`MigrationId`)
+) CHARACTER SET=utf8mb4;
+Information: 20101 - Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='dbfinanc' AND TABLE_NAME='__EFMigrationsHistory';
+Information: 20101 - Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+Information: 20402 - Applying migration '20250219011421_Alteracao'.
+Information: 20101 - Executed DbCommand (15ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER DATABASE CHARACTER SET utf8mb4;
+Information: 20101 - Executed DbCommand (36ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE `Usuarios` (
+    `UserId` int NOT NULL AUTO_INCREMENT,
+    `Active` tinyint(1) NOT NULL,
+    `Status` int NOT NULL,
+    `FirstName` varchar(80) CHARACTER SET utf8mb4 NOT NULL,
+    `LastName` varchar(80) CHARACTER SET utf8mb4 NOT NULL,
+    `UserName` varchar(15) CHARACTER SET utf8mb4 NOT NULL,
+    `UserPass` varchar(15) CHARACTER SET utf8mb4 NOT NULL,
+    `Email` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+    CONSTRAINT `PK_Usuarios` PRIMARY KEY (`UserId`)
+) CHARACTER SET=utf8mb4;
+Information: 20101 - Executed DbCommand (45ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE `tb_financ` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `Titulo` varchar(50) CHARACTER SET utf8mb4 NOT NULL,
+    `Descricao` varchar(200) CHARACTER SET utf8mb4 NOT NULL,
+    `Valor` decimal(15,2) NOT NULL,
+    `DthrReg` datetime(6) NOT NULL,
+    `DataVencimento` datetime(6) NOT NULL,
+    `Parcela` int NOT NULL,
+    `Pago` tinyint(1) NOT NULL,
+    `Categoria` varchar(1) CHARACTER SET utf8mb4 NOT NULL,
+    `UserId` int NOT NULL,
+    CONSTRAINT `PK_tb_financ` PRIMARY KEY (`Id`),
+    CONSTRAINT `FK_tb_financ_Usuarios_UserId` FOREIGN KEY (`UserId`) REFERENCES `Usuarios` (`UserId`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+Information: 20101 - Executed DbCommand (36ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX `IX_tb_financ_UserId` ON `tb_financ` (`UserId`);
+Information: 20101 - Executed DbCommand (15ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20250219011421_Alteracao', '8.0.2');
+Information: 20402 - Applying migration '20250219024108_Inicial'.
+Information: 20101 - Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20250219024108_Inicial', '8.0.2');
+Information: 20402 - Applying migration '20250219024150_Inicial2'.
+Information: 20101 - Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20250219024150_Inicial2', '8.0.2');

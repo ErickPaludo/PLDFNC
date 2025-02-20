@@ -97,6 +97,67 @@ function App() {
     
   }
 
+  async function CadastraGasto(){
+    if(cadTitulo === '' || cadValor === '' || cadDescricao === '' || cadData === '' || cadCategoria === '' || cadParcela === ''  ){
+      Swal.fire({
+        title: "Campos vazios",
+        text: "Existem campos vazios",
+        icon: "error"
+      });
+      return;
+    }
+   
+    try{
+      const usuario = {
+        firstName: firstName ,
+        lastName: lastName,
+        userName: user,
+        userPass: password,  
+        email: email
+      }
+
+      const response = await api.post('/cadastrauser',usuario);
+      console.log(response.data);
+
+      console.log(response)
+      if(response.code === 409){
+        Swal.fire({
+          title: "Ops... Temos um problema!",
+          text: {response},
+          icon: "error"
+        });
+        return
+      }
+
+      Swal.fire({
+        title: "Bem Vindo ao Financ",
+        text: "O Futuro começa!",
+        icon: "success"
+      });
+
+      setFirstName("")
+      setLastName("")
+      setLastEmail("")
+      setPass("")
+      setConfPass("")
+
+
+      setCadSucess(1)
+
+    }catch(error){
+      const errorMessages = Object.values(error.response?.data?.errors || {})
+      .flat()
+      .join("\n"); // Junta todas as mensagens em uma única string
+
+      Swal.fire({
+        title: "Ops... Ocorreu um erro no envio!",
+        text: errorMessages,
+        icon: "error"
+      });
+    }
+    
+  }
+
   return (
     
     <div className="ameba">
@@ -209,7 +270,7 @@ function App() {
       )}
 
       <div className="containerInput">  
-      <button className="buttonEnv" >
+      <button className="buttonEnv" onClick={CadastraGasto} >
         Entrar
       </button>
       </div>

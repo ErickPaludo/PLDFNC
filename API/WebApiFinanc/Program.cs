@@ -7,6 +7,7 @@ using WebApiFinanc.Repositories.Default;
 using WebApiFinanc.Repositories.GastoRepository_;
 using WebApiFinanc.Repositories.UnitWork;
 using WebApiFinanc.Repositories.UsuarioRepository_;
+using WebApiFinanc.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +33,7 @@ builder.Services.AddControllers(options =>
 
 builder.Logging.AddProvider(new CustomLoggerProvider(new CustomLoggerProviderConfiguration
 {
+    LogPath = builder.Configuration["DirectoryLog"],
     LogLevel = LogLevel.Information
 }));
 
@@ -40,7 +42,7 @@ builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IGastosRepository, GastosRepository>();
 builder.Services.AddScoped(typeof(IRepositoryDefault<>), typeof(RepositoryDefault<>));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-
+builder.Services.AddScoped<IGerenciaGastos, GerenciaGastos>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

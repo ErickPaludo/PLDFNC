@@ -31,11 +31,18 @@ namespace WebApiFinanc.Models
         [Range(1, 99999)]
         public int Parcela { get; set; }
 
+        [Range(1, 99999)]
+        public int TotalParcelas { get; set; }
+
         [DefaultValue(false)]
         public bool Pago { get; set; }
       
         [Required]
-        public char Categoria { get; set; }
+        [StringLength(1)]
+        public string Categoria { get; set; }
+
+        [ForeignKey("credditoId")]
+        public int GastoPaiId { get; set; }
 
         [Required]
         public int UserId { get; set; }

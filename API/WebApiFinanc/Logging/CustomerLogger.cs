@@ -31,7 +31,7 @@
 
         private void EscreverTextoNoArquivo(string mensagem)
         {
-            string caminhoArquivoLog = @"C:\Users\erick\OneDrive\Área de Trabalho\ProjectFNC\PLDFNC\API\WebApiFinanc\log.txt";
+            string caminhoArquivoLog = loggerConfig.LogPath;
             using (StreamWriter streamWriter = new StreamWriter(caminhoArquivoLog, true))
             {
                 try

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApiFinanc.Models;
 using WebApiFinanc.Repositories.UnitWork;
+using WebApiFinanc.Services;
 
 namespace WebApiFinanc.Controllers
 {
@@ -12,11 +13,12 @@ namespace WebApiFinanc.Controllers
     {
         private readonly IUnitOfWork _unit;
         private readonly ILogger<GastosController> _logger;
-
-        public GastosController(IUnitOfWork unit, ILogger<GastosController> logger)
+        private readonly IGerenciaGastos _gerenciamento;
+        public GastosController(IUnitOfWork unit, ILogger<GastosController> logger,IGerenciaGastos gerenciamento)
         {
             _unit = unit;
             _logger = logger;
+            _gerenciamento = gerenciamento;
         }
 
         [HttpGet("/retornagastos")]
@@ -40,15 +42,15 @@ namespace WebApiFinanc.Controllers
         }
 
         [HttpPost("/cadastragasto")]
-        public ActionResult<Gastos> CadastraDebito([FromBody] Gastos gasto)
+        public ActionResult<IEnumerable<Gastos>> CadastraDebito([FromBody] Gastos gasto)
         {
             if (gasto is null)
             {
                 return BadRequest("Body is null");
             }
-            var gastoretorno = _unit.GastosRepository.Create(gasto);
-            _unit.Commit();
-            return new CreatedAtRouteResult("ObterGasto", new { id = gasto.Id }, gastoretorno);
+            var obj = _gerenciamento.Registra(gasto);
+            
+            return new CreatedAtRouteResult("ObterGasto", new { id = gasto.Id }, gasto);
         }
         [HttpPatch("/alterargasto")]
         public IActionResult AlterarDebito([FromBody] Gastos gasto)
