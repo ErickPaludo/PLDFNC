@@ -1,4 +1,5 @@
-﻿using WebApiFinanc.Controllers;
+﻿using Microsoft.AspNetCore.Mvc;
+using WebApiFinanc.Controllers;
 using WebApiFinanc.Models;
 using WebApiFinanc.Repositories.UnitWork;
 
@@ -45,6 +46,11 @@ namespace WebApiFinanc.Services
                     obj.Add(_unit.GastosRepository.Create(creditoSequencial));
                     _unit.Commit();
                 }
+            }
+            else if (gasto.Categoria.Equals("D"))
+            {
+                obj.Add(gasto);
+                _unit.Commit();
             }
             return obj;
         }
