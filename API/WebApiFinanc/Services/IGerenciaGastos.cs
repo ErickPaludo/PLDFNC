@@ -5,6 +5,8 @@ namespace WebApiFinanc.Services
 {
     public interface IGerenciaGastos
     {
-        IEnumerable<Gastos> Registra(Gastos gasto);
+        dynamic Registra(Gastos gasto);
+        void Excluir(int id);
+        Gastos Update(Gastos gastoModify);
     }
 }

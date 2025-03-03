@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using WebApiFinanc.Context;
 using WebApiFinanc.Filters;
 using WebApiFinanc.Logging;
+using WebApiFinanc.Models.DTOs;
 using WebApiFinanc.Repositories.Default;
 using WebApiFinanc.Repositories.GastoRepository_;
 using WebApiFinanc.Repositories.UnitWork;
@@ -22,6 +23,7 @@ builder.Services.AddCors(options =>
         });
 });
 
+
 builder.Services.AddControllers(options =>
 {
     options.Filters.Add(typeof(ApiExceptionFilter));
@@ -29,7 +31,7 @@ builder.Services.AddControllers(options =>
 .AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
-});
+}).AddNewtonsoftJson();
 
 builder.Logging.AddProvider(new CustomLoggerProvider(new CustomLoggerProviderConfiguration
 {
@@ -43,6 +45,7 @@ builder.Services.AddScoped<IGastosRepository, GastosRepository>();
 builder.Services.AddScoped(typeof(IRepositoryDefault<>), typeof(RepositoryDefault<>));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IGerenciaGastos, GerenciaGastos>();
+builder.Services.AddAutoMapper(typeof(DominioDTO));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

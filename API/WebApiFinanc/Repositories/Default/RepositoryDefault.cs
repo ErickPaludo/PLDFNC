@@ -14,9 +14,9 @@ namespace WebApiFinanc.Repositories.Default
             _context = context;
         }
 
-        T? IRepositoryDefault<T>.GetObjects(Expression<Func<T, bool>> predicate)
+        IEnumerable<T>? IRepositoryDefault<T>.GetObjects(Expression<Func<T, bool>> predicate)
         {
-            return _context.Set<T>().AsNoTracking().FirstOrDefault(predicate);
+            return _context.Set<T>().AsNoTracking().Where(predicate).ToList();
         }
         IEnumerable<T> IRepositoryDefault<T>.Get()
         {
@@ -38,9 +38,18 @@ namespace WebApiFinanc.Repositories.Default
             return userobject;
         }
 
-        public T? Delete(Expression<Func<T, bool>> predicate)
+        public bool Delete(Expression<Func<T, bool>> predicate)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var entity = _context.Set<T>().AsNoTracking().Where(predicate).ToList();
+                _context.Set<T>().RemoveRange(entity);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
