@@ -27,7 +27,7 @@ namespace WebApiFinanc.Controllers
         }
 
         #region Retorna todos os gastos
-        [HttpGet("geral/retorno")]
+        [HttpGet("/geral/retorno")]
         public ActionResult<IEnumerable<Gastos>> RetornoGeral()
         {
             var gasto = _unit.GastosRepository.Get();
@@ -35,7 +35,7 @@ namespace WebApiFinanc.Controllers
             return Ok(gasto);
         }
 
-        [HttpGet("geral/retornafiltrado/{id:int}", Name = "ObterGasto")]
+        [HttpGet("/geral/retornafiltrado/{id:int}", Name = "ObterGasto")]
         public ActionResult<IEnumerable<Gastos>> RetornoGeralFiltro(int id)
         {
             var gasto = _unit.GastosRepository.GetObjects(x => x.Id == id);
@@ -49,35 +49,35 @@ namespace WebApiFinanc.Controllers
         #endregion  
 
         #region Retorna Credito
-        [HttpGet("credito/retorno")]
+        [HttpGet("/credito/retorno")]
         public ActionResult<IEnumerable<CreditoDTO>> RetornaCredito()
         {
             var gasto = _unit.GastosRepository.GetObjects(x => x.Categoria.Equals("C") && x.Categoria.Equals("C"));
             return Ok(_mapper.Map<List<CreditoDTO>>(gasto));
         }
 
-        [HttpGet("credito/retornafiltrado/{id:int}")]
+        [HttpGet("/credito/retornafiltrado/{id:int}")]
         public ActionResult<IEnumerable<Gastos>> RetornaCreditos(int id)
         {
-            var gasto = _unit.GastosRepository.GetObjects(x => x.Id == id);
+            var gasto = _unit.GastosRepository.GetObjects(x => x.GastoPaiId == id);
             if (gasto is null)
             {
                 return NoContent();
             }
 
-            return Ok(_mapper.Map<CreditoDTO>(gasto));
+            return Ok(_mapper.Map<List<CreditoDTO>>(gasto));
         }
         #endregion
 
         #region Retorna Debito
-        [HttpGet("debito/retorno")]
+        [HttpGet("/debito/retorno")]
         public ActionResult<IEnumerable<DebitoDTO>> RetornaDebito()
         {
             var gasto = _unit.GastosRepository.GetObjects(x => x.Categoria.Equals("D") && x.Categoria.Equals("D"));
             return Ok(_mapper.Map<List<DebitoDTO>>(gasto));
         }
 
-        [HttpGet("/selecionadebitofiltro/{id:int}")]
+        [HttpGet("/debito/retornafiltrado/{id:int}")]
         public ActionResult<IEnumerable<DebitoDTO>> RetornaDebitos(int id)
         {
             var gasto = _unit.GastosRepository.GetObjects(x => x.Id == id && x.Categoria.Equals("D"));
@@ -102,7 +102,7 @@ namespace WebApiFinanc.Controllers
             return new CreatedAtRouteResult("ObterGasto", new { id = gasto.Id }, gasto);
         }
 
-        [HttpPatch("/alterarcredito/{id}")]
+        [HttpPatch("/credito/alterar/{id}")]
         public ActionResult<CreditoEditDTO> AlterarCredito(int id,JsonPatchDocument<CreditoEditDTO> patchCredito)
         {
             if (patchCredito is null || id <= 0)
@@ -132,7 +132,7 @@ namespace WebApiFinanc.Controllers
             return Ok(_mapper.Map<CreditoEditDTO>(gasto));
         }
 
-        [HttpPatch("/alterardebito/{id}")]
+        [HttpPatch("/debito/alterar/{id}")]
         public ActionResult<CreditoEditDTO> AlterarDebito(int id, JsonPatchDocument<DebitoEditDTO> patchDebito)
         {
             if (patchDebito is null || id <= 0)
@@ -167,7 +167,7 @@ namespace WebApiFinanc.Controllers
         [HttpDelete("/deletagasto/{id:int}")]
         public IActionResult Deletar(int id)
         {
-            if (!_unit.GastosRepository.ObjectAny(x => x.Id == id))
+            if (!_unit.GastosRepository.ObjectAny(x => x.Id.Equals(id) || x.GastoPaiId.Equals(id)))
             {
                 return NotFound();
             }

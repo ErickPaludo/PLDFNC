@@ -6,7 +6,7 @@ namespace WebApiFinanc.Models.DTOs.Credito
 {
     public class CreditoDTO
     {
-        public int Id { get; set; }
+        public int GastoPaiId { get; set; }
         public string Titulo { get; set; }
         public string Descricao { get; set; }
         public decimal Valor { get; set; }
