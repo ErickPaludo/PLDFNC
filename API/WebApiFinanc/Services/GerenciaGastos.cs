@@ -48,7 +48,8 @@ namespace WebApiFinanc.Services
             {
                 credito.Valor = credito.ValorIntegral / credito.TotalParcelas; //quebrará o valo em valores de parcela
             }
-            credito.DthrReg = credito.DthrReg.AddDays(30);
+            credito.DthrReg = credito.DthrReg.AddMonths(1);
+            credito.DataVencimento = credito.DthrReg.AddMonths(credito.TotalParcelas - 1);
             credito.Parcela = 1;
             var idcreddito = _unit.GastosRepository.Create(credito);
             _unit.Commit();
@@ -67,8 +68,8 @@ namespace WebApiFinanc.Services
                     Descricao = credito.Descricao,
                     Valor = credito.Valor,
                     ValorIntegral = credito.ValorIntegral,
-                    DthrReg = credito.DthrReg.AddDays(30 * (i - 1)),
-                    DataVencimento = credito.DataVencimento.AddDays(30 * (i - 1)),
+                    DthrReg = credito.DthrReg.AddMonths((i - 1)),
+                    DataVencimento = credito.DataVencimento,
                     Parcela = i,
                     TotalParcelas = credito.TotalParcelas,
                     Pago = false,
@@ -97,19 +98,37 @@ namespace WebApiFinanc.Services
 
         public Gastos Update(Gastos gastoModify)
         {
+            DateTime dataVencimento = DateTime.Now;
             if (gastoModify.Categoria.Equals("C"))
-            {
+            {               
+                bool somaMeses = false;
+                bool atualizadata = false;
+
+                DateTime novaData = gastoModify.DthrReg;
+
                 var listobjoriginal = _unit.GastosRepository.GetObjects(x => x.GastoPaiId == gastoModify.Id);
                 var objoriginal = listobjoriginal.FirstOrDefault();
-
+               
                 if (objoriginal.TotalParcelas != gastoModify.TotalParcelas)
                 {
                     var diferenca = objoriginal.TotalParcelas - gastoModify.TotalParcelas;
 
                     gastoModify.Valor = gastoModify.ValorIntegral / gastoModify.TotalParcelas;
-                    if (diferenca < 0)
+                    if (diferenca < 0)//Adiciona parcelas
                     {
-                        for (int i = 1; i <= diferenca * -1; i++)
+                        somaMeses = true;
+                        diferenca = diferenca * -1;//inverte o valor
+
+                        dataVencimento = objoriginal.DataVencimento.AddMonths(diferenca);
+                        DateTime dataRegistro = objoriginal.DataVencimento.AddMonths(1);
+                        if (gastoModify.DthrReg != objoriginal.DthrReg)
+                        {
+                            atualizadata = true;
+                            dataVencimento = dataVencimento.AddMonths(objoriginal.TotalParcelas + diferenca - 1);
+                            dataRegistro = dataVencimento.AddMonths(-(diferenca - 1));
+                        }
+
+                        for (int i = 1; i <= diferenca; i++)
                         {
                             var novocredito = new Gastos
                             {
@@ -118,7 +137,8 @@ namespace WebApiFinanc.Services
                                 Descricao = gastoModify.Descricao,
                                 Valor = gastoModify.Valor,
                                 ValorIntegral = gastoModify.ValorIntegral,
-                                DthrReg = gastoModify.DataVencimento.AddDays(30 * (listobjoriginal.Count() + i)),
+                                DthrReg = dataRegistro,
+                                DataVencimento = dataVencimento,
                                 TotalParcelas = gastoModify.TotalParcelas,
                                 Pago = false,
                                 Categoria = gastoModify.Categoria,
@@ -127,30 +147,42 @@ namespace WebApiFinanc.Services
                                 Parcela = objoriginal.TotalParcelas + i
                             };
                             _unit.GastosRepository.Create(novocredito);
+                             dataRegistro = dataRegistro.AddMonths(1);
                         }
                         _unit.Commit();
                     }
-                    else if (diferenca > 0)
+                    else if (diferenca > 0)//diminui parcelas
                     {
                         for (int i = 0; i < diferenca; i++)
                         {
                             _unit.GastosRepository.Delete(x => x.GastoPaiId.Equals(gastoModify.Id) && x.Parcela.Equals(objoriginal.TotalParcelas - i));
                         }
                         _unit.Commit();
+                        listobjoriginal = _unit.GastosRepository.GetObjects(x => x.GastoPaiId == gastoModify.Id);
                     }
                 }
-                foreach (var obj in _unit.GastosRepository.GetObjects(x => x.GastoPaiId.Equals(gastoModify.GastoPaiId)).ToList())
+                foreach (var obj in listobjoriginal)
                 {
                     obj.Titulo = gastoModify.Titulo;
                     obj.Descricao = gastoModify.Descricao;
                     obj.Valor = gastoModify.Valor;
                     obj.ValorIntegral = gastoModify.ValorIntegral;
-                    obj.DthrReg = gastoModify.DthrReg;
+                    if (atualizadata)
+                    {
+                        novaData = gastoModify.DthrReg.AddMonths(obj.Parcela);
+                        obj.DthrReg = novaData;
+                    }
+                    else
+                    {
+                        obj.DthrReg = somaMeses ? obj.DthrReg.AddMonths(obj.Parcela) : obj.DthrReg;
+                    }
+
+                    obj.DataVencimento = dataVencimento;
                     obj.TotalParcelas = gastoModify.TotalParcelas;
                     obj.Pago = gastoModify.Pago;
 
                     _unit.GastosRepository.Update(obj);
-                _unit.Commit();
+                    _unit.Commit();
                 }
                 return gastoModify;
             }
