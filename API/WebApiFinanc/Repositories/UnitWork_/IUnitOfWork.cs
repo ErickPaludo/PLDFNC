@@ -1,5 +1,6 @@
 ﻿
 using WebApiFinanc.Repositories.GastoRepository_;
+using WebApiFinanc.Repositories.GastoStatusRepository_;
 using WebApiFinanc.Repositories.UsuarioRepository_;
 
 namespace WebApiFinanc.Repositories.UnitWork
@@ -8,6 +9,7 @@ namespace WebApiFinanc.Repositories.UnitWork
     {
         IUsuarioRepository UsuarioRepository { get; }
         IGastosRepository GastosRepository { get; }
+        IGastoStatusRepository GastoStatusRepository { get; }
         void Commit();
     }
 }

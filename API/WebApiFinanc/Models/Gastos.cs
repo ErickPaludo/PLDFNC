@@ -42,6 +42,10 @@ namespace WebApiFinanc.Models
         [Range(0, 99999)]
         public int TotalParcelas { get; set; }
 
+        [DefaultValue("N")]
+        [StringLength(1)]
+        public string Status { get; set; }  
+
         [DefaultValue(false)]
         public bool Pago { get; set; }
 

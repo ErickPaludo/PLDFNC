@@ -10,5 +10,6 @@ namespace WebApiFinanc.Context
         }
         public DbSet<Usuarios>? Usuarios { get; set; }
         public DbSet<Gastos>? Gastos { get; set; }
+        public DbSet<GastosStatus>? GastosStatus { get; set; }
     }
 }

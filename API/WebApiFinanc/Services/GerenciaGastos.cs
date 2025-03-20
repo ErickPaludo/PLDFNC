@@ -36,10 +36,10 @@ namespace WebApiFinanc.Services
             }
 
         }
-        private IEnumerable<Gastos> CadastraCredito(Gastos credito)
+        private Gastos CadastraCredito(Gastos credito)
         {
-            List<Gastos> obj = new List<Gastos>();
             int parcelaTotal = credito.TotalParcelas;
+
             if (credito.Valor > (decimal)0.01 && credito.ValorIntegral == (decimal)0.01) // Se for inserido somente o valor das parcelas
             {
                 credito.ValorIntegral = credito.Valor * credito.TotalParcelas; //vai montar o valor total
@@ -48,39 +48,24 @@ namespace WebApiFinanc.Services
             {
                 credito.Valor = credito.ValorIntegral / credito.TotalParcelas; //quebrará o valo em valores de parcela
             }
+
             credito.DthrReg = credito.DthrReg.AddMonths(1);
             credito.DataVencimento = credito.DthrReg.AddMonths(credito.TotalParcelas - 1);
-            credito.Parcela = 1;
             var idcreddito = _unit.GastosRepository.Create(credito);
             _unit.Commit();
 
-            credito.GastoPaiId = idcreddito.Id;
-
-            _unit.GastosRepository.Update(credito);
-
-            obj.Add(credito);
-
-            for (int i = 2; i <= parcelaTotal; i++)
+            for (int i = 1; i <= parcelaTotal; i++)
             {
-                var creditoSequencial = new Gastos
+                var creditoSequencial = new GastosStatus
                 {
-                    Titulo = credito.Titulo,
-                    Descricao = credito.Descricao,
-                    Valor = credito.Valor,
-                    ValorIntegral = credito.ValorIntegral,
-                    DthrReg = credito.DthrReg.AddMonths((i - 1)),
-                    DataVencimento = credito.DataVencimento,
+                    FkGasto = idcreddito,
                     Parcela = i,
-                    TotalParcelas = credito.TotalParcelas,
-                    Pago = false,
-                    Categoria = credito.Categoria,
-                    UserId = credito.UserId,
-                    GastoPaiId = idcreddito.Id
+                    Status = credito.Status
                 };
-                obj.Add(_unit.GastosRepository.Create(creditoSequencial));
+                _unit.GastoStatusRepository.Create(creditoSequencial);
                 _unit.Commit();
             }
-            return obj;
+            return idcreddito;
         }
         public void Excluir(int id)
         {
@@ -91,7 +76,8 @@ namespace WebApiFinanc.Services
             }
             else if (gastobj.Categoria.Equals("C"))
             {
-                _unit.GastosRepository.Delete(x => x.GastoPaiId == id);
+                _unit.GastosRepository.Delete(x => x.Id == id);
+                _unit.GastoStatusRepository.Delete(x => x.FkGasto.Id == id);
             }
             _unit.Commit();
         }
@@ -100,7 +86,7 @@ namespace WebApiFinanc.Services
         {
             DateTime dataVencimento = DateTime.Now;
             if (gastoModify.Categoria.Equals("C"))
-            {               
+            {
                 bool somaMeses = false;
                 bool atualizadata = false;
 
@@ -108,25 +94,26 @@ namespace WebApiFinanc.Services
 
                 var listobjoriginal = _unit.GastosRepository.GetObjects(x => x.GastoPaiId == gastoModify.Id);
                 var objoriginal = listobjoriginal.FirstOrDefault();
-               
+
+                var diferenca = objoriginal.TotalParcelas - gastoModify.TotalParcelas;
+                dataVencimento = objoriginal.DataVencimento.AddMonths(1);
+                DateTime dataRegistro = objoriginal.DataVencimento.AddMonths(1);
+                if (gastoModify.DthrReg != objoriginal.DthrReg)
+                {
+                    atualizadata = true;
+                    dataVencimento = dataVencimento.AddMonths(objoriginal.TotalParcelas + (diferenca * -1) - 1);
+                    dataRegistro = dataVencimento.AddMonths(-((diferenca * -1) - 1));
+                }
+                gastoModify.Valor = gastoModify.ValorIntegral / gastoModify.TotalParcelas;
                 if (objoriginal.TotalParcelas != gastoModify.TotalParcelas)
                 {
-                    var diferenca = objoriginal.TotalParcelas - gastoModify.TotalParcelas;
 
-                    gastoModify.Valor = gastoModify.ValorIntegral / gastoModify.TotalParcelas;
                     if (diferenca < 0)//Adiciona parcelas
                     {
                         somaMeses = true;
                         diferenca = diferenca * -1;//inverte o valor
 
                         dataVencimento = objoriginal.DataVencimento.AddMonths(diferenca);
-                        DateTime dataRegistro = objoriginal.DataVencimento.AddMonths(1);
-                        if (gastoModify.DthrReg != objoriginal.DthrReg)
-                        {
-                            atualizadata = true;
-                            dataVencimento = dataVencimento.AddMonths(objoriginal.TotalParcelas + diferenca - 1);
-                            dataRegistro = dataVencimento.AddMonths(-(diferenca - 1));
-                        }
 
                         for (int i = 1; i <= diferenca; i++)
                         {
@@ -147,7 +134,7 @@ namespace WebApiFinanc.Services
                                 Parcela = objoriginal.TotalParcelas + i
                             };
                             _unit.GastosRepository.Create(novocredito);
-                             dataRegistro = dataRegistro.AddMonths(1);
+                            dataRegistro = dataRegistro.AddMonths(1);
                         }
                         _unit.Commit();
                     }

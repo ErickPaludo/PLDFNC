@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Drawing;
 using WebApiFinanc.Models;
 using WebApiFinanc.Models.DTOs.Credito;
 using WebApiFinanc.Models.DTOs.Debito;
@@ -17,7 +19,7 @@ namespace WebApiFinanc.Controllers
         private readonly IUnitOfWork _unit;
         private readonly ILogger<GastosController> _logger;
         private readonly IGerenciaGastos _gerenciamento;
-        private readonly IMapper _mapper;   
+        private readonly IMapper _mapper;
         public GastosController(IUnitOfWork unit, ILogger<GastosController> logger, IGerenciaGastos gerenciamento, IMapper mapper)
         {
             _unit = unit;
@@ -52,20 +54,44 @@ namespace WebApiFinanc.Controllers
         [HttpGet("/credito/retorno")]
         public ActionResult<IEnumerable<CreditoDTO>> RetornaCredito()
         {
-            var gasto = _unit.GastosRepository.GetObjects(x => x.Categoria.Equals("C") && x.Categoria.Equals("C"));
-            return Ok(_mapper.Map<List<CreditoDTO>>(gasto));
+            IEnumerable<CreditoDTO> query = from gastos in _unit.GastosRepository.Get()
+                                            join status in _unit.GastoStatusRepository.Get()
+                                                on gastos.Id equals status.GPaiId
+                                            select new CreditoDTO
+                                            {
+                                                Id = gastos.Id,
+                                                Titulo = gastos.Titulo,
+                                                Descricao = gastos.Descricao,
+                                                Valor = gastos.Valor,
+                                                DthrReg = gastos.DthrReg.AddMonths(status.Parcela - 1),
+                                                Parcela = status.Parcela,
+                                                TotalParcelas = gastos.TotalParcelas,
+                                                Status = status.Status,
+                                                UserId = gastos.UserId
+                                            };
+            return query.ToList();
         }
 
         [HttpGet("/credito/retornafiltrado/{id:int}")]
-        public ActionResult<IEnumerable<Gastos>> RetornaCreditos(int id)
+        public ActionResult<IEnumerable<CreditoDTO>> RetornaCreditos(int id)
         {
-            var gasto = _unit.GastosRepository.GetObjects(x => x.GastoPaiId == id);
-            if (gasto is null)
-            {
-                return NoContent();
-            }
-
-            return Ok(_mapper.Map<List<CreditoDTO>>(gasto));
+            IEnumerable<CreditoDTO> query = from gastos in _unit.GastosRepository.Get()
+                                            join status in _unit.GastoStatusRepository.Get()
+                                                on gastos.Id equals status.GPaiId
+                                            where gastos.Id == id
+                                            select new CreditoDTO
+                                            {
+                                                Id = gastos.Id,
+                                                Titulo = gastos.Titulo,
+                                                Descricao = gastos.Descricao,
+                                                Valor = gastos.Valor,
+                                                DthrReg = gastos.DthrReg.AddMonths(status.Parcela - 1),
+                                                Parcela = status.Parcela,
+                                                TotalParcelas = gastos.TotalParcelas,
+                                                Status = status.Status,
+                                                UserId = gastos.UserId
+                                            };
+            return query.ToList();
         }
         #endregion
 
@@ -98,12 +124,12 @@ namespace WebApiFinanc.Controllers
                 return BadRequest("Body is null");
             }
             var obj = _gerenciamento.Registra(gasto);
-            
+
             return new CreatedAtRouteResult("ObterGasto", new { id = gasto.Id }, gasto);
         }
 
         [HttpPatch("/credito/alterar/{id}")]
-        public ActionResult<CreditoEditDTO> AlterarCredito(int id,JsonPatchDocument<CreditoEditDTO> patchCredito)
+        public ActionResult<CreditoEditDTO> AlterarCredito(int id, JsonPatchDocument<CreditoEditDTO> patchCredito)
         {
             if (patchCredito is null || id <= 0)
             {
