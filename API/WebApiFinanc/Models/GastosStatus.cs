@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
+using WebApiFinanc.Models.DTOs.Credito;
 
 namespace WebApiFinanc.Models
 {
@@ -16,7 +17,7 @@ namespace WebApiFinanc.Models
 
         [ForeignKey("GPaiId")]
         [JsonIgnore]
-        public Gastos? FkGasto { get; set; }
+        public Credito? FkGasto { get; set; }
 
         [Range(1, 99999)]
         public int Parcela { get; set; }

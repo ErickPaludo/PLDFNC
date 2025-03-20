@@ -5,6 +5,7 @@ using WebApiFinanc.Controllers;
 using WebApiFinanc.Models;
 using WebApiFinanc.Models.DTOs;
 using WebApiFinanc.Models.DTOs.Credito;
+using WebApiFinanc.Models.DTOs.Debito;
 using WebApiFinanc.Repositories.UnitWork;
 
 namespace WebApiFinanc.Services
@@ -18,56 +19,8 @@ namespace WebApiFinanc.Services
             _unit = unit;
             _mapper = mapper;
         }
-        public dynamic Registra(Gastos gasto)
-        {
-            if (gasto.Categoria.Equals("C"))
-            {
-                return CadastraCredito(gasto);
-            }
-            else if (gasto.Categoria.Equals("D"))
-            {
-                _unit.GastosRepository.Create(gasto);
-                _unit.Commit();
-                return gasto;
-            }
-            else
-            {
-                return gasto;
-            }
-
-        }
-        private Gastos CadastraCredito(Gastos credito)
-        {
-            int parcelaTotal = credito.TotalParcelas;
-
-            if (credito.Valor > (decimal)0.01 && credito.ValorIntegral == (decimal)0.01) // Se for inserido somente o valor das parcelas
-            {
-                credito.ValorIntegral = credito.Valor * credito.TotalParcelas; //vai montar o valor total
-            }
-            else //se for inserido o valor total
-            {
-                credito.Valor = credito.ValorIntegral / credito.TotalParcelas; //quebrará o valo em valores de parcela
-            }
-
-            credito.DthrReg = credito.DthrReg.AddMonths(1);
-            credito.DataVencimento = credito.DthrReg.AddMonths(credito.TotalParcelas - 1);
-            var idcreddito = _unit.GastosRepository.Create(credito);
-            _unit.Commit();
-
-            for (int i = 1; i <= parcelaTotal; i++)
-            {
-                var creditoSequencial = new GastosStatus
-                {
-                    FkGasto = idcreddito,
-                    Parcela = i,
-                    Status = credito.Status
-                };
-                _unit.GastoStatusRepository.Create(creditoSequencial);
-                _unit.Commit();
-            }
-            return idcreddito;
-        }
-        public void Excluir(int id)
+        
+        public void Excluir(int id,string tipo = "O")
         {
             var gastobj = (_unit.GastosRepository.GetObjects(x => x.Id.Equals(id) || x.GastoPaiId.Equals(id))).FirstOrDefault();
             if (gastobj.Categoria.Equals("D"))
@@ -182,6 +135,44 @@ namespace WebApiFinanc.Services
             {
                 return gastoModify;
             }
+        }
+
+        public Credito RegistraCredito(Credito credito)
+        {
+            int parcelaTotal = credito.TotalParcelas;
+
+            if (credito.Valor > (decimal)0.01 && credito.ValorIntegral == (decimal)0.01) // Se for inserido somente o valor das parcelas
+            {
+                credito.ValorIntegral = credito.Valor * credito.TotalParcelas; //vai montar o valor total
+            }
+            else //se for inserido o valor total
+            {
+                credito.Valor = credito.ValorIntegral / credito.TotalParcelas; //quebrará o valo em valores de parcela
+            }
+
+            credito.DthrReg = credito.DthrReg.AddMonths(1);
+            credito.DataVencimento = credito.DthrReg.AddMonths(credito.TotalParcelas - 1);
+            var idcreddito = _unit.CreditoRepository.Create(credito);
+            _unit.Commit();
+
+            for (int i = 1; i <= parcelaTotal; i++)
+            {
+                var creditoSequencial = new GastosStatus
+                {
+                    FkGasto = idcreddito,
+                    Parcela = i
+                };
+                _unit.GastoStatusRepository.Create(creditoSequencial);
+                _unit.Commit();
+            }
+            return idcreddito;
+        }
+
+        public Debito RegistraDebito(Debito debito)
+        {
+            _unit.DebitoRepository.Create(debito);
+            _unit.Commit();
+            return debito;
         }
     }
 }

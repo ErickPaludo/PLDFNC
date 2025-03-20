@@ -1,12 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApiFinanc.Models;
+using WebApiFinanc.Models.DTOs.Credito;
+using WebApiFinanc.Models.DTOs.Debito;
 
 namespace WebApiFinanc.Services
 {
     public interface IGerenciaGastos
     {
-        dynamic Registra(Gastos gasto);
-        void Excluir(int id);
+        Credito RegistraCredito(Credito credito);
+        Debito RegistraDebito(Debito debito);
+        void Excluir(int id,string tipo = "O");
         Gastos Update(Gastos gastoModify);
     }
 }

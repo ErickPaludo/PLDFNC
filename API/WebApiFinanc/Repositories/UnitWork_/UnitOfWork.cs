@@ -1,4 +1,6 @@
 ﻿using WebApiFinanc.Context;
+using WebApiFinanc.Repositories.CreditoRepository_;
+using WebApiFinanc.Repositories.DebitoRepository_;
 using WebApiFinanc.Repositories.GastoRepository_;
 using WebApiFinanc.Repositories.GastoStatusRepository_;
 using WebApiFinanc.Repositories.UsuarioRepository_;
@@ -10,6 +12,8 @@ namespace WebApiFinanc.Repositories.UnitWork
         private IUsuarioRepository? _usuRepo;
         private IGastosRepository? _gastosRepo;
         private IGastoStatusRepository? _gastosRepoStatus;
+        private ICreditoRepository? _creditoRepo;
+        private IDebitoRepository? _debitoRepo;
 
 
         public AppDbContext _context;
@@ -22,6 +26,8 @@ namespace WebApiFinanc.Repositories.UnitWork
         public IUsuarioRepository UsuarioRepository { get { return _usuRepo = _usuRepo ?? new UsuarioRepository(_context); } }
         public IGastosRepository GastosRepository { get { return _gastosRepo = _gastosRepo ?? new GastosRepository(_context); } }
         public IGastoStatusRepository GastoStatusRepository { get { return _gastosRepoStatus = _gastosRepoStatus ?? new GastoStatusRepository(_context); } }
+        public ICreditoRepository CreditoRepository { get { return _creditoRepo = _creditoRepo ?? new CreditoRepository(_context); } }
+        public IDebitoRepository DebitoRepository { get { return _debitoRepo = _debitoRepo ?? new DebitoRepository(_context); } }
 
         public void Commit()
         {

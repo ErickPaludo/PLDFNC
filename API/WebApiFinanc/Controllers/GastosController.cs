@@ -123,7 +123,7 @@ namespace WebApiFinanc.Controllers
             {
                 return BadRequest("Body is null");
             }
-            var obj = _gerenciamento.Registra(gasto);
+        //    var obj = _gerenciamento.Re(gasto);
 
             return new CreatedAtRouteResult("ObterGasto", new { id = gasto.Id }, gasto);
         }
@@ -197,7 +197,7 @@ namespace WebApiFinanc.Controllers
             {
                 return NotFound();
             }
-            _gerenciamento.Excluir(id);
+            _gerenciamento.Excluir(id,"D");
             _unit.Commit();
             return Ok();
         }
