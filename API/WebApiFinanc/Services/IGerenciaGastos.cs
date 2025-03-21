@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Mvc;
 using WebApiFinanc.Models;
 using WebApiFinanc.Models.DTOs.Credito;
 using WebApiFinanc.Models.DTOs.Debito;
@@ -11,5 +12,6 @@ namespace WebApiFinanc.Services
         Debito RegistraDebito(Debito debito);
         void Excluir(int id,string tipo = "O");
         Gastos Update(Gastos gastoModify);
+        Debito UpdateDebito(int id, JsonPatchDocument<DebitoEditDTO> debito);
     }
 }

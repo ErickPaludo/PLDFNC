@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using WebApiFinanc.Models;
 using WebApiFinanc.Models.DTOs.Credito;
@@ -9,7 +10,7 @@ using WebApiFinanc.Services;
 
 namespace WebApiFinanc.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("debito")]
     [ApiController]
     public class DebitoController : ControllerBase
     {
@@ -17,15 +18,21 @@ namespace WebApiFinanc.Controllers
         private readonly IGerenciaGastos _gerenciamento;
         private readonly IMapper _mapper;
 
-     
-        [HttpGet("/debito/retorno")]
+        public DebitoController(IUnitOfWork unit, ILogger<GastosController> logger, IGerenciaGastos gerenciamento, IMapper mapper)
+        {
+            _unit = unit;
+            _gerenciamento = gerenciamento;
+            _mapper = mapper;
+        }
+
+        [HttpGet("retorno")]
         public ActionResult<IEnumerable<Debito>> RetornaDebito()
         {
             var gasto = _unit.DebitoRepository.Get();
             return Ok(gasto);
         }
 
-        [HttpGet("/debito/retornafiltrado/{id:int}", Name = "ObterDebito")]
+        [HttpGet("retornafiltrado/{id:int}", Name = "ObterDebito")]
         public ActionResult<IEnumerable<Debito>> RetornaDebitos(int id)
         {
             var gasto = _unit.DebitoRepository.GetObjects(x => x.Id == id);
@@ -37,7 +44,7 @@ namespace WebApiFinanc.Controllers
             return Ok(gasto);
         }
   
-        [HttpPost("/debito/cadastro")]
+        [HttpPost("cadastro")]
         public ActionResult<IEnumerable<Debito>> CadastraDebito([FromBody] Debito debito)
         {
             if (debito is null)
@@ -49,7 +56,7 @@ namespace WebApiFinanc.Controllers
             return new CreatedAtRouteResult("ObterDebito", new { id = debito.Id }, debito);
         }
 
-        [HttpDelete("/debito/deleta/{id:int}")]
+        [HttpDelete("deleta/{id:int}")]
         public IActionResult Deletar(int id)
         {
             if (!_unit.DebitoRepository.ObjectAny(x => x.Id == id))
@@ -61,6 +68,18 @@ namespace WebApiFinanc.Controllers
             return Ok();
         }
 
-        //Fazer update
+        [HttpPatch("alterar/{id}")]
+        public ActionResult<DebitoEditDTO> AlterarDebito(int id, JsonPatchDocument<DebitoEditDTO> patchDebito)
+        {
+            if (patchDebito is null || id <= 0)
+            {
+                return BadRequest("Body is null");
+            }
+           
+                var result = _gerenciamento.UpdateDebito(id, patchDebito);
+                return Ok(_mapper.Map<DebitoEditDTO>(result));
+        }
+        
+
     }
 }

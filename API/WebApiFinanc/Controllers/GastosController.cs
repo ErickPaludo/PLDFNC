@@ -96,14 +96,14 @@ namespace WebApiFinanc.Controllers
         #endregion
 
         #region Retorna Debito
-        [HttpGet("/debito/retorno")]
+        [HttpGet("/retorno")]
         public ActionResult<IEnumerable<DebitoDTO>> RetornaDebito()
         {
             var gasto = _unit.GastosRepository.GetObjects(x => x.Categoria.Equals("D") && x.Categoria.Equals("D"));
             return Ok(_mapper.Map<List<DebitoDTO>>(gasto));
         }
 
-        [HttpGet("/debito/retornafiltrado/{id:int}")]
+        [HttpGet("/retornafiltrado/{id:int}")]
         public ActionResult<IEnumerable<DebitoDTO>> RetornaDebitos(int id)
         {
             var gasto = _unit.GastosRepository.GetObjects(x => x.Id == id && x.Categoria.Equals("D"));
@@ -158,8 +158,8 @@ namespace WebApiFinanc.Controllers
             return Ok(_mapper.Map<CreditoEditDTO>(gasto));
         }
 
-        [HttpPatch("/debito/alterar/{id}")]
-        public ActionResult<CreditoEditDTO> AlterarDebito(int id, JsonPatchDocument<DebitoEditDTO> patchDebito)
+        [HttpPatch("/alterar/{id}")]
+        public ActionResult<DebitoEditDTO> AlterarDebito(int id, JsonPatchDocument<DebitoEditDTO> patchDebito)
         {
             if (patchDebito is null || id <= 0)
             {
@@ -187,7 +187,7 @@ namespace WebApiFinanc.Controllers
             _gerenciamento.Update(gasto);
 
             _unit.Commit();
-            return Ok(_mapper.Map<CreditoEditDTO>(gasto));
+            return Ok(_mapper.Map<DebitoEditDTO>(gasto));
         }
 
         [HttpDelete("/deletagasto/{id:int}")]

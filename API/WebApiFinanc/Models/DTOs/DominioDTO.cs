@@ -8,10 +8,12 @@ namespace WebApiFinanc.Models.DTOs
     {
         public DominioDTO()
         {
-        CreateMap<Gastos, CreditoDTO>().ReverseMap();
-        CreateMap<Gastos, DebitoDTO>().ReverseMap();
-        CreateMap<Gastos, CreditoEditDTO>().ReverseMap();
-        CreateMap<Gastos, DebitoEditDTO>().ReverseMap();
+            CreateMap<Gastos, CreditoDTO>().ReverseMap();
+            CreateMap<Gastos, DebitoDTO>().ReverseMap();
+            CreateMap<Gastos, CreditoEditDTO>().ReverseMap();
+            CreateMap<Gastos, DebitoEditDTO>().ReverseMap();
+            CreateMap<Debito.Debito, DebitoEditDTO>().ReverseMap();
+            CreateMap<Credito.Credito, CreditoEditDTO>().ReverseMap();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using WebApiFinanc.Controllers;
@@ -19,18 +20,22 @@ namespace WebApiFinanc.Services
             _unit = unit;
             _mapper = mapper;
         }
-        
-        public void Excluir(int id,string tipo = "O")
+
+        public void Excluir(int id, string tipo = "O")
         {
-            var gastobj = (_unit.GastosRepository.GetObjects(x => x.Id.Equals(id) || x.GastoPaiId.Equals(id))).FirstOrDefault();
-            if (gastobj.Categoria.Equals("D"))
+            if (tipo.Equals("D"))
             {
-                _unit.GastosRepository.Delete(x => x.Id == gastobj.Id);
+                if (_unit.DebitoRepository.ObjectAny(x => x.Id == id)) 
+                    _unit.DebitoRepository.Delete(x => x.Id == id);
+                
             }
-            else if (gastobj.Categoria.Equals("C"))
+            else if (tipo.Equals("C"))
             {
-                _unit.GastosRepository.Delete(x => x.Id == id);
-                _unit.GastoStatusRepository.Delete(x => x.FkGasto.Id == id);
+                if (_unit.CreditoRepository.ObjectAny(x => x.Id == id) && _unit.GastoStatusRepository.ObjectAny(x => x.GPaiId == id))
+                {
+                    _unit.GastosRepository.Delete(x => x.Id == id);
+                    _unit.GastoStatusRepository.Delete(x => x.Id == id);
+                }
             }
             _unit.Commit();
         }
@@ -173,6 +178,24 @@ namespace WebApiFinanc.Services
             _unit.DebitoRepository.Create(debito);
             _unit.Commit();
             return debito;
+        }
+
+        public Debito UpdateDebito(int id, JsonPatchDocument<DebitoEditDTO> debito)
+        {
+            var gasto = _unit.DebitoRepository.GetObjects(x => x.Id == id).FirstOrDefault();
+
+            if (gasto is null)
+                throw new KeyNotFoundException($"Id solicitado = ({id})");
+
+            var gastoDTO = _mapper.Map<DebitoEditDTO>(gasto);
+            debito.ApplyTo(gastoDTO);
+           
+
+            _mapper.Map(gastoDTO, gasto);
+            _unit.DebitoRepository.Update(gasto);
+            _unit.Commit();
+
+            return gasto;
         }
     }
 }
