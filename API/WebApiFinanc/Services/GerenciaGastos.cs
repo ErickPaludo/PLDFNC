@@ -25,16 +25,25 @@ namespace WebApiFinanc.Services
         {
             if (tipo.Equals("D"))
             {
-                if (_unit.DebitoRepository.ObjectAny(x => x.Id == id)) 
+                if (_unit.DebitoRepository.ObjectAny(x => x.Id == id))
+                {
                     _unit.DebitoRepository.Delete(x => x.Id == id);
-                
+                }
+                else
+                {
+                    throw new KeyNotFoundException($"Id solicitado = ({id})");
+                }
             }
             else if (tipo.Equals("C"))
             {
                 if (_unit.CreditoRepository.ObjectAny(x => x.Id == id) && _unit.GastoStatusRepository.ObjectAny(x => x.GPaiId == id))
                 {
-                    _unit.GastosRepository.Delete(x => x.Id == id);
+                    _unit.CreditoRepository.Delete(x => x.Id == id);
                     _unit.GastoStatusRepository.Delete(x => x.Id == id);
+                }
+                else
+                {
+                    throw new KeyNotFoundException($"Id solicitado = ({id})");
                 }
             }
             _unit.Commit();
@@ -158,18 +167,19 @@ namespace WebApiFinanc.Services
             credito.DthrReg = credito.DthrReg.AddMonths(1);
             credito.DataVencimento = credito.DthrReg.AddMonths(credito.TotalParcelas - 1);
             var idcreddito = _unit.CreditoRepository.Create(credito);
-            _unit.Commit();
+
 
             for (int i = 1; i <= parcelaTotal; i++)
             {
                 var creditoSequencial = new GastosStatus
                 {
                     FkGasto = idcreddito,
-                    Parcela = i
+                    Parcela = i,
+                    Status = "N"
                 };
                 _unit.GastoStatusRepository.Create(creditoSequencial);
-                _unit.Commit();
             }
+            _unit.Commit();
             return idcreddito;
         }
 
@@ -182,6 +192,7 @@ namespace WebApiFinanc.Services
 
         public Debito UpdateDebito(int id, JsonPatchDocument<DebitoEditDTO> debito)
         {
+
             var gasto = _unit.DebitoRepository.GetObjects(x => x.Id == id).FirstOrDefault();
 
             if (gasto is null)
@@ -189,10 +200,56 @@ namespace WebApiFinanc.Services
 
             var gastoDTO = _mapper.Map<DebitoEditDTO>(gasto);
             debito.ApplyTo(gastoDTO);
-           
+
 
             _mapper.Map(gastoDTO, gasto);
             _unit.DebitoRepository.Update(gasto);
+            _unit.Commit();
+
+            return gasto;
+        }
+
+        public Credito UpdateCredito(int id, JsonPatchDocument<CreditoEditDTO> credito)
+        {
+            var gasto = _unit.CreditoRepository.GetObjects(x => x.Id == id).FirstOrDefault();
+
+            bool alteraParcelas = false;
+            bool alteraValorParcela = false;
+            bool alteraValorIntegral = false;
+            int dif = 0;
+            if (gasto is null)
+                throw new KeyNotFoundException($"Id solicitado = ({id})");
+
+            var gastoDTO = _mapper.Map<CreditoEditDTO>(gasto);
+            credito.ApplyTo(gastoDTO);
+
+            if(gastoDTO.TotalParcelas != gasto.TotalParcelas)
+            {
+                alteraParcelas = true;
+                alteraValorParcela = true;
+                dif = gastoDTO.TotalParcelas - gasto.TotalParcelas;
+            }
+            else if(gastoDTO.Valor != gasto.Valor)
+            {
+                alteraValorParcela = true;
+            }
+            if(gastoDTO.ValorIntegral != gasto.ValorIntegral)
+            {
+                alteraValorIntegral = true;
+            }
+
+            _mapper.Map(gastoDTO, gasto);
+            _unit.CreditoRepository.Update(gasto);
+
+            if(alteraParcelas && alteraValorParcela && alteraValorIntegral)
+            {
+
+            }
+            else if(alteraValorParcela && alteraValorIntegral)
+            {
+
+            }
+
             _unit.Commit();
 
             return gasto;

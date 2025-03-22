@@ -18,7 +18,7 @@ namespace WebApiFinanc.Controllers
         private readonly IGerenciaGastos _gerenciamento;
         private readonly IMapper _mapper;
 
-        public DebitoController(IUnitOfWork unit, ILogger<GastosController> logger, IGerenciaGastos gerenciamento, IMapper mapper)
+        public DebitoController(IUnitOfWork unit, ILogger<DebitoController> logger, IGerenciaGastos gerenciamento, IMapper mapper)
         {
             _unit = unit;
             _gerenciamento = gerenciamento;
@@ -43,43 +43,26 @@ namespace WebApiFinanc.Controllers
 
             return Ok(gasto);
         }
-  
+
         [HttpPost("cadastro")]
         public ActionResult<IEnumerable<Debito>> CadastraDebito([FromBody] Debito debito)
         {
-            if (debito is null)
-            {
-                return BadRequest("Body is null");
-            }
-            var obj = _gerenciamento.RegistraDebito(debito);
-
+            _gerenciamento.RegistraDebito(debito);
             return new CreatedAtRouteResult("ObterDebito", new { id = debito.Id }, debito);
         }
 
         [HttpDelete("deleta/{id:int}")]
         public IActionResult Deletar(int id)
         {
-            if (!_unit.DebitoRepository.ObjectAny(x => x.Id == id))
-            {
-                return NotFound();
-            }
             _gerenciamento.Excluir(id, "D");
-            _unit.Commit();
             return Ok();
         }
 
         [HttpPatch("alterar/{id}")]
         public ActionResult<DebitoEditDTO> AlterarDebito(int id, JsonPatchDocument<DebitoEditDTO> patchDebito)
         {
-            if (patchDebito is null || id <= 0)
-            {
-                return BadRequest("Body is null");
-            }
-           
-                var result = _gerenciamento.UpdateDebito(id, patchDebito);
-                return Ok(_mapper.Map<DebitoEditDTO>(result));
+            var result = _gerenciamento.UpdateDebito(id, patchDebito);
+            return Ok(_mapper.Map<DebitoEditDTO>(result));
         }
-        
-
     }
 }

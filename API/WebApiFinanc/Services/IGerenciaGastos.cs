@@ -13,5 +13,6 @@ namespace WebApiFinanc.Services
         void Excluir(int id,string tipo = "O");
         Gastos Update(Gastos gastoModify);
         Debito UpdateDebito(int id, JsonPatchDocument<DebitoEditDTO> debito);
+        Credito UpdateCredito(int id, JsonPatchDocument<CreditoEditDTO> credito);
     }
 }

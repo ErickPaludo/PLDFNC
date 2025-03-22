@@ -28,178 +28,178 @@ namespace WebApiFinanc.Controllers
             _mapper = mapper;
         }
 
-        #region Retorna todos os gastos
-        [HttpGet("/geral/retorno")]
-        public ActionResult<IEnumerable<Gastos>> RetornoGeral()
-        {
-            var gasto = _unit.GastosRepository.Get();
-            if (gasto.Count() == 0) { return NoContent(); }
-            return Ok(gasto);
-        }
+        //#region Retorna todos os gastos
+        //[HttpGet("geral/retorno")]
+        //public ActionResult<IEnumerable<Gastos>> RetornoGeral()
+        //{
+        //    var gasto = _unit.GastosRepository.Get();
+        //    if (gasto.Count() == 0) { return NoContent(); }
+        //    return Ok(gasto);
+        //}
 
-        [HttpGet("/geral/retornafiltrado/{id:int}", Name = "ObterGasto")]
-        public ActionResult<IEnumerable<Gastos>> RetornoGeralFiltro(int id)
-        {
-            var gasto = _unit.GastosRepository.GetObjects(x => x.Id == id);
-            if (gasto is null)
-            {
-                return NoContent();
-            }
+        //[HttpGet("geral/retornafiltrado/{id:int}", Name = "ObterGasto")]
+        //public ActionResult<IEnumerable<Gastos>> RetornoGeralFiltro(int id)
+        //{
+        //    var gasto = _unit.GastosRepository.GetObjects(x => x.Id == id);
+        //    if (gasto is null)
+        //    {
+        //        return NoContent();
+        //    }
 
-            return Ok(gasto);
-        }
-        #endregion  
+        //    return Ok(gasto);
+        //}
+        //#endregion  
 
-        #region Retorna Credito
-        [HttpGet("/credito/retorno")]
-        public ActionResult<IEnumerable<CreditoDTO>> RetornaCredito()
-        {
-            IEnumerable<CreditoDTO> query = from gastos in _unit.GastosRepository.Get()
-                                            join status in _unit.GastoStatusRepository.Get()
-                                                on gastos.Id equals status.GPaiId
-                                            select new CreditoDTO
-                                            {
-                                                Id = gastos.Id,
-                                                Titulo = gastos.Titulo,
-                                                Descricao = gastos.Descricao,
-                                                Valor = gastos.Valor,
-                                                DthrReg = gastos.DthrReg.AddMonths(status.Parcela - 1),
-                                                Parcela = status.Parcela,
-                                                TotalParcelas = gastos.TotalParcelas,
-                                                Status = status.Status,
-                                                UserId = gastos.UserId
-                                            };
-            return query.ToList();
-        }
+        //#region Retorna Credito
+        //[HttpGet("retorno")]
+        //public ActionResult<IEnumerable<CreditoDTO>> RetornaCredito()
+        //{
+        //    IEnumerable<CreditoDTO> query = from gastos in _unit.GastosRepository.Get()
+        //                                    join status in _unit.GastoStatusRepository.Get()
+        //                                        on gastos.Id equals status.GPaiId
+        //                                    select new CreditoDTO
+        //                                    {
+        //                                        Id = gastos.Id,
+        //                                        Titulo = gastos.Titulo,
+        //                                        Descricao = gastos.Descricao,
+        //                                        Valor = gastos.Valor,
+        //                                        DthrReg = gastos.DthrReg.AddMonths(status.Parcela - 1),
+        //                                        Parcela = status.Parcela,
+        //                                        TotalParcelas = gastos.TotalParcelas,
+        //                                        Status = status.Status,
+        //                                        UserId = gastos.UserId
+        //                                    };
+        //    return query.ToList();
+        //}
 
-        [HttpGet("/credito/retornafiltrado/{id:int}")]
-        public ActionResult<IEnumerable<CreditoDTO>> RetornaCreditos(int id)
-        {
-            IEnumerable<CreditoDTO> query = from gastos in _unit.GastosRepository.Get()
-                                            join status in _unit.GastoStatusRepository.Get()
-                                                on gastos.Id equals status.GPaiId
-                                            where gastos.Id == id
-                                            select new CreditoDTO
-                                            {
-                                                Id = gastos.Id,
-                                                Titulo = gastos.Titulo,
-                                                Descricao = gastos.Descricao,
-                                                Valor = gastos.Valor,
-                                                DthrReg = gastos.DthrReg.AddMonths(status.Parcela - 1),
-                                                Parcela = status.Parcela,
-                                                TotalParcelas = gastos.TotalParcelas,
-                                                Status = status.Status,
-                                                UserId = gastos.UserId
-                                            };
-            return query.ToList();
-        }
-        #endregion
+        //[HttpGet("retornafiltrado/{id:int}")]
+        //public ActionResult<IEnumerable<CreditoDTO>> RetornaCreditos(int id)
+        //{
+        //    IEnumerable<CreditoDTO> query = from gastos in _unit.GastosRepository.Get()
+        //                                    join status in _unit.GastoStatusRepository.Get()
+        //                                        on gastos.Id equals status.GPaiId
+        //                                    where gastos.Id == id
+        //                                    select new CreditoDTO
+        //                                    {
+        //                                        Id = gastos.Id,
+        //                                        Titulo = gastos.Titulo,
+        //                                        Descricao = gastos.Descricao,
+        //                                        Valor = gastos.Valor,
+        //                                        DthrReg = gastos.DthrReg.AddMonths(status.Parcela - 1),
+        //                                        Parcela = status.Parcela,
+        //                                        TotalParcelas = gastos.TotalParcelas,
+        //                                        Status = status.Status,
+        //                                        UserId = gastos.UserId
+        //                                    };
+        //    return query.ToList();
+        //}
+        //#endregion
 
-        #region Retorna Debito
-        [HttpGet("/retorno")]
-        public ActionResult<IEnumerable<DebitoDTO>> RetornaDebito()
-        {
-            var gasto = _unit.GastosRepository.GetObjects(x => x.Categoria.Equals("D") && x.Categoria.Equals("D"));
-            return Ok(_mapper.Map<List<DebitoDTO>>(gasto));
-        }
+        //#region Retorna Debito
+        //[HttpGet("retorno")]
+        //public ActionResult<IEnumerable<DebitoDTO>> RetornaDebito()
+        //{
+        //    var gasto = _unit.GastosRepository.GetObjects(x => x.Categoria.Equals("D") && x.Categoria.Equals("D"));
+        //    return Ok(_mapper.Map<List<DebitoDTO>>(gasto));
+        //}
 
-        [HttpGet("/retornafiltrado/{id:int}")]
-        public ActionResult<IEnumerable<DebitoDTO>> RetornaDebitos(int id)
-        {
-            var gasto = _unit.GastosRepository.GetObjects(x => x.Id == id && x.Categoria.Equals("D"));
-            if (gasto is null)
-            {
-                return NoContent();
-            }
+        //[HttpGet("retornafiltrado/{id:int}")]
+        //public ActionResult<IEnumerable<DebitoDTO>> RetornaDebitos(int id)
+        //{
+        //    var gasto = _unit.GastosRepository.GetObjects(x => x.Id == id && x.Categoria.Equals("D"));
+        //    if (gasto is null)
+        //    {
+        //        return NoContent();
+        //    }
 
-            return Ok(_mapper.Map<CreditoDTO>(gasto));
-        }
-        #endregion
+        //    return Ok(_mapper.Map<CreditoDTO>(gasto));
+        //}
+        //#endregion
 
-        [HttpPost("/cadastragasto")]
-        public ActionResult<IEnumerable<Gastos>> CadastraDebito([FromBody] Gastos gasto)
-        {
-            if (gasto is null)
-            {
-                return BadRequest("Body is null");
-            }
-        //    var obj = _gerenciamento.Re(gasto);
+        //[HttpPost("cadastragasto")]
+        //public ActionResult<IEnumerable<Gastos>> CadastraDebito([FromBody] Gastos gasto)
+        //{
+        //    if (gasto is null)
+        //    {
+        //        return BadRequest("Body is null");
+        //    }
+        ////    var obj = _gerenciamento.Re(gasto);
 
-            return new CreatedAtRouteResult("ObterGasto", new { id = gasto.Id }, gasto);
-        }
+        //    return new CreatedAtRouteResult("ObterGasto", new { id = gasto.Id }, gasto);
+        //}
 
-        [HttpPatch("/credito/alterar/{id}")]
-        public ActionResult<CreditoEditDTO> AlterarCredito(int id, JsonPatchDocument<CreditoEditDTO> patchCredito)
-        {
-            if (patchCredito is null || id <= 0)
-            {
-                return BadRequest("Body is null");
-            }
-            if (!_unit.GastosRepository.ObjectAny(x => x.Id == id))
-            {
-                return NotFound();
-            }
+        //[HttpPatch("alterar/{id}")]
+        //public ActionResult<CreditoEditDTO> AlterarCredito(int id, JsonPatchDocument<CreditoEditDTO> patchCredito)
+        //{
+        //    if (patchCredito is null || id <= 0)
+        //    {
+        //        return BadRequest("Body is null");
+        //    }
+        //    if (!_unit.GastosRepository.ObjectAny(x => x.Id == id))
+        //    {
+        //        return NotFound();
+        //    }
 
-            var gasto = _unit.GastosRepository.GetObjects(x => x.Id == id && x.Categoria.Equals("C")).FirstOrDefault();
-            if (gasto is null)
-                return NotFound("Id não encontrado!");
+        //    var gasto = _unit.GastosRepository.GetObjects(x => x.Id == id && x.Categoria.Equals("C")).FirstOrDefault();
+        //    if (gasto is null)
+        //        return NotFound("Id não encontrado!");
 
-            var gastoDTO = _mapper.Map<CreditoEditDTO>(gasto);
-            patchCredito.ApplyTo(gastoDTO, ModelState);
+        //    var gastoDTO = _mapper.Map<CreditoEditDTO>(gasto);
+        //    patchCredito.ApplyTo(gastoDTO, ModelState);
 
-            if (!ModelState.IsValid && !TryValidateModel(gastoDTO))
-                return BadRequest(ModelState);
-
-
-            _mapper.Map(gastoDTO, gasto); //Faz um marge entre os dois objetos
-            _gerenciamento.Update(gasto);
-
-            _unit.Commit();
-            return Ok(_mapper.Map<CreditoEditDTO>(gasto));
-        }
-
-        [HttpPatch("/alterar/{id}")]
-        public ActionResult<DebitoEditDTO> AlterarDebito(int id, JsonPatchDocument<DebitoEditDTO> patchDebito)
-        {
-            if (patchDebito is null || id <= 0)
-            {
-                return BadRequest("Body is null");
-            }
-            if (!_unit.GastosRepository.ObjectAny(x => x.Id == id))
-            {
-                return NotFound();
-            }
-
-            var gasto = _unit.GastosRepository.GetObjects(x => x.Id == id && x.Categoria.Equals("D")).FirstOrDefault();
-
-            if (gasto is null)
-                return NotFound("Id não encontrado!");
-
-            var gastoDTO = _mapper.Map<DebitoEditDTO>(gasto);
-
-            patchDebito.ApplyTo(gastoDTO, ModelState);
-
-            if (!ModelState.IsValid && !TryValidateModel(gastoDTO))
-                return BadRequest(ModelState);
+        //    if (!ModelState.IsValid && !TryValidateModel(gastoDTO))
+        //        return BadRequest(ModelState);
 
 
-            _mapper.Map(gastoDTO, gasto); //Faz um marge entre os dois objetos
-            _gerenciamento.Update(gasto);
+        //    _mapper.Map(gastoDTO, gasto); //Faz um marge entre os dois objetos
+        //    _gerenciamento.Update(gasto);
 
-            _unit.Commit();
-            return Ok(_mapper.Map<DebitoEditDTO>(gasto));
-        }
+        //    _unit.Commit();
+        //    return Ok(_mapper.Map<CreditoEditDTO>(gasto));
+        //}
 
-        [HttpDelete("/deletagasto/{id:int}")]
-        public IActionResult Deletar(int id)
-        {
-            if (!_unit.GastosRepository.ObjectAny(x => x.Id.Equals(id) || x.GastoPaiId.Equals(id)))
-            {
-                return NotFound();
-            }
-            _gerenciamento.Excluir(id,"D");
-            _unit.Commit();
-            return Ok();
-        }
+        //[HttpPatch("alterar/{id}")]
+        //public ActionResult<DebitoEditDTO> AlterarDebito(int id, JsonPatchDocument<DebitoEditDTO> patchDebito)
+        //{
+        //    if (patchDebito is null || id <= 0)
+        //    {
+        //        return BadRequest("Body is null");
+        //    }
+        //    if (!_unit.GastosRepository.ObjectAny(x => x.Id == id))
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var gasto = _unit.GastosRepository.GetObjects(x => x.Id == id && x.Categoria.Equals("D")).FirstOrDefault();
+
+        //    if (gasto is null)
+        //        return NotFound("Id não encontrado!");
+
+        //    var gastoDTO = _mapper.Map<DebitoEditDTO>(gasto);
+
+        //    patchDebito.ApplyTo(gastoDTO, ModelState);
+
+        //    if (!ModelState.IsValid && !TryValidateModel(gastoDTO))
+        //        return BadRequest(ModelState);
+
+
+        //    _mapper.Map(gastoDTO, gasto); //Faz um marge entre os dois objetos
+        //    _gerenciamento.Update(gasto);
+
+        //    _unit.Commit();
+        //    return Ok(_mapper.Map<DebitoEditDTO>(gasto));
+        //}
+
+        //[HttpDelete("deletagasto/{id:int}")]
+        //public IActionResult Deletar(int id)
+        //{
+        //    if (!_unit.GastosRepository.ObjectAny(x => x.Id.Equals(id) || x.GastoPaiId.Equals(id)))
+        //    {
+        //        return NotFound();
+        //    }
+        //    _gerenciamento.Excluir(id,"D");
+        //    _unit.Commit();
+        //    return Ok();
+        //}
     }
 }
