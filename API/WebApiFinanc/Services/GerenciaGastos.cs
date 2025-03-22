@@ -228,29 +228,45 @@ namespace WebApiFinanc.Services
                 alteraParcelas = true;
                 alteraValorParcela = true;
                 dif = gastoDTO.TotalParcelas - gasto.TotalParcelas;
+                gastoDTO.Valor = gastoDTO.ValorIntegral / gastoDTO.TotalParcelas;
+                gasto.DataVencimento = gasto.DataVencimento.AddMonths(dif);
+                if(dif < 0)
+                {
+                    dif = dif * -1;
+                  
+                    for (int i = 0; i < dif; i++) 
+                    {
+                        _unit.GastoStatusRepository.Delete(x => x.GPaiId == id && x.Parcela == (gasto.TotalParcelas - i));
+                    }
+                }
+                else
+                {
+                    var gastoStatus = _mapper.Map<Credito>(gastoDTO);
+                    gastoStatus.Id = id;
+                    for (int i = 1; i <= dif; i++)
+                    {
+                        var creditoSequencial = new GastosStatus
+                        {
+                          //  FkGasto = gastoStatus,
+                            GPaiId = id,
+                            Parcela = gasto.TotalParcelas + i,
+                            Status = "N"
+                        };
+                        
+                        _unit.GastoStatusRepository.Create(creditoSequencial);
+                    }
+                }
             }
-            else if(gastoDTO.Valor != gasto.Valor)
+
+            if (gastoDTO.DthrReg != gasto.DthrReg)
             {
-                alteraValorParcela = true;
-            }
-            if(gastoDTO.ValorIntegral != gasto.ValorIntegral)
-            {
-                alteraValorIntegral = true;
+                gasto.DataVencimento = gastoDTO.DthrReg.AddMonths(gastoDTO.TotalParcelas + 1);
             }
 
             _mapper.Map(gastoDTO, gasto);
             _unit.CreditoRepository.Update(gasto);
 
-            if(alteraParcelas && alteraValorParcela && alteraValorIntegral)
-            {
-
-            }
-            else if(alteraValorParcela && alteraValorIntegral)
-            {
-
-            }
-
-            _unit.Commit();
+             _unit.Commit();
 
             return gasto;
         }
