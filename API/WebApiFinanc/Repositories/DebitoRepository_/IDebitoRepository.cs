@@ -1,4 +1,4 @@
-﻿using WebApiFinanc.Models.DTOs.Debito;
+﻿using WebApiFinanc.Models;
 using WebApiFinanc.Repositories.Default;
 
 namespace WebApiFinanc.Repositories.DebitoRepository_

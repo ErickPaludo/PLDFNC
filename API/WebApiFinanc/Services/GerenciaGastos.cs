@@ -7,6 +7,7 @@ using WebApiFinanc.Models;
 using WebApiFinanc.Models.DTOs;
 using WebApiFinanc.Models.DTOs.Credito;
 using WebApiFinanc.Models.DTOs.Debito;
+using WebApiFinanc.Models.DTOs.Saldo_;
 using WebApiFinanc.Repositories.UnitWork;
 
 namespace WebApiFinanc.Services
@@ -40,6 +41,17 @@ namespace WebApiFinanc.Services
                 {
                     _unit.CreditoRepository.Delete(x => x.Id == id);
                     _unit.GastoStatusRepository.Delete(x => x.Id == id);
+                }
+                else
+                {
+                    throw new KeyNotFoundException($"Id solicitado = ({id})");
+                }
+            }
+            else if (tipo.Equals("S"))
+            {
+                if (_unit.SaldoRepository.ObjectAny(x => x.Id == id))
+                {
+                    _unit.SaldoRepository.Delete(x => x.Id == id);
                 }
                 else
                 {
@@ -223,18 +235,18 @@ namespace WebApiFinanc.Services
             var gastoDTO = _mapper.Map<CreditoEditDTO>(gasto);
             credito.ApplyTo(gastoDTO);
 
-            if(gastoDTO.TotalParcelas != gasto.TotalParcelas)
+            if (gastoDTO.TotalParcelas != gasto.TotalParcelas)
             {
                 alteraParcelas = true;
                 alteraValorParcela = true;
                 dif = gastoDTO.TotalParcelas - gasto.TotalParcelas;
                 gastoDTO.Valor = gastoDTO.ValorIntegral / gastoDTO.TotalParcelas;
                 gasto.DataVencimento = gasto.DataVencimento.AddMonths(dif);
-                if(dif < 0)
+                if (dif < 0)
                 {
                     dif = dif * -1;
-                  
-                    for (int i = 0; i < dif; i++) 
+
+                    for (int i = 0; i < dif; i++)
                     {
                         _unit.GastoStatusRepository.Delete(x => x.GPaiId == id && x.Parcela == (gasto.TotalParcelas - i));
                     }
@@ -247,12 +259,12 @@ namespace WebApiFinanc.Services
                     {
                         var creditoSequencial = new GastosStatus
                         {
-                          //  FkGasto = gastoStatus,
+                            //  FkGasto = gastoStatus,
                             GPaiId = id,
                             Parcela = gasto.TotalParcelas + i,
                             Status = "N"
                         };
-                        
+
                         _unit.GastoStatusRepository.Create(creditoSequencial);
                     }
                 }
@@ -266,9 +278,58 @@ namespace WebApiFinanc.Services
             _mapper.Map(gastoDTO, gasto);
             _unit.CreditoRepository.Update(gasto);
 
-             _unit.Commit();
+            _unit.Commit();
 
             return gasto;
+        }
+
+        public Saldo RegistraSaldo(Saldo saldo)
+        {
+            _unit.SaldoRepository.Create(saldo);
+            _unit.Commit();
+            return saldo;
+        }
+
+        public Saldo UpdateSaldo(int id, JsonPatchDocument<SaldoEditDTO> saldo)
+        {
+            var saldoOrg = _unit.SaldoRepository.GetObjects(x => x.Id == id).FirstOrDefault();
+
+            if (saldoOrg is null)
+                throw new KeyNotFoundException($"Id solicitado = ({id})");
+
+            var saldoDTO = _mapper.Map<SaldoEditDTO>(saldoOrg);
+            saldo.ApplyTo(saldoDTO);
+
+            _mapper.Map(saldoDTO, saldoOrg);
+            _unit.SaldoRepository.Update(saldoOrg);
+            _unit.Commit();
+
+            return saldoOrg;
+        }
+
+        public string DeParaStatus(string status)
+        {
+            switch (status)
+            {
+                case "N":
+                    return "Pendente";
+                    break;
+                case "S":
+                    return "Pago";
+                    break;
+                case "A":
+                    return "Atraso";
+                    break;
+                case "PA":
+                    return "Pago com Atraso";
+                    break;
+                case "C":
+                    return "Cancelado";
+                    break;
+                default:
+                    return "Não definido";
+
+            }
         }
     }
 }

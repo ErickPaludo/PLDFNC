@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
 using WebApiFinanc.Models.DTOs.Credito;
 using WebApiFinanc.Models.DTOs.Debito;
+using WebApiFinanc.Models.DTOs.Saldo_;
 
-namespace WebApiFinanc.Models.DTOs
+namespace WebApiFinanc.Models.Dominio
 {
     public class DominioDTO : Profile
     {
@@ -12,8 +13,9 @@ namespace WebApiFinanc.Models.DTOs
             CreateMap<Gastos, DebitoDTO>().ReverseMap();
             CreateMap<Gastos, CreditoEditDTO>().ReverseMap();
             CreateMap<Gastos, DebitoEditDTO>().ReverseMap();
-            CreateMap<Debito.Debito, DebitoEditDTO>().ReverseMap();
-            CreateMap<Credito.Credito, CreditoEditDTO>().ReverseMap();
+            CreateMap<Debito, DebitoEditDTO>().ReverseMap();
+            CreateMap<Credito, CreditoEditDTO>().ReverseMap();
+            CreateMap<Saldo, SaldoEditDTO>().ReverseMap();
         }
     }
 }
