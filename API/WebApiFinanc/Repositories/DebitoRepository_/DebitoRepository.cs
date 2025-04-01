@@ -1,13 +1,21 @@
 ﻿using WebApiFinanc.Context;
 using WebApiFinanc.Models;
+using WebApiFinanc.Pagination;
+using WebApiFinanc.Repositories.DebitoRepository_;
 using WebApiFinanc.Repositories.Default;
 
-namespace WebApiFinanc.Repositories.DebitoRepository_
+namespace WebApiFinanc
 {
     public class DebitoRepository : RepositoryDefault<Debito>, IDebitoRepository
     {
         public DebitoRepository(AppDbContext context) : base(context)
         {
+        }
+
+        public PagedList<Debito> GetProduto(QueryStringParameters produtoParameters)
+        {
+            Get();
+            throw new NotImplementedException();
         }
     }
 }

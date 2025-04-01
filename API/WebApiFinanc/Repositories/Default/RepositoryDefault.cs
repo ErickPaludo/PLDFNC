@@ -14,25 +14,25 @@ namespace WebApiFinanc.Repositories.Default
             _context = context;
         }
 
-        IEnumerable<T>? IRepositoryDefault<T>.GetObjects(Expression<Func<T, bool>> predicate)
+        public IEnumerable<T>? GetObjects(Expression<Func<T, bool>> predicate)
         {
             return _context.Set<T>().AsNoTracking().Where(predicate).ToList();
         }
-        IEnumerable<T> IRepositoryDefault<T>.Get()
+        public IEnumerable<T> Get()
         {
             return _context.Set<T>().AsNoTracking().ToList();
         }
-        bool IRepositoryDefault<T>.ObjectAny(Expression<Func<T, bool>> predicate)
+        public bool ObjectAny(Expression<Func<T, bool>> predicate)
         {
             return _context.Set<T>().AsNoTracking().Any(predicate);
         }
-        T? IRepositoryDefault<T>.Create(T userobject)
+        public T? Create(T userobject)
         {
             _context.Set<T>().Add(userobject);
             return userobject;
 
         }
-        T? IRepositoryDefault<T>.Update(T userobject)
+        public T? Update(T userobject)
         {
             _context.Set<T>().Update(userobject);
             return userobject;
