@@ -1,7 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Linq.Expressions;
 using WebApiFinanc.Context;
+using WebApiFinanc.Filters.FiltersControllers;
 using WebApiFinanc.Models;
+using WebApiFinanc.Pagination;
 
 namespace WebApiFinanc.Repositories.Default
 {
@@ -50,6 +53,16 @@ namespace WebApiFinanc.Repositories.Default
             {
                 return false;
             }
+        }
+
+        public PagedList<T> GetWithParameters(IQueryable<T> objeto, QueryStringParameters produtoParameters, Expression<Func<T, int>> ordenation)
+        {
+            var gastos = _context.Set<T>()
+            .AsNoTracking()
+            .OrderBy(ordenation)
+            .AsQueryable();
+            var debitosOrdenados = PagedList<T>.TotalPagedList(gastos, produtoParameters.PageNumber, produtoParameters.PageSize);
+            return debitosOrdenados;
         }
     }
 }

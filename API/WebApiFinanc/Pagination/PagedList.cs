@@ -1,4 +1,6 @@
-﻿namespace WebApiFinanc.Pagination
+﻿using System.Linq.Expressions;
+
+namespace WebApiFinanc.Pagination
 {
     public class PagedList<T> : List<T> where T : class
     {

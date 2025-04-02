@@ -7,6 +7,7 @@ using WebApiFinanc.Models;
 using WebApiFinanc.Repositories.UnitWork;
 using WebApiFinanc.Services;
 using WebApiFinanc.Models.DTOs.Saldo_;
+using WebApiFinanc.Pagination;
 
 namespace WebApiFinanc.Controllers
 {
@@ -26,10 +27,10 @@ namespace WebApiFinanc.Controllers
         }
 
         [HttpGet("retorno")]
-        public ActionResult<IEnumerable<Saldo>> RetornaSaldo()
+        public ActionResult<IEnumerable<Saldo>> RetornaSaldo([FromQuery]QueryStringParameters saldoParameters)
         {
-            var saldo = _unit.SaldoRepository.Get();
-            return Ok(saldo);
+            var saldoPaginado = _unit.SaldoRepository.Get();
+            return Ok(saldoPaginado);
         }
 
         [HttpGet("retornafiltrado/{id:int}", Name = "ObterSaldo")]

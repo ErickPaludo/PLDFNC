@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,6 +10,7 @@ using WebApiFinanc.Models;
 using WebApiFinanc.Models.DTOs;
 using WebApiFinanc.Models.DTOs.Credito;
 using WebApiFinanc.Models.DTOs.Debito;
+using WebApiFinanc.Pagination;
 using WebApiFinanc.Repositories.UnitWork;
 using WebApiFinanc.Services;
 
@@ -32,9 +34,9 @@ namespace WebApiFinanc.Controllers
 
         #region Retorna todos os gastos
         [HttpGet("retorno")]
-        public ActionResult<IEnumerable<Geral>> RetornoGeral()
+        public ActionResult<IEnumerable<Geral>> RetornoGeral([FromQuery] QueryStringParameters geralParameters)
         {
-            IEnumerable<Geral> geral = (from gastos in _unit.CreditoRepository.Get()
+            IQueryable<Geral> geral = (from gastos in _unit.CreditoRepository.Get()
                                         join status in _unit.GastoStatusRepository.Get()
                                             on gastos.Id equals status.GPaiId
                                         select new Geral
@@ -68,9 +70,11 @@ namespace WebApiFinanc.Controllers
                                                       Parcela = string.Empty,
                                                       Categoria = "Saldo",
                                                       Status = _gerenciamento.DeParaStatus(gastos.Status),
-                                                  });
+                                                  }).AsQueryable();
 
-            return Ok(geral.ToList());
+            var debitosOrdenados = PagedList<Geral>.TotalPagedList(geral, geralParameters.PageNumber, geralParameters.PageSize);
+
+            return Ok(debitosOrdenados);
         }
 
         [HttpGet("retornafiltrado")]

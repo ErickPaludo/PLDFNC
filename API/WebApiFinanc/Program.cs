@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
+using WebApiFinanc;
 using WebApiFinanc.Context;
 using WebApiFinanc.Filters;
 using WebApiFinanc.Logging;

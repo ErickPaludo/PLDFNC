@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using WebApiFinanc.Filters.FiltersControllers;
 using WebApiFinanc.Models;
 using WebApiFinanc.Models.DTOs.Credito;
 using WebApiFinanc.Models.DTOs.Debito;
+using WebApiFinanc.Pagination;
 using WebApiFinanc.Repositories.UnitWork;
 using WebApiFinanc.Services;
 
@@ -26,9 +28,19 @@ namespace WebApiFinanc.Controllers
         }
 
         [HttpGet("retorno")]
-        public ActionResult<IEnumerable<Debito>> RetornaDebito()
+        public ActionResult<IEnumerable<Debito>> RetornaDebito([FromQuery] QueryStringParameters debitoParameters, [FromQuery] FilterDataParameter filterData)
         {
             var gasto = _unit.DebitoRepository.Get();
+          //  var teste = _unit.DebitoRepository.GetWithParameters(gasto, debitoParameters, x => x.Id);
+            //var metadata = new
+            //{
+            //    gasto.TotalCount,
+            //    gasto.PageSize,
+            //    gasto.CurrentPage,
+            //    gasto.TotalPages,
+            //    gasto.HasNext,
+            //    gasto.HasPrevious
+            //};
             return Ok(gasto);
         }
 

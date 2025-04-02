@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using WebApiFinanc.Models.DTOs.Credito;
 using WebApiFinanc.Models.DTOs.Debito;
+using WebApiFinanc.Pagination;
 using WebApiFinanc.Repositories.UnitWork;
 using WebApiFinanc.Services;
 
@@ -25,9 +26,9 @@ namespace WebApiFinanc.Controllers
         }
 
         [HttpGet("retorno")]
-        public ActionResult<IEnumerable<CreditoDTO>> RetornaCredito()
+        public ActionResult<IEnumerable<CreditoDTO>> RetornaCredito([FromQuery] QueryStringParameters parameters)
         {
-            IEnumerable<CreditoDTO> query = from gastos in _unit.CreditoRepository.Get()
+            IEnumerable<CreditoDTO> query = (from gastos in _unit.CreditoRepository.Get()
                                             join status in _unit.GastoStatusRepository.Get()
                                                 on gastos.Id equals status.GPaiId
                                             select new CreditoDTO
@@ -42,7 +43,7 @@ namespace WebApiFinanc.Controllers
                                                 TotalParcelas = gastos.TotalParcelas,
                                                 Status = status.Status,
                                                 UserId = gastos.UserId
-                                            };
+                                            });
             return query.ToList();
         }
 

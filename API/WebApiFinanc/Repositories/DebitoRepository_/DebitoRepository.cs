@@ -10,12 +10,6 @@ namespace WebApiFinanc
     {
         public DebitoRepository(AppDbContext context) : base(context)
         {
-        }
-
-        public PagedList<Debito> GetProduto(QueryStringParameters produtoParameters)
-        {
-            Get();
-            throw new NotImplementedException();
-        }
+        } 
     }
 }
