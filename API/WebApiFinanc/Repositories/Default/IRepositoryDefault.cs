@@ -6,7 +6,7 @@ namespace WebApiFinanc.Repositories.Default
 {
     public interface IRepositoryDefault<T> where T : class
     {
-        IEnumerable<T> Get();
+        IQueryable<T> Get();
         IEnumerable<T>? GetObjects(Expression<Func<T, bool>> predicate);
         T? Create(T userobject);
         T? Update(T userobject);

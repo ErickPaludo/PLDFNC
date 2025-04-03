@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using WebApiFinanc.Filters.FiltersControllers;
 using WebApiFinanc.Models;
 using WebApiFinanc.Models.DTOs.Credito;
@@ -28,19 +29,20 @@ namespace WebApiFinanc.Controllers
         }
 
         [HttpGet("retorno")]
-        public ActionResult<IEnumerable<Debito>> RetornaDebito([FromQuery] QueryStringParameters debitoParameters, [FromQuery] FilterDataParameter filterData)
+        public ActionResult<IEnumerable<Debito>> RetornaDebito([FromQuery] QueryStringParameters debitoParameters, [FromQuery] FilterDataParameter dateParam)
         {
-            var gasto = _unit.DebitoRepository.Get();
-          //  var teste = _unit.DebitoRepository.GetWithParameters(gasto, debitoParameters, x => x.Id);
-            //var metadata = new
-            //{
-            //    gasto.TotalCount,
-            //    gasto.PageSize,
-            //    gasto.CurrentPage,
-            //    gasto.TotalPages,
-            //    gasto.HasNext,
-            //    gasto.HasPrevious
-            //};
+            var gasto = _unit.DebitoRepository.GetWithParameters(_unit.DebitoRepository.Get().Where(x => x.DthrReg >= dateParam.DataIni && x.DthrReg <= dateParam.DataFim), debitoParameters, x => x.Id);
+
+            Response.Headers.Append("X-Pagination", JsonConvert.SerializeObject(new
+            {
+                gasto.TotalCount,
+                gasto.PageSize,
+                gasto.CurrentPage,
+                gasto.TotalPages,
+                gasto.HasNext,
+                gasto.HasPrevious
+            }));
+
             return Ok(gasto);
         }
 

@@ -8,6 +8,8 @@ using WebApiFinanc.Repositories.UnitWork;
 using WebApiFinanc.Services;
 using WebApiFinanc.Models.DTOs.Saldo_;
 using WebApiFinanc.Pagination;
+using WebApiFinanc.Filters.FiltersControllers;
+using Newtonsoft.Json;
 
 namespace WebApiFinanc.Controllers
 {
@@ -27,9 +29,20 @@ namespace WebApiFinanc.Controllers
         }
 
         [HttpGet("retorno")]
-        public ActionResult<IEnumerable<Saldo>> RetornaSaldo([FromQuery]QueryStringParameters saldoParameters)
+        public ActionResult<IEnumerable<Saldo>> RetornaSaldo([FromQuery] QueryStringParameters saldoParameters, [FromQuery] FilterDataParameter dateParam)
         {
-            var saldoPaginado = _unit.SaldoRepository.Get();
+            var saldoPaginado = _unit.SaldoRepository.GetWithParameters(_unit.SaldoRepository.Get().Where(x => x.DthrReg >= dateParam.DataIni && x.DthrReg <= dateParam.DataFim), saldoParameters, x => x.Id);
+
+            Response.Headers.Append("X-Pagination", JsonConvert.SerializeObject(new
+            {
+                saldoPaginado.TotalCount,
+                saldoPaginado.PageSize,
+                saldoPaginado.CurrentPage,
+                saldoPaginado.TotalPages,
+                saldoPaginado.HasNext,
+                saldoPaginado.HasPrevious
+            }));
+
             return Ok(saldoPaginado);
         }
 

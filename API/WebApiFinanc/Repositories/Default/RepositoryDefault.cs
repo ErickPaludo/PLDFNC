@@ -21,9 +21,9 @@ namespace WebApiFinanc.Repositories.Default
         {
             return _context.Set<T>().AsNoTracking().Where(predicate).ToList();
         }
-        public IEnumerable<T> Get()
+        public IQueryable<T> Get()
         {
-            return _context.Set<T>().AsNoTracking().ToList();
+            return _context.Set<T>().AsNoTracking();
         }
         public bool ObjectAny(Expression<Func<T, bool>> predicate)
         {

@@ -16,6 +16,7 @@ namespace WebApiFinanc.Models.Dominio
             CreateMap<Debito, DebitoEditDTO>().ReverseMap();
             CreateMap<Credito, CreditoEditDTO>().ReverseMap();
             CreateMap<Saldo, SaldoEditDTO>().ReverseMap();
+            CreateMap<Gastos, Credito>().ReverseMap();
         }
     }
 }

@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using WebApiFinanc.Filters.FiltersControllers;
+using WebApiFinanc.Models;
 using WebApiFinanc.Models.DTOs.Credito;
 using WebApiFinanc.Models.DTOs.Debito;
 using WebApiFinanc.Pagination;
@@ -26,25 +29,37 @@ namespace WebApiFinanc.Controllers
         }
 
         [HttpGet("retorno")]
-        public ActionResult<IEnumerable<CreditoDTO>> RetornaCredito([FromQuery] QueryStringParameters parameters)
+        public ActionResult<IEnumerable<CreditoDTO>> RetornaCredito([FromQuery] QueryStringParameters parameters, [FromQuery]FilterDataParameter dateParam)
         {
-            IEnumerable<CreditoDTO> query = (from gastos in _unit.CreditoRepository.Get()
-                                            join status in _unit.GastoStatusRepository.Get()
-                                                on gastos.Id equals status.GPaiId
-                                            select new CreditoDTO
-                                            {
-                                                Id = gastos.Id,
-                                                Titulo = gastos.Titulo,
-                                                Descricao = gastos.Descricao,
-                                                Valor = gastos.Valor,
-                                                ValorIntegral = gastos.ValorIntegral,
-                                                DthrReg = gastos.DthrReg.AddMonths(status.Parcela - 1),
-                                                Parcela = status.Parcela,
-                                                TotalParcelas = gastos.TotalParcelas,
-                                                Status = status.Status,
-                                                UserId = gastos.UserId
-                                            });
-            return query.ToList();
+            var query = (from gastos in _unit.CreditoRepository.Get()
+                         join status in _unit.GastoStatusRepository.Get()
+                             on gastos.Id equals status.GPaiId
+                         select new CreditoDTO
+                         {
+                             Id = gastos.Id,
+                             Titulo = gastos.Titulo,
+                             Descricao = gastos.Descricao,
+                             Valor = gastos.Valor,
+                             ValorIntegral = gastos.ValorIntegral,
+                             DthrReg = gastos.DthrReg.AddMonths(status.Parcela - 1),
+                             Parcela = status.Parcela,
+                             TotalParcelas = gastos.TotalParcelas,
+                             Status = status.Status,
+                             UserId = gastos.UserId
+                         }).Where(x => x.DthrReg >= dateParam.DataIni && x.DthrReg <= dateParam.DataFim);
+            var creditoPaginado =_unit.CreditoRepository.GetPagination(parameters,x=>x.Id,query);
+
+            Response.Headers.Append("X-Pagination", JsonConvert.SerializeObject(new
+            {
+                creditoPaginado.TotalCount,
+                creditoPaginado.PageSize,
+                creditoPaginado.CurrentPage,
+                creditoPaginado.TotalPages,
+                creditoPaginado.HasNext,
+                creditoPaginado.HasPrevious
+            }));
+
+            return creditoPaginado.ToList();
         }
 
         [HttpGet("retornafiltrado/{id:int}", Name = "ObterCredito")]
