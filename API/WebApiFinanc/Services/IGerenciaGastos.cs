@@ -17,6 +17,7 @@ namespace WebApiFinanc.Services
         Debito UpdateDebito(int id, JsonPatchDocument<DebitoEditDTO> debito);
         Credito UpdateCredito(int id, JsonPatchDocument<CreditoEditDTO> credito);
         Saldo UpdateSaldo(int id, JsonPatchDocument<SaldoEditDTO> saldo);
+        void PagaParcela(int id, JsonPatchDocument<CreditoEditDTO> parcela);
         string DeParaStatus(string status);
     }
 }

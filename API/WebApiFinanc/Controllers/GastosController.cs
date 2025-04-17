@@ -45,6 +45,7 @@ namespace WebApiFinanc.Controllers
          status => status.GPaiId,
          (gastos, status) => new Geral
          {
+             Id = status.Id,
              Titulo = gastos.Titulo,
              Decricao = gastos.Descricao,
              Valor = gastos.Valor * -1,
@@ -56,6 +57,7 @@ namespace WebApiFinanc.Controllers
      .ToList()).Concat(_unit.DebitoRepository.Get()
                     .Select(gastos => new Geral
                     {
+                        Id = gastos.Id,
                         Titulo = gastos.Titulo,
                         Decricao = gastos.Descricao,
                         Valor = gastos.Valor * -1,
@@ -68,6 +70,7 @@ namespace WebApiFinanc.Controllers
                 .Concat(_unit.SaldoRepository.Get()
                     .Select(gastos => new Geral
                     {
+                        Id = gastos.Id,
                         Titulo = gastos.Titulo,
                         Decricao = gastos.Descricao,
                         Valor = gastos.Valor,

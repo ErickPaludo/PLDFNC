@@ -12,6 +12,5 @@ namespace WebApiFinanc.Models.DTOs.Debito
         public decimal Valor { get; set; }
         public DateTime DthrReg { get; set; }
         public bool Pago { get; set; }
-        public int UserId { get; set; }
     }
 }

@@ -59,10 +59,10 @@ namespace WebApiFinanc.Controllers
         }
 
         [HttpPost("cadastro")]
-        public ActionResult<IEnumerable<Debito>> CadastraDebito([FromBody] Debito debito)
+        public ActionResult CadastraDebito([FromBody] Debito debito)
         {
             _gerenciamento.RegistraDebito(debito);
-            return new CreatedAtRouteResult("ObterDebito", new { id = debito.Id }, debito);
+            return Created();
         }
 
         [HttpDelete("deleta/{id:int}")]

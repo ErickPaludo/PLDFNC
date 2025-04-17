@@ -232,8 +232,16 @@ namespace WebApiFinanc.Services
             if (gasto is null)
                 throw new KeyNotFoundException($"Id solicitado = ({id})");
 
+            
+
             var gastoDTO = _mapper.Map<CreditoEditDTO>(gasto);
             credito.ApplyTo(gastoDTO);
+
+            if(gastoDTO.Status is not null)
+            {
+                gastoDTO.Status = DeParaStatus(gastoDTO.Status);
+            }
+
 
             if (gastoDTO.TotalParcelas != gasto.TotalParcelas)
             {
@@ -326,10 +334,29 @@ namespace WebApiFinanc.Services
                 case "C":
                     return "Cancelado";
                     break;
+                case "R":
+                    return "Recebido";
+                    break;
                 default:
                     return "Não definido";
 
             }
+        }
+
+        public void PagaParcela(int id, JsonPatchDocument<CreditoEditDTO> parcela)
+        {
+            var gasto = _unit.GastoStatusRepository.GetObjects(x => x.Id == id).FirstOrDefault();
+   
+            if (gasto is null)
+                throw new KeyNotFoundException($"Id solicitado = ({id})");
+
+            var gastoDTO = _mapper.Map<CreditoEditDTO>(gasto);
+            parcela.ApplyTo(gastoDTO);
+
+            _mapper.Map(gastoDTO, gasto);
+            _unit.GastoStatusRepository.Update(gasto);
+
+            _unit.Commit();
         }
     }
 }

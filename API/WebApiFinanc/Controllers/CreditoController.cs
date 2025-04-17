@@ -110,5 +110,11 @@ namespace WebApiFinanc.Controllers
             var result = _gerenciamento.UpdateCredito(id, patchCredito);
             return Ok(_mapper.Map<CreditoEditDTO>(result));
         }
+        [HttpPatch("pagamento/{id}")]
+        public ActionResult<CreditoEditDTO> PagaParcela(int id, JsonPatchDocument<CreditoEditDTO> patchCredito)
+        {
+             _gerenciamento.PagaParcela(id, patchCredito);
+            return Ok();
+        }
     }
 }

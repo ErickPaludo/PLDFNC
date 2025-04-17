@@ -813,3 +813,1481 @@ Information: 20402 - Applying migration '20250219024150_Inicial2'.
 Information: 20101 - Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
 VALUES ('20250219024150_Inicial2', '8.0.2');
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Fullsoft\Estudos\PLDFNC\API\WebApiFinanc
+Error: 0 - [16/04/2025 12:09:58] - Path: /retornausers 
+ Ocorreu um erro (500): Connect Timeout expired.
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`Active`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`Status`, `u`.`UserName`, `u`.`UserPass`
+FROM `Usuarios` AS `u`
+Information: 20101 - Executed DbCommand (314ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+ORDER BY `t`.`Id`
+LIMIT @__p_1 OFFSET @__p_0
+Information: 20101 - Executed DbCommand (319ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (411ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (318ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (305ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (303ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (304ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Error: 0 - [16/04/2025 12:19:49] - Path: /geral/retornafiltrado 
+ Ocorreu um erro (500): Unable to translate set operation after client projection has been applied. Consider moving the set operation before the last 'Select' call.
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Fullsoft\Estudos\PLDFNC\API\WebApiFinanc
+Error: 0 - [16/04/2025 16:10:07] - Path: /geral/retorno 
+ Ocorreu um erro (500): Connect Timeout expired.
+Information: 20101 - Executed DbCommand (316ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (301ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (305ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (298ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (299ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (297ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (300ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (306ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (298ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (409ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (513ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (595ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (573ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (624ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (371ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (424ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (372ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (387ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (324ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (294ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (309ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (351ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (456ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (409ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (435ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (788ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (805ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (387ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (300ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Error: 0 - [16/04/2025 16:23:27] - Path: /geral/retorno 
+ Ocorreu um erro (500): Tentativa de invocar uma implementação de função local ou lambda excluída. Isso pode acontecer quando a função lambda ou local é excluída enquanto o aplicativo está em execução.
+Information: 20101 - Executed DbCommand (519ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (453ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (558ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (441ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (304ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (548ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (452ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (299ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (384ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (509ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Error: 0 - [16/04/2025 16:28:12] - Path: /geral/retorno 
+ Ocorreu um erro (400): Delegate to an instance method cannot have null 'this'.
+Information: 20101 - Executed DbCommand (302ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (296ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (298ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (458ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (317ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (376ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (656ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (411ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (407ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (715ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (581ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (820ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (461ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (544ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (296ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (548ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (307ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (410ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (313ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (399ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (409ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (306ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (425ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (437ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (611ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (351ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (351ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (870ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (462ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (299ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (383ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (509ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (315ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (634ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (407ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (314ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (819ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (410ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (407ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (305ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (424ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (411ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (313ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (406ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (408ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (417ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (297ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (396ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (761ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (299ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (294ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (305ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (299ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (311ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (639ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (801ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (781ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (343ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (409ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (302ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (300ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (296ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (298ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (574ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (298ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (302ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (622ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_debito` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_debito`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (426ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (370ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (679ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (508ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (395ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (511ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (393ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (778ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (610ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (615ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (309ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (297ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (408ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (305ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (611ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (297ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (296ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (292ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (411ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (412ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (408ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (296ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (303ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (443ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (593ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (311ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (412ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (311ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (DbType = DateTime), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Decimal), @p7='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_credito` (`DataVencimento`, `Descricao`, `DthrReg`, `Titulo`, `TotalParcelas`, `UserId`, `Valor`, `ValorIntegral`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT `Id`
+FROM `tb_credito`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (513ms) [Parameters=[@p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (Size = 1), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32), @p13='?' (Size = 1), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32), @p16='?' (Size = 1), @p17='?' (DbType = Int32), @p18='?' (DbType = Int32), @p19='?' (Size = 1)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p8, @p9, @p10);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p11, @p12, @p13);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p14, @p15, @p16);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p17, @p18, @p19);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (614ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (298ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (513ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (595ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (447ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (308ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (374ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (DbType = DateTime), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Decimal), @p7='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_credito` (`DataVencimento`, `Descricao`, `DthrReg`, `Titulo`, `TotalParcelas`, `UserId`, `Valor`, `ValorIntegral`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT `Id`
+FROM `tb_credito`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (393ms) [Parameters=[@p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (Size = 1), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32), @p13='?' (Size = 1), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32), @p16='?' (Size = 1), @p17='?' (DbType = Int32), @p18='?' (DbType = Int32), @p19='?' (Size = 1)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p8, @p9, @p10);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p11, @p12, @p13);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p14, @p15, @p16);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p17, @p18, @p19);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (613ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (409ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (412ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (373ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (DbType = DateTime), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Decimal), @p7='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_credito` (`DataVencimento`, `Descricao`, `DthrReg`, `Titulo`, `TotalParcelas`, `UserId`, `Valor`, `ValorIntegral`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT `Id`
+FROM `tb_credito`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (296ms) [Parameters=[@p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (Size = 1), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32), @p13='?' (Size = 1), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32), @p16='?' (Size = 1), @p17='?' (DbType = Int32), @p18='?' (DbType = Int32), @p19='?' (Size = 1)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p8, @p9, @p10);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p11, @p12, @p13);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p14, @p15, @p16);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p17, @p18, @p19);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (454ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (403ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (302ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (302ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_debito` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_debito`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Fullsoft\Estudos\PLDFNC\API\WebApiFinanc
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Fullsoft\Estudos\PLDFNC\API\WebApiFinanc
+Information: 20101 - Executed DbCommand (402ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_debito` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_debito`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (434ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (477ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (301ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_saldo` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_saldo`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (470ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (329ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (408ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (302ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_saldo` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_saldo`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (397ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (848ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (376ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (929ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (329ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (341ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (410ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (296ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (300ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (409ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_saldo` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_saldo`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (419ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (309ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (410ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (316ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (409ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (405ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (436ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (298ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (302ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (414ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (410ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (407ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (399ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (417ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (409ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (410ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (302ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (601ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (409ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (307ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (399ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (308ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (414ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (411ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (408ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (306ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (373ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (396ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (411ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (604ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (300ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`Id` = @__id_0
+Information: 20101 - Executed DbCommand (619ms) [Parameters=[@p6='?' (DbType = Int32), @p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `tb_saldo` SET `Descricao` = @p0, `DthrReg` = @p1, `Status` = @p2, `Titulo` = @p3, `UserId` = @p4, `Valor` = @p5
+WHERE `Id` = @p6;
+SELECT ROW_COUNT();
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Fullsoft\Estudos\PLDFNC\API\WebApiFinanc
+Information: 20101 - Executed DbCommand (585ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (408ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (483ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Fullsoft\Estudos\PLDFNC\API\WebApiFinanc
+Information: 20101 - Executed DbCommand (340ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`Id` = @__id_0
+Error: 0 - [17/04/2025 08:30:47] - Path: /saldo/alterar/1 
+ Ocorreu um erro (404): Id solicitado = (1)
+Information: 20101 - Executed DbCommand (979ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (340ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (544ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (311ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (613ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (612ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (410ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (412ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (308ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (405ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (501ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (409ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (346ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`Id` = @__id_0
+Error: 0 - [17/04/2025 08:40:51] - Path: /saldo/alterar/1 
+ Ocorreu um erro (404): Id solicitado = (1)
+Information: 20101 - Executed DbCommand (306ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`Id` = @__id_0
+Information: 20101 - Executed DbCommand (325ms) [Parameters=[@p6='?' (DbType = Int32), @p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `tb_saldo` SET `Descricao` = @p0, `DthrReg` = @p1, `Status` = @p2, `Titulo` = @p3, `UserId` = @p4, `Valor` = @p5
+WHERE `Id` = @p6;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (413ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (311ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (304ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (873ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (521ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (617ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (315ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (330ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (410ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (308ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`Id` = @__id_0
+Error: 0 - [17/04/2025 08:45:45] - Path: /saldo/alterar/1 
+ Ocorreu um erro (404): Id solicitado = (1)
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Fullsoft\Estudos\PLDFNC\API\WebApiFinanc
+Information: 20101 - Executed DbCommand (381ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (304ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (783ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`Id` = @__id_0
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Fullsoft\Estudos\PLDFNC\API\WebApiFinanc
+Information: 20101 - Executed DbCommand (330ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (310ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (312ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (345ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`Id` = @__id_0
+Error: 0 - [17/04/2025 10:03:11] - Path: /debito/alterar/1 
+ Ocorreu um erro (500): The target location specified by path segment 'status' was not found.
+Information: 20101 - Executed DbCommand (410ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (310ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (306ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (537ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`Id` = @__id_0
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Fullsoft\Estudos\PLDFNC\API\WebApiFinanc
+Information: 20101 - Executed DbCommand (320ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (463ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (410ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (404ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`Id` = @__id_0
+Information: 20101 - Executed DbCommand (618ms) [Parameters=[@p6='?' (DbType = Int32), @p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `tb_debito` SET `Descricao` = @p0, `DthrReg` = @p1, `Status` = @p2, `Titulo` = @p3, `UserId` = @p4, `Valor` = @p5
+WHERE `Id` = @p6;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (409ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`Id` = @__id_0
+Information: 20101 - Executed DbCommand (408ms) [Parameters=[@p6='?' (DbType = Int32), @p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `tb_debito` SET `Descricao` = @p0, `DthrReg` = @p1, `Status` = @p2, `Titulo` = @p3, `UserId` = @p4, `Valor` = @p5
+WHERE `Id` = @p6;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (435ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (338ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (338ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (406ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Error: 20102 - Failed executing DbCommand (35,967ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (399ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Error: 10100 - An exception occurred while iterating over the results of a query for context type 'WebApiFinanc.Context.AppDbContext'.
+System.AggregateException: An error occurred while writing to logger(s). (The process cannot access the file 'C:\Fullsoft\Estudos\PLDFNC\API\WebApiFinanc\log.txt' because it is being used by another process.)
+ ---> System.IO.IOException: The process cannot access the file 'C:\Fullsoft\Estudos\PLDFNC\API\WebApiFinanc\log.txt' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamWriter.ValidateArgsAndOpenPath(String path, Boolean append, Encoding encoding, Int32 bufferSize)
+   at System.IO.StreamWriter..ctor(String path, Boolean append)
+   at WebApiFinanc.Logging.CustomerLogger.EscreverTextoNoArquivo(String mensagem) in C:\Fullsoft\Estudos\PLDFNC\API\WebApiFinanc\Logging\CustomerLogger.cs:line 35
+   at WebApiFinanc.Logging.CustomerLogger.Log[TState](LogLevel logLevel, EventId eventId, TState state, Exception exception, Func`3 formatter) in C:\Fullsoft\Estudos\PLDFNC\API\WebApiFinanc\Logging\CustomerLogger.cs:line 29
+   at Microsoft.Extensions.Logging.Logger.<Log>g__LoggerLog|14_0[TState](LogLevel logLevel, EventId eventId, ILogger logger, Exception exception, Func`3 formatter, List`1& exceptions, TState& state)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.Logging.Logger.ThrowLoggingError(List`1 exceptions)
+   at Microsoft.Extensions.Logging.Logger.Log[TState](LogLevel logLevel, EventId eventId, TState state, Exception exception, Func`3 formatter)
+   at Microsoft.Extensions.Logging.LoggerMessage.<>c__DisplayClass20_0`6.<Define>g__Log|0(ILogger logger, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, Exception exception)
+   at Microsoft.Extensions.Logging.LoggerMessage.<>c__DisplayClass20_0`6.<Define>b__1(ILogger logger, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, Exception exception)
+   at Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log[TLoggerCategory](IDiagnosticsLogger`1 logger, TParam1 arg1, TParam2 arg2, TParam3 arg3, TParam4 arg4, TParam5 arg5, TParam6 arg6)
+   at Microsoft.EntityFrameworkCore.Diagnostics.Internal.RelationalCommandDiagnosticsLogger.CommandReaderExecuted(IRelationalConnection connection, DbCommand command, DbContext context, Guid commandId, Guid connectionId, DbDataReader methodResult, DateTimeOffset startTime, TimeSpan duration, CommandSource commandSource)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+Error: 0 - [17/04/2025 10:09:30] - Path: /geral/retorno 
+ Ocorreu um erro (500): An error occurred while writing to logger(s). (The process cannot access the file 'C:\Fullsoft\Estudos\PLDFNC\API\WebApiFinanc\log.txt' because it is being used by another process.)
+Information: 20101 - Executed DbCommand (318ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (409ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (408ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (312ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (325ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (305ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (421ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`Id` = @__id_0
+Information: 20101 - Executed DbCommand (347ms) [Parameters=[@p6='?' (DbType = Int32), @p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `tb_debito` SET `Descricao` = @p0, `DthrReg` = @p1, `Status` = @p2, `Titulo` = @p3, `UserId` = @p4, `Valor` = @p5
+WHERE `Id` = @p6;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (391ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (316ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (311ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (433ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (310ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (317ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (512ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (529ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (364ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (407ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`Id` = @__id_0
+Information: 20101 - Executed DbCommand (369ms) [Parameters=[@p6='?' (DbType = Int32), @p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `tb_debito` SET `Descricao` = @p0, `DthrReg` = @p1, `Status` = @p2, `Titulo` = @p3, `UserId` = @p4, `Valor` = @p5
+WHERE `Id` = @p6;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (447ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (310ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (314ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (413ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`Id` = @__id_0
+Information: 20101 - Executed DbCommand (395ms) [Parameters=[@p6='?' (DbType = Int32), @p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `tb_debito` SET `Descricao` = @p0, `DthrReg` = @p1, `Status` = @p2, `Titulo` = @p3, `UserId` = @p4, `Valor` = @p5
+WHERE `Id` = @p6;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (322ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`Id` = @__id_0
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@p6='?' (DbType = Int32), @p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `tb_debito` SET `Descricao` = @p0, `DthrReg` = @p1, `Status` = @p2, `Titulo` = @p3, `UserId` = @p4, `Valor` = @p5
+WHERE `Id` = @p6;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (303ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (380ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (308ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (305ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (306ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (515ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (409ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (611ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_debito` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_debito`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (409ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (610ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (411ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (408ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`Id` = @__id_0
+Information: 20101 - Executed DbCommand (514ms) [Parameters=[@p6='?' (DbType = Int32), @p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `tb_debito` SET `Descricao` = @p0, `DthrReg` = @p1, `Status` = @p2, `Titulo` = @p3, `UserId` = @p4, `Valor` = @p5
+WHERE `Id` = @p6;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (550ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (310ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (309ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (655ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (409ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (340ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (313ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (344ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (733ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (304ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (312ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (311ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (539ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (416ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (408ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `tb_debito` AS `t`
+    WHERE `t`.`Id` = @__id_0)
+Information: 20101 - Executed DbCommand (684ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`Id` = @__id_0
+Information: 20101 - Executed DbCommand (326ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+DELETE FROM `tb_debito`
+WHERE `Id` = @p0;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (311ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (784ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (511ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (614ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `tb_debito` AS `t`
+    WHERE `t`.`Id` = @__id_0)
+Error: 0 - [17/04/2025 10:32:33] - Path: /debito/deleta/2 
+ Ocorreu um erro (404): Id solicitado = (2)
+Information: 20101 - Executed DbCommand (534ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (857ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (349ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (348ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `tb_debito` AS `t`
+    WHERE `t`.`Id` = @__id_0)
+Error: 0 - [17/04/2025 10:33:46] - Path: /debito/deleta/2 
+ Ocorreu um erro (404): Id solicitado = (2)
+Information: 20101 - Executed DbCommand (581ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (820ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (433ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (313ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (309ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+ORDER BY `t`.`Id`
+LIMIT @__p_1 OFFSET @__p_0
+Information: 20101 - Executed DbCommand (509ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (410ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+ORDER BY `t`.`Id`
+LIMIT @__p_1 OFFSET @__p_0
+Information: 20101 - Executed DbCommand (529ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (954ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (566ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (352ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `tb_debito` AS `t`
+    WHERE `t`.`Id` = @__id_0)
+Information: 20101 - Executed DbCommand (367ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`Id` = @__id_0
+Information: 20101 - Executed DbCommand (329ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+DELETE FROM `tb_debito`
+WHERE `Id` = @p0;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (941ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (837ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (487ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (616ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (311ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (386ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (518ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (408ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (318ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (358ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (325ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (379ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`
+Information: 20101 - Executed DbCommand (482ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `tb_debito` AS `t`
+    WHERE `t`.`Id` = @__id_0)
+Information: 20101 - Executed DbCommand (788ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`Id` = @__id_0
+Information: 20101 - Executed DbCommand (351ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `tb_debito` AS `t`
+    WHERE `t`.`Id` = @__id_0)
+Error: 20102 - Failed executing DbCommand (14,547ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+DELETE FROM `tb_debito`
+WHERE `Id` = @p0;
+SELECT ROW_COUNT();
+Error: 10000 - An exception occurred in the database while saving changes for context type 'WebApiFinanc.Context.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.AggregateException: An error occurred while writing to logger(s). (The process cannot access the file 'C:\Fullsoft\Estudos\PLDFNC\API\WebApiFinanc\log.txt' because it is being used by another process.)
+ ---> System.IO.IOException: The process cannot access the file 'C:\Fullsoft\Estudos\PLDFNC\API\WebApiFinanc\log.txt' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamWriter..ctor(String path, Boolean append)
+   at WebApiFinanc.Logging.CustomerLogger.EscreverTextoNoArquivo(String mensagem) in C:\Fullsoft\Estudos\PLDFNC\API\WebApiFinanc\Logging\CustomerLogger.cs:line 35
+   at WebApiFinanc.Logging.CustomerLogger.Log[TState](LogLevel logLevel, EventId eventId, TState state, Exception exception, Func`3 formatter) in C:\Fullsoft\Estudos\PLDFNC\API\WebApiFinanc\Logging\CustomerLogger.cs:line 29
+   at Microsoft.Extensions.Logging.Logger.<Log>g__LoggerLog|14_0[TState](LogLevel logLevel, EventId eventId, ILogger logger, Exception exception, Func`3 formatter, List`1& exceptions, TState& state)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.Logging.Logger.ThrowLoggingError(List`1 exceptions)
+   at Microsoft.Extensions.Logging.Logger.Log[TState](LogLevel logLevel, EventId eventId, TState state, Exception exception, Func`3 formatter)
+   at Microsoft.Extensions.Logging.LoggerMessage.<>c__DisplayClass20_0`6.<Define>g__Log|0(ILogger logger, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, Exception exception)
+   at Microsoft.EntityFrameworkCore.Diagnostics.Internal.RelationalCommandDiagnosticsLogger.CommandReaderExecuted(IRelationalConnection connection, DbCommand command, DbContext context, Guid commandId, Guid connectionId, DbDataReader methodResult, DateTimeOffset startTime, TimeSpan duration, CommandSource commandSource)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Information: 20101 - Executed DbCommand (1,539ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`Id` = @__id_0
+Error: 0 - [17/04/2025 10:47:10] - Path: /debito/deleta/1 
+ Ocorreu um erro (500): An error occurred while saving the entity changes. See the inner exception for details.
+Information: 20101 - Executed DbCommand (371ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, DATE_ADD(`t`.`DthrReg`, INTERVAL CAST(`t0`.`Parcela` - 1 AS signed) month), `t0`.`Parcela`, `t`.`TotalParcelas`, `t0`.`Status`
+FROM `tb_credito` AS `t`
+INNER JOIN `tb_gastos_status` AS `t0` ON `t`.`Id` = `t0`.`GPaiId`
+Information: 20101 - Executed DbCommand (911ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor` * -1.0, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_debito` AS `t`
+Information: 20101 - Executed DbCommand (913ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
+FROM `tb_saldo` AS `t`

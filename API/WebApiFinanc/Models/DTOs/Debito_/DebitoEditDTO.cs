@@ -6,6 +6,7 @@
         public string Descricao { get; set; }
         public decimal Valor { get; set; }
         public DateTime DthrReg { get; set; }
-        public bool Pago { get; set; }
+        public string Status { get; set; }
+        
     }
 }
