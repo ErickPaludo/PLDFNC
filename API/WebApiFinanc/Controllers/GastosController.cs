@@ -15,6 +15,7 @@ using WebApiFinanc.Models.DTOs.Debito;
 using WebApiFinanc.Pagination;
 using WebApiFinanc.Repositories.UnitWork;
 using WebApiFinanc.Services;
+using X.PagedList;
 
 namespace WebApiFinanc.Controllers
 {
@@ -36,19 +37,19 @@ namespace WebApiFinanc.Controllers
 
         #region Retorna todos os gastos
         [HttpGet("retorno")]
-        public ActionResult<IEnumerable<Geral>> RetornoGeral(int iduser, [FromQuery] QueryStringParameters geralParameters, [FromQuery] FilterDataParameter dateParam, string? categoria = null)
+        public async Task<ActionResult<IEnumerable<Geral>>> RetornoGeral(int iduser, [FromQuery] QueryStringParameters geralParameters, [FromQuery] FilterDataParameter dateParam, string? categoria = null)
         {
             if(!_unit.UsuarioRepository.ObjectAny(x => x.UserId == iduser))
             {
                 return NotFound("Usuário não encontrado");
             }
 
-            var creditoObjects = _unit.CreditoRepository.GetObjects(x => x.UserId == iduser) ?? _unit.CreditoRepository.Get();
-            var debitoObjects = _unit.DebitoRepository.GetObjects(x => x.UserId == iduser) ?? _unit.DebitoRepository.Get(); ;
-            var saldoObjects = _unit.SaldoRepository.GetObjects(x => x.UserId == iduser) ?? _unit.SaldoRepository.Get(); ;
+            var creditoObjects =  await _unit.CreditoRepository.GetObjects(x => x.UserId == iduser);
+            var debitoObjects = await _unit.DebitoRepository.GetObjects(x => x.UserId == iduser);
+            var saldoObjects = await _unit.SaldoRepository.GetObjects(x => x.UserId == iduser);
 
-            IEnumerable<Geral> geral = (creditoObjects
-     .Join(_unit.GastoStatusRepository.Get(),
+            IEnumerable<Geral> geral = ((creditoObjects ?? await _unit.CreditoRepository.Get())
+     .Join(await _unit.GastoStatusRepository.Get(),
          gastos => gastos.Id,
          status => status.GPaiId,
          (gastos, status) => new Geral
@@ -63,7 +64,7 @@ namespace WebApiFinanc.Controllers
              Status = _gerenciamento.DeParaStatus(status.Status),
              Categoria = "Crédito"
          }).Where(x => x.Dthr >= dateParam.DataIni && x.Dthr <= dateParam.DataFim)
-     .ToList()).Concat(debitoObjects
+     .ToList()).Concat((debitoObjects ?? await _unit.DebitoRepository.Get())
                     .Select(gastos => new Geral
                     {
                         Id = gastos.Id,
@@ -76,7 +77,7 @@ namespace WebApiFinanc.Controllers
                         Status = _gerenciamento.DeParaStatus(gastos.Status)
                     }).Where(x => x.Dthr >= dateParam.DataIni && x.Dthr <= dateParam.DataFim)
                     .ToList())
-                .Concat(saldoObjects
+                .Concat((saldoObjects ?? await _unit.SaldoRepository.Get())
                     .Select(gastos => new Geral
                     {
                         Id = gastos.Id,
@@ -95,16 +96,16 @@ namespace WebApiFinanc.Controllers
             {
                 geral = geral.Where(x => x.Categoria == _gerenciamento.DeParaCategoria(categoria));
             }
-            var debitosOrdenados = PagedList<Geral>.TotalPagedList(geral.AsQueryable(), geralParameters.PageNumber, geralParameters.PageSize);
+            var debitosOrdenados = await geral.ToPagedListAsync(geralParameters.PageNumber, geralParameters.PageSize);
 
             Response.Headers.Append("X-Pagination", JsonConvert.SerializeObject(new
             {
-                debitosOrdenados.TotalCount,
+                debitosOrdenados.Count,
                 debitosOrdenados.PageSize,
-                debitosOrdenados.CurrentPage,
-                debitosOrdenados.TotalPages,
-                debitosOrdenados.HasNext,
-                debitosOrdenados.HasPrevious
+                debitosOrdenados.PageCount,
+                debitosOrdenados.TotalItemCount,
+                debitosOrdenados.HasNextPage,
+                debitosOrdenados.HasPreviousPage
             }));
 
             return Ok(debitosOrdenados);

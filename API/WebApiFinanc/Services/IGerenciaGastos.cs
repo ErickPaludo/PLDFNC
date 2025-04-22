@@ -13,11 +13,11 @@ namespace WebApiFinanc.Services
         Debito RegistraDebito(Debito debito); 
         Saldo RegistraSaldo(Saldo saldo);
         void Excluir(int id,string tipo = "O");
-        Gastos Update(Gastos gastoModify);
-        Debito UpdateDebito(int id, JsonPatchDocument<DebitoEditDTO> debito);
-        Credito UpdateCredito(int id, JsonPatchDocument<CreditoEditDTO> credito);
-        Saldo UpdateSaldo(int id, JsonPatchDocument<SaldoEditDTO> saldo);
-        void PagaParcela(int id, JsonPatchDocument<CreditoEditDTO> parcela);
+       Task<Gastos> Update(Gastos gastoModify);
+        Task<Debito> UpdateDebito(int id, JsonPatchDocument<DebitoEditDTO> debito);
+        Task<Credito> UpdateCredito(int id, JsonPatchDocument<CreditoEditDTO> credito);
+        Task<Saldo> UpdateSaldo(int id, JsonPatchDocument<SaldoEditDTO> saldo);
+       Task PagaParcela(int id, JsonPatchDocument<CreditoEditDTO> parcela);
         string DeParaStatus(string status);   
         string DeParaCategoria(string status);
     }

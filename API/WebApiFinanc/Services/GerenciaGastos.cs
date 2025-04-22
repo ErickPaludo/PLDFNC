@@ -61,7 +61,7 @@ namespace WebApiFinanc.Services
             _unit.Commit();
         }
 
-        public Gastos Update(Gastos gastoModify)
+        public async Task<Gastos> Update(Gastos gastoModify)
         {
             DateTime dataVencimento = DateTime.Now;
             if (gastoModify.Categoria.Equals("C"))
@@ -71,7 +71,7 @@ namespace WebApiFinanc.Services
 
                 DateTime novaData = gastoModify.DthrReg;
 
-                var listobjoriginal = _unit.GastosRepository.GetObjects(x => x.GastoPaiId == gastoModify.Id);
+                var listobjoriginal = await _unit.GastosRepository.GetObjects(x => x.GastoPaiId == gastoModify.Id);
                 var objoriginal = listobjoriginal.FirstOrDefault();
 
                 var diferenca = objoriginal.TotalParcelas - gastoModify.TotalParcelas;
@@ -124,7 +124,7 @@ namespace WebApiFinanc.Services
                             _unit.GastosRepository.Delete(x => x.GastoPaiId.Equals(gastoModify.Id) && x.Parcela.Equals(objoriginal.TotalParcelas - i));
                         }
                         _unit.Commit();
-                        listobjoriginal = _unit.GastosRepository.GetObjects(x => x.GastoPaiId == gastoModify.Id);
+                        listobjoriginal = await _unit.GastosRepository.GetObjects(x => x.GastoPaiId == gastoModify.Id);
                     }
                 }
                 foreach (var obj in listobjoriginal)
@@ -202,10 +202,10 @@ namespace WebApiFinanc.Services
             return debito;
         }
 
-        public Debito UpdateDebito(int id, JsonPatchDocument<DebitoEditDTO> debito)
+        public async Task<Debito> UpdateDebito(int id, JsonPatchDocument<DebitoEditDTO> debito)
         {
 
-            var gasto = _unit.DebitoRepository.GetObjects(x => x.Id == id).FirstOrDefault();
+            var gasto = (await _unit.DebitoRepository.GetObjects(x => x.Id == id)).FirstOrDefault();
 
             if (gasto is null)
                 throw new KeyNotFoundException($"Id solicitado = ({id})");
@@ -221,9 +221,9 @@ namespace WebApiFinanc.Services
             return gasto;
         }
 
-        public Credito UpdateCredito(int id, JsonPatchDocument<CreditoEditDTO> credito)
+        public async Task<Credito> UpdateCredito(int id, JsonPatchDocument<CreditoEditDTO> credito)
         {
-            var gasto = _unit.CreditoRepository.GetObjects(x => x.Id == id).FirstOrDefault();
+            var gasto =(await _unit.CreditoRepository.GetObjects(x => x.Id == id)).FirstOrDefault();
 
             bool alteraParcelas = false;
             bool alteraValorParcela = false;
@@ -298,9 +298,9 @@ namespace WebApiFinanc.Services
             return saldo;
         }
 
-        public Saldo UpdateSaldo(int id, JsonPatchDocument<SaldoEditDTO> saldo)
+        public async Task<Saldo> UpdateSaldo(int id, JsonPatchDocument<SaldoEditDTO> saldo)
         {
-            var saldoOrg = _unit.SaldoRepository.GetObjects(x => x.Id == id).FirstOrDefault();
+            var saldoOrg = (await _unit.SaldoRepository.GetObjects(x => x.Id == id)).FirstOrDefault();
 
             if (saldoOrg is null)
                 throw new KeyNotFoundException($"Id solicitado = ({id})");
@@ -352,10 +352,10 @@ namespace WebApiFinanc.Services
             }
         }
 
-        public void PagaParcela(int id, JsonPatchDocument<CreditoEditDTO> parcela)
+        public async Task PagaParcela(int id, JsonPatchDocument<CreditoEditDTO> parcela)
         {
-            var gasto = _unit.GastoStatusRepository.GetObjects(x => x.Id == id).FirstOrDefault();
-   
+            var gasto = (await _unit.GastoStatusRepository.GetObjects(x => x.Id == id)).FirstOrDefault();
+
             if (gasto is null)
                 throw new KeyNotFoundException($"Id solicitado = ({id})");
 

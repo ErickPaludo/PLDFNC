@@ -56,15 +56,5 @@ namespace WebApiFinanc.Repositories.Default
                 return false;
             }
         }
-
-        public async Task<IPagedList<T>> GetWithParameters(IQueryable<T> objeto, QueryStringParameters produtoParameters, Expression<Func<T, int>> ordenation)
-        {
-            var gastos = await _context.Set<T>()
-                .AsNoTracking()
-                .OrderBy(ordenation);
-
-            var debitosOrdenados = await gastos.ToPagedListAsync(produtoParameters.PageNumber, produtoParameters.PageSize);
-            return debitosOrdenados;
-        }
     }
 }
