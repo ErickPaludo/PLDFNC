@@ -28,41 +28,41 @@ namespace WebApiFinanc.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("retorno")]
-        public ActionResult<IEnumerable<Debito>> RetornaDebito([FromQuery] QueryStringParameters debitoParameters, [FromQuery] FilterDataParameter dateParam)
-        {
-            var gasto = _unit.DebitoRepository.GetWithParameters(_unit.DebitoRepository.Get().Where(x => x.DthrReg >= dateParam.DataIni && x.DthrReg <= dateParam.DataFim), debitoParameters, x => x.Id);
+        //[HttpGet("retorno")]
+        //public ActionResult<IEnumerable<Debito>> RetornaDebito([FromQuery] QueryStringParameters debitoParameters, [FromQuery] FilterDataParameter dateParam)
+        //{
+        //    var gasto = _unit.DebitoRepository.GetWithParameters(_unit.DebitoRepository.Get().Where(x => x.DthrReg >= dateParam.DataIni && x.DthrReg <= dateParam.DataFim), debitoParameters, x => x.Id);
 
-            Response.Headers.Append("X-Pagination", JsonConvert.SerializeObject(new
-            {
-                gasto.TotalCount,
-                gasto.PageSize,
-                gasto.CurrentPage,
-                gasto.TotalPages,
-                gasto.HasNext,
-                gasto.HasPrevious
-            }));
+        //    Response.Headers.Append("X-Pagination", JsonConvert.SerializeObject(new
+        //    {
+        //        gasto.TotalCount,
+        //        gasto.PageSize,
+        //        gasto.CurrentPage,
+        //        gasto.TotalPages,
+        //        gasto.HasNext,
+        //        gasto.HasPrevious
+        //    }));
 
-            return Ok(gasto);
-        }
+        //    return Ok(gasto);
+        //}
 
-        [HttpGet("retornafiltrado/{id:int}", Name = "ObterDebito")]
-        public ActionResult<IEnumerable<Debito>> RetornaDebitos(int id)
-        {
-            var gasto = _unit.DebitoRepository.GetObjects(x => x.Id == id);
-            if (gasto is null)
-            {
-                return NoContent();
-            }
+        //[HttpGet("retornafiltrado/{id:int}", Name = "ObterDebito")]
+        //public ActionResult<IEnumerable<Debito>> RetornaDebitos(int id)
+        //{
+        //    var gasto = _unit.DebitoRepository.GetObjects(x => x.Id == id);
+        //    if (gasto is null)
+        //    {
+        //        return NoContent();
+        //    }
 
-            return Ok(gasto);
-        }
+        //    return Ok(gasto);
+        //}
 
         [HttpPost("cadastro")]
         public ActionResult CadastraDebito([FromBody] Debito debito)
         {
             _gerenciamento.RegistraDebito(debito);
-            return Created();
+            return CreatedAtAction(nameof(CadastraDebito), new { id = debito.Id }, debito);
         }
 
         [HttpDelete("deleta/{id:int}")]

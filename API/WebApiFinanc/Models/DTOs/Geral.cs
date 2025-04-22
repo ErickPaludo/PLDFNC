@@ -2,7 +2,8 @@
 {
     public class Geral
     {
-        public int Id { get; set; }
+        public int Id { get; set; }                  
+        public string  GpId { get; set; }
         public string Titulo { get; set; }
         public string Decricao { get; set; }
         public decimal Valor { get; set; }

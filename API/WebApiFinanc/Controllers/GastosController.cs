@@ -36,15 +36,24 @@ namespace WebApiFinanc.Controllers
 
         #region Retorna todos os gastos
         [HttpGet("retorno")]
-        public ActionResult<IEnumerable<Geral>> RetornoGeral([FromQuery] QueryStringParameters geralParameters, [FromQuery] FilterDataParameter dateParam)
+        public ActionResult<IEnumerable<Geral>> RetornoGeral(int iduser, [FromQuery] QueryStringParameters geralParameters, [FromQuery] FilterDataParameter dateParam, string? categoria = null)
         {
+            if(!_unit.UsuarioRepository.ObjectAny(x => x.UserId == iduser))
+            {
+                return NotFound("Usuário não encontrado");
+            }
 
-            IEnumerable<Geral> geral = (_unit.CreditoRepository.Get()
+            var creditoObjects = _unit.CreditoRepository.GetObjects(x => x.UserId == iduser) ?? _unit.CreditoRepository.Get();
+            var debitoObjects = _unit.DebitoRepository.GetObjects(x => x.UserId == iduser) ?? _unit.DebitoRepository.Get(); ;
+            var saldoObjects = _unit.SaldoRepository.GetObjects(x => x.UserId == iduser) ?? _unit.SaldoRepository.Get(); ;
+
+            IEnumerable<Geral> geral = (creditoObjects
      .Join(_unit.GastoStatusRepository.Get(),
          gastos => gastos.Id,
          status => status.GPaiId,
          (gastos, status) => new Geral
          {
+             GpId = gastos.Id.ToString(),
              Id = status.Id,
              Titulo = gastos.Titulo,
              Decricao = gastos.Descricao,
@@ -53,8 +62,8 @@ namespace WebApiFinanc.Controllers
              Parcela = $"{status.Parcela}/{gastos.TotalParcelas}",
              Status = _gerenciamento.DeParaStatus(status.Status),
              Categoria = "Crédito"
-         })
-     .ToList()).Concat(_unit.DebitoRepository.Get()
+         }).Where(x => x.Dthr >= dateParam.DataIni && x.Dthr <= dateParam.DataFim)
+     .ToList()).Concat(debitoObjects
                     .Select(gastos => new Geral
                     {
                         Id = gastos.Id,
@@ -65,9 +74,9 @@ namespace WebApiFinanc.Controllers
                         Parcela = string.Empty,
                         Categoria = "Débito",
                         Status = _gerenciamento.DeParaStatus(gastos.Status)
-                    })
-                    .ToList()) // 🚀 Força a execução antes do Concat()        
-                .Concat(_unit.SaldoRepository.Get()
+                    }).Where(x => x.Dthr >= dateParam.DataIni && x.Dthr <= dateParam.DataFim)
+                    .ToList())
+                .Concat(saldoObjects
                     .Select(gastos => new Geral
                     {
                         Id = gastos.Id,
@@ -78,9 +87,14 @@ namespace WebApiFinanc.Controllers
                         Parcela = string.Empty,
                         Categoria = "Saldo",
                         Status = _gerenciamento.DeParaStatus(gastos.Status)
-                    })
-                    .ToList()).Where(x => x.Dthr >= dateParam.DataIni && x.Dthr <= dateParam.DataFim);
+                    }).Where(x => x.Dthr >= dateParam.DataIni && x.Dthr <= dateParam.DataFim)
+                    .ToList());
 
+
+            if (!string.IsNullOrEmpty(categoria) && !_gerenciamento.DeParaCategoria(categoria).Equals("Não definido"))
+            {
+                geral = geral.Where(x => x.Categoria == _gerenciamento.DeParaCategoria(categoria));
+            }
             var debitosOrdenados = PagedList<Geral>.TotalPagedList(geral.AsQueryable(), geralParameters.PageNumber, geralParameters.PageSize);
 
             Response.Headers.Append("X-Pagination", JsonConvert.SerializeObject(new
@@ -94,51 +108,6 @@ namespace WebApiFinanc.Controllers
             }));
 
             return Ok(debitosOrdenados);
-        }
-
-        [HttpGet("retornafiltrado")]
-        public ActionResult<IEnumerable<Gastos>> RetornoGeralFiltro([FromQuery] int iduser, [FromQuery] DateTime dtinicial, [FromQuery] DateTime dtfinal)
-        {
-            IEnumerable<Geral> geral = (from gastos in _unit.CreditoRepository.Get()
-                                        join status in _unit.GastoStatusRepository.Get()
-                                            on gastos.Id equals status.GPaiId
-                                        where gastos.UserId == iduser && gastos.DthrReg.AddMonths(status.Parcela - 1) >= dtinicial && gastos.DthrReg.AddMonths(status.Parcela - 1) <= dtfinal
-                                        select new Geral
-                                        {
-                                            Titulo = gastos.Titulo,
-                                            Decricao = gastos.Descricao,
-                                            Valor = gastos.Valor * -1,
-                                            Dthr = gastos.DthrReg.AddMonths(status.Parcela - 1),
-                                            Parcela = $"{status.Parcela.ToString()}/{gastos.TotalParcelas.ToString()}",
-                                            Status = _gerenciamento.DeParaStatus(status.Status),
-                                            Categoria = "Crédito"
-                                        })
-                                        .Concat(from gastos in _unit.DebitoRepository.Get()
-                                                where gastos.UserId == iduser && gastos.DthrReg >= dtinicial && gastos.DthrReg <= dtfinal
-                                                select new Geral
-                                                {
-                                                    Titulo = gastos.Titulo,
-                                                    Decricao = gastos.Descricao,
-                                                    Valor = gastos.Valor * -1,
-                                                    Dthr = gastos.DthrReg,
-                                                    Parcela = string.Empty,
-                                                    Categoria = "Débito",
-                                                    Status = _gerenciamento.DeParaStatus(gastos.Status),
-                                                })
-                                        .Concat(from gastos in _unit.SaldoRepository.Get()
-                                                where gastos.UserId == iduser && gastos.DthrReg >= dtinicial && gastos.DthrReg <= dtfinal
-                                                select new Geral
-                                                {
-                                                    Titulo = gastos.Titulo,
-                                                    Decricao = gastos.Descricao,
-                                                    Valor = gastos.Valor,
-                                                    Dthr = gastos.DthrReg,
-                                                    Parcela = string.Empty,
-                                                    Categoria = "Saldo",
-                                                    Status = _gerenciamento.DeParaStatus(gastos.Status),
-                                                });
-
-            return Ok(geral.ToList());
         }
         #endregion  
     }

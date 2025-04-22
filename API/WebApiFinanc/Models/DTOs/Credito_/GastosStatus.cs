@@ -26,7 +26,5 @@ namespace WebApiFinanc.Models
         [DefaultValue("N")]
         [StringLength(1)]
         public string Status { get; set; }
-
-
     }
 }

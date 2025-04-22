@@ -28,73 +28,73 @@ namespace WebApiFinanc.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("retorno")]
-        public ActionResult<IEnumerable<CreditoDTO>> RetornaCredito([FromQuery] QueryStringParameters parameters, [FromQuery]FilterDataParameter dateParam)
-        {
-            var query = (from gastos in _unit.CreditoRepository.Get()
-                         join status in _unit.GastoStatusRepository.Get()
-                             on gastos.Id equals status.GPaiId
-                         select new CreditoDTO
-                         {
-                             Id = gastos.Id,
-                             Titulo = gastos.Titulo,
-                             Descricao = gastos.Descricao,
-                             Valor = gastos.Valor,
-                             ValorIntegral = gastos.ValorIntegral,
-                             DthrReg = gastos.DthrReg.AddMonths(status.Parcela - 1),
-                             Parcela = status.Parcela,
-                             TotalParcelas = gastos.TotalParcelas,
-                             Status = status.Status,
-                             UserId = gastos.UserId
-                         }).Where(x => x.DthrReg >= dateParam.DataIni && x.DthrReg <= dateParam.DataFim);
-            var creditoPaginado =_unit.CreditoRepository.GetPagination(parameters,x=>x.Id,query);
+        //[HttpGet("retorno")]
+        //public ActionResult<IEnumerable<CreditoDTO>> RetornaCredito([FromQuery] QueryStringParameters parameters, [FromQuery] FilterDataParameter dateParam)
+        //{
+        //    var query = (from gastos in _unit.CreditoRepository.Get()
+        //                 join status in _unit.GastoStatusRepository.Get()
+        //                     on gastos.Id equals status.GPaiId
+        //                 select new CreditoDTO
+        //                 {
+        //                     Id = gastos.Id,
+        //                     Titulo = gastos.Titulo,
+        //                     Descricao = gastos.Descricao,
+        //                     Valor = gastos.Valor,
+        //                     ValorIntegral = gastos.ValorIntegral,
+        //                     DthrReg = gastos.DthrReg.AddMonths((status.Parcela ?? 1) - 1), // Handle nullable int with null-coalescing operator
+        //                     Parcela = status.Parcela ?? 0, // Explicitly handle nullable int with null-coalescing operator
+        //                     TotalParcelas = gastos.TotalParcelas,
+        //                     Status = status.Status,
+        //                     UserId = gastos.UserId
+        //                 }).Where(x => x.DthrReg >= dateParam.DataIni && x.DthrReg <= dateParam.DataFim);
+        //    var creditoPaginado = _unit.CreditoRepository.GetPagination(parameters, x => x.Id, query);
 
-            Response.Headers.Append("X-Pagination", JsonConvert.SerializeObject(new
-            {
-                creditoPaginado.TotalCount,
-                creditoPaginado.PageSize,
-                creditoPaginado.CurrentPage,
-                creditoPaginado.TotalPages,
-                creditoPaginado.HasNext,
-                creditoPaginado.HasPrevious
-            }));
+        //    Response.Headers.Append("X-Pagination", JsonConvert.SerializeObject(new
+        //    {
+        //        creditoPaginado.TotalCount,
+        //        creditoPaginado.PageSize,
+        //        creditoPaginado.CurrentPage,
+        //        creditoPaginado.TotalPages,
+        //        creditoPaginado.HasNext,
+        //        creditoPaginado.HasPrevious
+        //    }));
 
-            return creditoPaginado.ToList();
-        }
+        //    return creditoPaginado.ToList();
+        //}
 
-        [HttpGet("retornafiltrado/{id:int}", Name = "ObterCredito")]
-        public ActionResult<IEnumerable<CreditoDTO>> RetornaCredito(int id)
-        {
-            var credito = _unit.CreditoRepository.GetObjects(x => x.Id == id);
-            if (credito is null)
-            {
-                return NoContent();
-            }
-            IEnumerable<CreditoDTO> query = from gastos in _unit.CreditoRepository.Get()
-                                            join status in _unit.GastoStatusRepository.Get()
-                                                on gastos.Id equals status.GPaiId
-                                            where gastos.Id == id
-                                            select new CreditoDTO
-                                            {
-                                                Id = gastos.Id,
-                                                Titulo = gastos.Titulo,
-                                                Descricao = gastos.Descricao,
-                                                Valor = gastos.Valor,
-                                                ValorIntegral = gastos.ValorIntegral,
-                                                DthrReg = gastos.DthrReg.AddMonths(status.Parcela - 1),
-                                                Parcela = status.Parcela,
-                                                TotalParcelas = gastos.TotalParcelas,
-                                                Status = status.Status,
-                                                UserId = gastos.UserId
-                                            };
-            return query.ToList();
-        }
+        //[HttpGet("retornafiltrado/{id:int}", Name = "ObterCredito")]
+        //public ActionResult<IEnumerable<CreditoDTO>> RetornaCredito(int id)
+        //{
+        //    var credito = _unit.CreditoRepository.GetObjects(x => x.Id == id);
+        //    if (credito is null)
+        //    {
+        //        return NoContent();
+        //    }
+        //    IEnumerable<CreditoDTO> query = from gastos in _unit.CreditoRepository.Get()
+        //                                    join status in _unit.GastoStatusRepository.Get()
+        //                                        on gastos.Id equals status.GPaiId
+        //                                    where gastos.Id == id
+        //                                    select new CreditoDTO
+        //                                    {
+        //                                        Id = gastos.Id,
+        //                                        Titulo = gastos.Titulo,
+        //                                        Descricao = gastos.Descricao,
+        //                                        Valor = gastos.Valor,
+        //                                        ValorIntegral = gastos.ValorIntegral,
+        //                                        DthrReg = gastos.DthrReg.AddMonths((status.Parcela ?? 1) - 1), // Handle nullable int with null-coalescing operator
+        //                                        Parcela = status.Parcela ?? 0, // Explicitly handle nullable int with null-coalescing operator
+        //                                        TotalParcelas = gastos.TotalParcelas,
+        //                                        Status = status.Status,
+        //                                        UserId = gastos.UserId
+        //                                    };
+        //    return query.ToList();
+        //}
 
         [HttpPost("cadastro")]
         public ActionResult<IEnumerable<Credito>> CadastraCredito([FromBody] Credito credito)
         {
             _gerenciamento.RegistraCredito(credito);
-            return new CreatedAtRouteResult("ObterCredito", new { id = credito.Id }, credito);
+            return CreatedAtAction(nameof(CadastraCredito), new { id = credito.Id }, credito);
         }
 
         [HttpDelete("deleta/{id:int}")]
@@ -113,7 +113,7 @@ namespace WebApiFinanc.Controllers
         [HttpPatch("pagamento/{id}")]
         public ActionResult<CreditoEditDTO> PagaParcela(int id, JsonPatchDocument<CreditoEditDTO> patchCredito)
         {
-             _gerenciamento.PagaParcela(id, patchCredito);
+            _gerenciamento.PagaParcela(id, patchCredito);
             return Ok();
         }
     }

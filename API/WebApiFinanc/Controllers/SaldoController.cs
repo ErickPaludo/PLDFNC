@@ -28,35 +28,35 @@ namespace WebApiFinanc.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("retorno")]
-        public ActionResult<IEnumerable<Saldo>> RetornaSaldo([FromQuery] QueryStringParameters saldoParameters, [FromQuery] FilterDataParameter dateParam)
-        {
-            var saldoPaginado = _unit.SaldoRepository.GetWithParameters(_unit.SaldoRepository.Get().Where(x => x.DthrReg >= dateParam.DataIni && x.DthrReg <= dateParam.DataFim), saldoParameters, x => x.Id);
+        //[HttpGet("retorno")]
+        //public ActionResult<IEnumerable<Saldo>> RetornaSaldo([FromQuery] QueryStringParameters saldoParameters, [FromQuery] FilterDataParameter dateParam)
+        //{
+        //    var saldoPaginado = _unit.SaldoRepository.GetWithParameters(_unit.SaldoRepository.Get().Where(x => x.DthrReg >= dateParam.DataIni && x.DthrReg <= dateParam.DataFim), saldoParameters, x => x.Id);
 
-            Response.Headers.Append("X-Pagination", JsonConvert.SerializeObject(new
-            {
-                saldoPaginado.TotalCount,
-                saldoPaginado.PageSize,
-                saldoPaginado.CurrentPage,
-                saldoPaginado.TotalPages,
-                saldoPaginado.HasNext,
-                saldoPaginado.HasPrevious
-            }));
+        //    Response.Headers.Append("X-Pagination", JsonConvert.SerializeObject(new
+        //    {
+        //        saldoPaginado.TotalCount,
+        //        saldoPaginado.PageSize,
+        //        saldoPaginado.CurrentPage,
+        //        saldoPaginado.TotalPages,
+        //        saldoPaginado.HasNext,
+        //        saldoPaginado.HasPrevious
+        //    }));
 
-            return Ok(saldoPaginado);
-        }
+        //    return Ok(saldoPaginado);
+        //}
 
-        [HttpGet("retornafiltrado/{id:int}", Name = "ObterSaldo")]
-        public ActionResult<IEnumerable<Saldo>> RetornaSaldo(int id)
-        {
-            var saldo = _unit.SaldoRepository.GetObjects(x => x.Id == id);
-            if (saldo is null)
-            {
-                return NoContent();
-            }
+        //[HttpGet("retornafiltrado/{id:int}", Name = "ObterSaldo")]
+        //public ActionResult<IEnumerable<Saldo>> RetornaSaldo(int id)
+        //{
+        //    var saldo = _unit.SaldoRepository.GetObjects(x => x.Id == id);
+        //    if (saldo is null)
+        //    {
+        //        return NoContent();
+        //    }
 
-            return Ok(saldo);
-        }
+        //    return Ok(saldo);
+        //}
 
         [HttpPost("cadastro")]
         public ActionResult<IEnumerable<Debito>> CadastraSaldo([FromBody] Saldo saldo)

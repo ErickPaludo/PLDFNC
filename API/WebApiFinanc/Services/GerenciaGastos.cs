@@ -321,22 +321,31 @@ namespace WebApiFinanc.Services
             {
                 case "N":
                     return "Pendente";
-                    break;
                 case "S":
                     return "Pago";
-                    break;
                 case "A":
                     return "Atraso";
-                    break;
                 case "PA":
                     return "Pago com Atraso";
-                    break;
                 case "C":
                     return "Cancelado";
-                    break;
                 case "R":
                     return "Recebido";
-                    break;
+                default:
+                    return "Não definido";
+
+            }
+        }
+        public string DeParaCategoria(string status)
+        {
+            switch (status)
+            {
+                case "C":
+                    return "Crédito";
+                case "D":
+                    return "Débito";
+                case "S":
+                    return "Saldo";
                 default:
                     return "Não definido";
 

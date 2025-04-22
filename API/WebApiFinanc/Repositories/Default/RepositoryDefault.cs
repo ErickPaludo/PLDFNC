@@ -5,6 +5,7 @@ using WebApiFinanc.Context;
 using WebApiFinanc.Filters.FiltersControllers;
 using WebApiFinanc.Models;
 using WebApiFinanc.Pagination;
+using X.PagedList;
 
 namespace WebApiFinanc.Repositories.Default
 {
@@ -17,13 +18,14 @@ namespace WebApiFinanc.Repositories.Default
             _context = context;
         }
 
-        public IEnumerable<T>? GetObjects(Expression<Func<T, bool>> predicate)
+        public async Task<IEnumerable<T>?> GetObjects(Expression<Func<T, bool>> predicate)
         {
-            return _context.Set<T>().AsNoTracking().Where(predicate).ToList();
+            return await _context.Set<T>().AsNoTracking().Where(predicate).ToListAsync();
         }
-        public IQueryable<T> Get()
+        public async Task<IQueryable<T>> Get()
         {
-            return _context.Set<T>().AsNoTracking();
+            var list = await _context.Set<T>().AsNoTracking().ToListAsync();
+            return list.AsQueryable();
         }
         public bool ObjectAny(Expression<Func<T, bool>> predicate)
         {
@@ -55,13 +57,13 @@ namespace WebApiFinanc.Repositories.Default
             }
         }
 
-        public PagedList<T> GetWithParameters(IQueryable<T> objeto, QueryStringParameters produtoParameters, Expression<Func<T, int>> ordenation)
+        public async Task<IPagedList<T>> GetWithParameters(IQueryable<T> objeto, QueryStringParameters produtoParameters, Expression<Func<T, int>> ordenation)
         {
-            var gastos = _context.Set<T>()
-            .AsNoTracking()
-            .OrderBy(ordenation)
-            .AsQueryable();
-            var debitosOrdenados = PagedList<T>.TotalPagedList(gastos, produtoParameters.PageNumber, produtoParameters.PageSize);
+            var gastos = await _context.Set<T>()
+                .AsNoTracking()
+                .OrderBy(ordenation);
+
+            var debitosOrdenados = await gastos.ToPagedListAsync(produtoParameters.PageNumber, produtoParameters.PageSize);
             return debitosOrdenados;
         }
     }

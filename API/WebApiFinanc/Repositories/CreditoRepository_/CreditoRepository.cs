@@ -14,15 +14,5 @@ namespace WebApiFinanc.Repositories.CreditoRepository_
         public CreditoRepository(AppDbContext context) : base(context)
         {
         }
-
-        public PagedList<CreditoDTO> GetPagination(QueryStringParameters pagination, Expression<Func<CreditoDTO,int>> ordenation, IQueryable<CreditoDTO> credito)
-        {
-            var gastos = credito
-           .AsNoTracking()
-           .OrderBy(ordenation)
-           .AsQueryable();
-            var debitosOrdenados = PagedList<CreditoDTO>.TotalPagedList(gastos, pagination.PageNumber, pagination.PageSize);
-            return debitosOrdenados;
-        }
     }
 }

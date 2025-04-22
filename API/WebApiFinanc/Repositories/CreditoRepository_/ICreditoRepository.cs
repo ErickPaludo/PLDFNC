@@ -8,6 +8,5 @@ namespace WebApiFinanc.Repositories.CreditoRepository_
 {
     public interface ICreditoRepository : IRepositoryDefault<Credito>
     {
-        public PagedList<CreditoDTO> GetPagination(QueryStringParameters pagination, Expression<Func<CreditoDTO,int>> ordenation, IQueryable<CreditoDTO> credito);
     }
 }
