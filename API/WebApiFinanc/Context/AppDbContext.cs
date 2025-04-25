@@ -1,10 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using WebApiFinanc.Models;
 using WebApiFinanc.Models.DTOs.Credito;
 
 namespace WebApiFinanc.Context
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<ApplicationUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -15,5 +17,10 @@ namespace WebApiFinanc.Context
         public DbSet<Debito>? Debito { get; set; }
         public DbSet<GastosStatus>? GastosStatus { get; set; }
         public DbSet<Saldo>? Saldo { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
     }
 }

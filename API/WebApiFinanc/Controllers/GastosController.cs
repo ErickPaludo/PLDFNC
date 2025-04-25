@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -36,6 +37,7 @@ namespace WebApiFinanc.Controllers
         }
 
         #region Retorna todos os gastos
+        [Authorize]
         [HttpGet("retorno")]
         public async Task<ActionResult<IEnumerable<Geral>>> RetornoGeral(int iduser, [FromQuery] QueryStringParameters geralParameters, [FromQuery] FilterDataParameter dateParam, string? categoria = null)
         {
@@ -44,7 +46,7 @@ namespace WebApiFinanc.Controllers
                 return NotFound("Usuário não encontrado");
             }
 
-            var creditoObjects =  await _unit.CreditoRepository.GetObjects(x => x.UserId == iduser);
+            var creditoObjects =  await _unit.CreditoRepository.GetObjects(x => x.UserId == iduser.ToString());
             var debitoObjects = await _unit.DebitoRepository.GetObjects(x => x.UserId == iduser);
             var saldoObjects = await _unit.SaldoRepository.GetObjects(x => x.UserId == iduser);
 
