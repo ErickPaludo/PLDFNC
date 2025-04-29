@@ -2291,3 +2291,642 @@ FROM `tb_debito` AS `t`
 Information: 20101 - Executed DbCommand (913ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT `t`.`Id`, `t`.`Titulo`, `t`.`Descricao`, `t`.`Valor`, `t`.`DthrReg`, `t`.`Status`
 FROM `tb_saldo` AS `t`
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Projetos\Financ\PLDFNC\API\WebApiFinanc
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Projetos\Financ\PLDFNC\API\WebApiFinanc
+Error: 0 - [28/04/2025 20:39:59] - Path: /Saldo/cadastro 
+ Ocorreu um erro (500): Connect Timeout expired.
+Error: 0 - [28/04/2025 20:40:57] - Path: /geral/retorno 
+ Ocorreu um erro (500): Connect Timeout expired.
+Error: 0 - [28/04/2025 21:21:27] - Path: /geral/retorno 
+ Ocorreu um erro (500): Connect Timeout expired.
+Information: 20101 - Executed DbCommand (445ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Warning: 20501 - Possible unintended use of method 'Equals' for arguments 't.UserId' and '@__ToString_0' of different types in a query. This comparison will always return false.
+Information: 20101 - Executed DbCommand (437ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (391ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (392ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (385ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (331ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (335ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (337ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (342ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_saldo` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_saldo`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Error: 1 - An unhandled exception has occurred while executing the request.
+Information: 20101 - Executed DbCommand (460ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_saldo` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_saldo`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Error: 1 - An unhandled exception has occurred while executing the request.
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_saldo` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_saldo`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Error: 1 - An unhandled exception has occurred while executing the request.
+Information: 20101 - Executed DbCommand (337ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_saldo` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_saldo`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Error: 1 - An unhandled exception has occurred while executing the request.
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (798ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (335ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (336ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (339ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (336ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (337ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (336ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (339ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (336ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (340ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (337ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (335ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (335ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (341ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (337ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (337ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Projetos\Financ\PLDFNC\API\WebApiFinanc
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Projetos\Financ\PLDFNC\API\WebApiFinanc
+Information: 20101 - Executed DbCommand (373ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Error: 20102 - Failed executing DbCommand (436ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Error: 10100 - An exception occurred while iterating over the results of a query for context type 'WebApiFinanc.Context.AppDbContext'.
+System.AggregateException: An error occurred while writing to logger(s). (The process cannot access the file 'C:\Projetos\Financ\PLDFNC\API\WebApiFinanc\log.txt' because it is being used by another process.)
+ ---> System.IO.IOException: The process cannot access the file 'C:\Projetos\Financ\PLDFNC\API\WebApiFinanc\log.txt' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamWriter.ValidateArgsAndOpenPath(String path, Boolean append, Encoding encoding, Int32 bufferSize)
+   at System.IO.StreamWriter..ctor(String path, Boolean append)
+   at WebApiFinanc.Logging.CustomerLogger.EscreverTextoNoArquivo(String mensagem) in C:\Projetos\Financ\PLDFNC\API\WebApiFinanc\Logging\CustomerLogger.cs:line 35
+   at WebApiFinanc.Logging.CustomerLogger.Log[TState](LogLevel logLevel, EventId eventId, TState state, Exception exception, Func`3 formatter) in C:\Projetos\Financ\PLDFNC\API\WebApiFinanc\Logging\CustomerLogger.cs:line 29
+   at Microsoft.Extensions.Logging.Logger.<Log>g__LoggerLog|14_0[TState](LogLevel logLevel, EventId eventId, ILogger logger, Exception exception, Func`3 formatter, List`1& exceptions, TState& state)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.Logging.Logger.ThrowLoggingError(List`1 exceptions)
+   at Microsoft.Extensions.Logging.Logger.Log[TState](LogLevel logLevel, EventId eventId, TState state, Exception exception, Func`3 formatter)
+   at Microsoft.Extensions.Logging.LoggerMessage.<>c__DisplayClass20_0`6.<Define>g__Log|0(ILogger logger, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, Exception exception)
+   at Microsoft.Extensions.Logging.LoggerMessage.<>c__DisplayClass20_0`6.<Define>b__1(ILogger logger, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, Exception exception)
+   at Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log[TLoggerCategory](IDiagnosticsLogger`1 logger, TParam1 arg1, TParam2 arg2, TParam3 arg3, TParam4 arg4, TParam5 arg5, TParam6 arg6)
+   at Microsoft.EntityFrameworkCore.Diagnostics.Internal.RelationalCommandDiagnosticsLogger.CommandReaderExecuted(IRelationalConnection connection, DbCommand command, DbContext context, Guid commandId, Guid connectionId, DbDataReader methodResult, DateTimeOffset startTime, TimeSpan duration, CommandSource commandSource)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+Warning: 20501 - Possible unintended use of method 'Equals' for arguments 't.UserId' and '@__ToString_0' of different types in a query. This comparison will always return false.
+Error: 0 - [28/04/2025 22:03:40] - Path: /geral/retorno 
+ Ocorreu um erro (500): An error occurred while writing to logger(s). (The process cannot access the file 'C:\Projetos\Financ\PLDFNC\API\WebApiFinanc\log.txt' because it is being used by another process.)
+Information: 20101 - Executed DbCommand (338ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (341ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (345ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (327ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (325ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (324ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (328ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (324ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (324ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (329ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (328ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (324ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (324ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (329ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (328ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (327ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (327ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (323ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (324ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (324ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (326ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (327ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (363ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (326ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (324ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (326ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (328ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (325ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (361ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (327ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (329ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (329ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (326ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (325ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (325ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (331ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (324ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (326ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (324ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (326ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (326ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (325ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (326ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (329ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (329ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (330ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (327ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (328ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (326ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (328ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (325ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (324ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (326ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (324ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (324ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (326ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (336ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (654ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (327ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_debito` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_debito`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (330ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (325ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (358ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (329ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (326ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (327ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (327ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (336ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (329ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (328ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (324ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (324ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (325ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (330ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (325ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Projetos\Financ\PLDFNC\API\WebApiFinanc
+Information: 20101 - Executed DbCommand (349ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Warning: 20501 - Possible unintended use of method 'Equals' for arguments 't.UserId' and '@__ToString_0' of different types in a query. This comparison will always return false.
+Information: 20101 - Executed DbCommand (330ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (326ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (325ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (328ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (326ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (330ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (330ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (357ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Usuarios` AS `u`
+    WHERE `u`.`UserId` = @__iduser_0)
+Information: 20101 - Executed DbCommand (391ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE FALSE
+Information: 20101 - Executed DbCommand (328ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (331ms) [Parameters=[@__iduser_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__iduser_0
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
