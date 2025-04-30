@@ -36,18 +36,13 @@ namespace WebApiFinanc.Controllers
             _mapper = mapper;
         }
 
-        #region Retorna todos os gastos
+        [Authorize]
         [HttpGet("retorno")]
-        public async Task<ActionResult<IEnumerable<Geral>>> RetornoGeral(int iduser, [FromQuery] QueryStringParameters geralParameters, [FromQuery] FilterDataParameter dateParam, string? categoria = null)
+        public async Task<ActionResult<IEnumerable<Geral>>> RetornoGeral(string iduser, [FromQuery] QueryStringParameters geralParameters, [FromQuery] FilterDataParameter dateParam, string? categoria = null)
         {
-            if(!_unit.UsuarioRepository.ObjectAny(x => x.UserId == iduser))
-            {
-                return NotFound("Usuário não encontrado");
-            }
-
             var creditoObjects =  await _unit.CreditoRepository.GetObjects(x => x.UserId.Equals(iduser.ToString()));
-            var debitoObjects = await _unit.DebitoRepository.GetObjects(x => x.UserId == iduser);
-            var saldoObjects = await _unit.SaldoRepository.GetObjects(x => x.UserId == iduser);
+            var debitoObjects = await _unit.DebitoRepository.GetObjects(x => x.UserId.Equals(iduser.ToString()));
+            var saldoObjects = await _unit.SaldoRepository.GetObjects(x => x.UserId.Equals(iduser.ToString()));
 
             IEnumerable<Geral> geral = ((creditoObjects ?? await _unit.CreditoRepository.Get())
      .Join(await _unit.GastoStatusRepository.Get(),
@@ -111,6 +106,6 @@ namespace WebApiFinanc.Controllers
 
             return Ok(debitosOrdenados);
         }
-        #endregion  
+        
     }
 }

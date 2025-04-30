@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
@@ -41,11 +42,11 @@ namespace WebApiFinanc.Models.DTOs.Credito
         public int TotalParcelas { get; set; }
 
         [Required]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
 
         [ForeignKey("UserId")]
         [JsonIgnore]
-        public Usuarios? Usuarios { get; set; }
+        public virtual ApplicationUser? Usuarios { get; set; }
 
     }
 }

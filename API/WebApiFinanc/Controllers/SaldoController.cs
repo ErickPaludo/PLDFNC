@@ -10,6 +10,7 @@ using WebApiFinanc.Models.DTOs.Saldo_;
 using WebApiFinanc.Pagination;
 using WebApiFinanc.Filters.FiltersControllers;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApiFinanc.Controllers
 {
@@ -28,36 +29,7 @@ namespace WebApiFinanc.Controllers
             _mapper = mapper;
         }
 
-        //[HttpGet("retorno")]
-        //public ActionResult<IEnumerable<Saldo>> RetornaSaldo([FromQuery] QueryStringParameters saldoParameters, [FromQuery] FilterDataParameter dateParam)
-        //{
-        //    var saldoPaginado = _unit.SaldoRepository.GetWithParameters(_unit.SaldoRepository.Get().Where(x => x.DthrReg >= dateParam.DataIni && x.DthrReg <= dateParam.DataFim), saldoParameters, x => x.Id);
-
-        //    Response.Headers.Append("X-Pagination", JsonConvert.SerializeObject(new
-        //    {
-        //        saldoPaginado.TotalCount,
-        //        saldoPaginado.PageSize,
-        //        saldoPaginado.CurrentPage,
-        //        saldoPaginado.TotalPages,
-        //        saldoPaginado.HasNext,
-        //        saldoPaginado.HasPrevious
-        //    }));
-
-        //    return Ok(saldoPaginado);
-        //}
-
-        //[HttpGet("retornafiltrado/{id:int}", Name = "ObterSaldo")]
-        //public ActionResult<IEnumerable<Saldo>> RetornaSaldo(int id)
-        //{
-        //    var saldo = _unit.SaldoRepository.GetObjects(x => x.Id == id);
-        //    if (saldo is null)
-        //    {
-        //        return NoContent();
-        //    }
-
-        //    return Ok(saldo);
-        //}
-
+        [Authorize]
         [HttpPost("cadastro")]
         public ActionResult<IEnumerable<Debito>> CadastraSaldo([FromBody] Saldo saldo)
         {
@@ -65,6 +37,7 @@ namespace WebApiFinanc.Controllers
             return new CreatedAtRouteResult("ObterDebito", new { id = saldo.Id }, saldo);
         }
 
+        [Authorize]
         [HttpDelete("deleta/{id:int}")]
         public IActionResult Deletar(int id)
         {
@@ -72,6 +45,7 @@ namespace WebApiFinanc.Controllers
             return Ok();
         }
 
+        [Authorize]
         [HttpPatch("alterar/{id}")]
         public ActionResult<SaldoEditDTO> AlterarSaldo(int id, JsonPatchDocument<SaldoEditDTO> patchSaldo)
         {

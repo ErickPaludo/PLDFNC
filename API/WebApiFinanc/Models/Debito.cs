@@ -31,10 +31,10 @@ namespace WebApiFinanc.Models
         public string Status { get; set; }
 
         [Required]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
 
         [ForeignKey("UserId")]
         [JsonIgnore]
-        public Usuarios? Usuarios { get; set; }
+        public virtual ApplicationUser? Usuarios { get; set; }
     }
 }

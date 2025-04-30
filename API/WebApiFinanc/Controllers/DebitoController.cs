@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -28,50 +29,25 @@ namespace WebApiFinanc.Controllers
             _mapper = mapper;
         }
 
-        //[HttpGet("retorno")]
-        //public ActionResult<IEnumerable<Debito>> RetornaDebito([FromQuery] QueryStringParameters debitoParameters, [FromQuery] FilterDataParameter dateParam)
-        //{
-        //    var gasto = _unit.DebitoRepository.GetWithParameters(_unit.DebitoRepository.Get().Where(x => x.DthrReg >= dateParam.DataIni && x.DthrReg <= dateParam.DataFim), debitoParameters, x => x.Id);
 
-        //    Response.Headers.Append("X-Pagination", JsonConvert.SerializeObject(new
-        //    {
-        //        gasto.TotalCount,
-        //        gasto.PageSize,
-        //        gasto.CurrentPage,
-        //        gasto.TotalPages,
-        //        gasto.HasNext,
-        //        gasto.HasPrevious
-        //    }));
-
-        //    return Ok(gasto);
-        //}
-
-        //[HttpGet("retornafiltrado/{id:int}", Name = "ObterDebito")]
-        //public ActionResult<IEnumerable<Debito>> RetornaDebitos(int id)
-        //{
-        //    var gasto = _unit.DebitoRepository.GetObjects(x => x.Id == id);
-        //    if (gasto is null)
-        //    {
-        //        return NoContent();
-        //    }
-
-        //    return Ok(gasto);
-        //}
-
+        [Authorize]
         [HttpPost("cadastro")]
         public ActionResult CadastraDebito([FromBody] Debito debito)
         {
             _gerenciamento.RegistraDebito(debito);
             return CreatedAtAction(nameof(CadastraDebito), new { id = debito.Id }, debito);
         }
-
+        [Authorize]
         [HttpDelete("deleta/{id:int}")]
+
+        [Authorize]
         public IActionResult Deletar(int id)
         {
             _gerenciamento.Excluir(id, "D");
             return Ok();
         }
 
+        [Authorize]
         [HttpPatch("alterar/{id}")]
         public ActionResult<DebitoEditDTO> AlterarDebito(int id, JsonPatchDocument<DebitoEditDTO> patchDebito)
         {

@@ -75,6 +75,7 @@ namespace WebApiFinanc.Controllers
         public async Task<IActionResult> AddUserToRole(string email, string roleName)
         {
             var user = await _userManager.FindByEmailAsync(email);
+            
 
             if (user != null)
             {
@@ -245,5 +246,6 @@ namespace WebApiFinanc.Controllers
 
             return NoContent();
         }
+
     }
 }

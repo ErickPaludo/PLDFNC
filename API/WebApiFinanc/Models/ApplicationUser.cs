@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using WebApiFinanc.Models.DTOs.Credito;
 
 namespace WebApiFinanc.Models
 {

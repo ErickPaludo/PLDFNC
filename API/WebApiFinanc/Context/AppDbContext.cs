@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 using WebApiFinanc.Models;
 using WebApiFinanc.Models.DTOs.Credito;
 
@@ -21,6 +22,24 @@ namespace WebApiFinanc.Context
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            builder.Entity<Credito>()
+             .HasOne(c => c.Usuarios)
+             .WithMany()
+             .HasForeignKey(c => c.UserId)
+             .IsRequired();
+
+            builder.Entity<Debito>()
+             .HasOne(c => c.Usuarios)
+             .WithMany()
+             .HasForeignKey(c => c.UserId)
+             .IsRequired();  
+            
+            builder.Entity<Saldo>()
+             .HasOne(c => c.Usuarios)
+             .WithMany()
+             .HasForeignKey(c => c.UserId)
+             .IsRequired();
+
         }
     }
 }
