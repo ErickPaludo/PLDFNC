@@ -34,7 +34,8 @@ namespace WebApiFinanc.Controllers
         public ActionResult<IEnumerable<Debito>> CadastraSaldo([FromBody] Saldo saldo)
         {
             _gerenciamento.RegistraSaldo(saldo);
-            return new CreatedAtRouteResult("ObterDebito", new { id = saldo.Id }, saldo);
+         //  return new CreatedAtRouteResult("ObterDebito", new { id = saldo.Id }, saldo);
+         return Ok();
         }
 
         [Authorize]

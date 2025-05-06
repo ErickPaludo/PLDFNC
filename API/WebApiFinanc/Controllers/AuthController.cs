@@ -139,14 +139,18 @@ namespace WebApiFinanc.Controllers
 
                 user.RefreshToken = refreshToken;
 
+               
+
                 await _userManager.UpdateAsync(user);
 
                 return Ok(new
                 {
                     Token = new JwtSecurityTokenHandler().WriteToken(token),
                     RefreshToken = refreshToken,
-                    Expiration = token.ValidTo
+                    Expiration = token.ValidTo,
+                    Id = user.Id,
                 });
+
             }
             return Unauthorized();
         }

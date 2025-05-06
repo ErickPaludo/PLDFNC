@@ -33,7 +33,8 @@ namespace WebApiFinanc.Controllers
         public ActionResult<IEnumerable<Credito>> CadastraCredito([FromBody] Credito credito)
         {
             _gerenciamento.RegistraCredito(credito);
-            return CreatedAtAction(nameof(CadastraCredito), new { id = credito.Id }, credito);
+            //return CreatedAtAction(nameof(CadastraCredito), new { id = credito.Id }, credito);
+            return Ok();
         }
         [Authorize]
         [HttpDelete("deleta/{id:int}")]

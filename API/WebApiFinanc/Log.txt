@@ -2930,3 +2930,1823 @@ WHERE `t`.`UserId` = @__iduser_0
 Information: 20101 - Executed DbCommand (333ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
 FROM `tb_gastos_status` AS `t`
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Projetos\Financ\PLDFNC\API\WebApiFinanc
+Information: 20101 - Executed DbCommand (398ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (360ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (349ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (362ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (345ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (354ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (343ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (355ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (345ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (342ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (345ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (348ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (345ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (355ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (383ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (363ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (344ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (343ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (343ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (344ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (346ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (346ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (364ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (372ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (345ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (351ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (352ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (352ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (346ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (342ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (348ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (352ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (345ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (345ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (344ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (351ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (343ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (341ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (346ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (355ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (344ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (345ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (344ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (351ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (347ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (345ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (351ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (365ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (347ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (343ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (347ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (354ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (350ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (344ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (347ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (357ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (345ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (346ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (380ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (350ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Projetos\Financ\PLDFNC\API\WebApiFinanc
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Projetos\Financ\PLDFNC\API\WebApiFinanc
+Information: 20101 - Executed DbCommand (369ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (335ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (340ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (344ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (358ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (339ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (337ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (345ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (337ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (336ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (349ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (335ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (Size = 255), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_saldo` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_saldo`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Error: 1 - An unhandled exception has occurred while executing the request.
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (335ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (350ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (337ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (350ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (348ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (347ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Error: 20102 - Failed executing DbCommand (467ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (Size = 255), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_saldo` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_saldo`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Error: 10000 - An exception occurred in the database while saving changes for context type 'WebApiFinanc.Context.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Cannot add or update a child row: a foreign key constraint fails (`dbfinanc`.`tb_saldo`, CONSTRAINT `FK_tb_saldo_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `AspNetUsers` (`Id`) ON DELETE CASCADE)
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in /_/src/MySqlConnector/MySqlCommand.cs:line 290
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Error: 0 - [01/05/2025 12:45:31] - Path: /saldo/cadastro 
+ Ocorreu um erro (500): An error occurred while saving the entity changes. See the inner exception for details.
+Information: 20101 - Executed DbCommand (337ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (355ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (343ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (355ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Projetos\Financ\PLDFNC\API\WebApiFinanc
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Projetos\Financ\PLDFNC\API\WebApiFinanc
+Information: 20101 - Executed DbCommand (381ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (331ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (344ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (335ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (338ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (344ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (376ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (342ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (1,016ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (709ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (338ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (335ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (345ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (331ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (330ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (345ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (337ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (355ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (335ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (337ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (354ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (400ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (331ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (331ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (335ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (335ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (330ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (339ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (330ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (339ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (344ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Error: 20102 - Failed executing DbCommand (481ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (Size = 255), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_saldo` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_saldo`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Error: 10000 - An exception occurred in the database while saving changes for context type 'WebApiFinanc.Context.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Cannot add or update a child row: a foreign key constraint fails (`dbfinanc`.`tb_saldo`, CONSTRAINT `FK_tb_saldo_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `AspNetUsers` (`Id`) ON DELETE CASCADE)
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in /_/src/MySqlConnector/MySqlCommand.cs:line 290
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Error: 0 - [01/05/2025 15:42:46] - Path: /saldo/cadastro 
+ Ocorreu um erro (500): An error occurred while saving the entity changes. See the inner exception for details.
+Information: 20101 - Executed DbCommand (331ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (340ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (331ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Error: 20102 - Failed executing DbCommand (440ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (Size = 255), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_saldo` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_saldo`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Error: 10000 - An exception occurred in the database while saving changes for context type 'WebApiFinanc.Context.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Cannot add or update a child row: a foreign key constraint fails (`dbfinanc`.`tb_saldo`, CONSTRAINT `FK_tb_saldo_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `AspNetUsers` (`Id`) ON DELETE CASCADE)
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in /_/src/MySqlConnector/MySqlCommand.cs:line 290
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Error: 0 - [01/05/2025 15:43:43] - Path: /saldo/cadastro 
+ Ocorreu um erro (500): An error occurred while saving the entity changes. See the inner exception for details.
+Error: 20102 - Failed executing DbCommand (493ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (Size = 255), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_saldo` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_saldo`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Error: 10000 - An exception occurred in the database while saving changes for context type 'WebApiFinanc.Context.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Cannot add or update a child row: a foreign key constraint fails (`dbfinanc`.`tb_saldo`, CONSTRAINT `FK_tb_saldo_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `AspNetUsers` (`Id`) ON DELETE CASCADE)
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in /_/src/MySqlConnector/MySqlCommand.cs:line 290
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Error: 0 - [01/05/2025 15:44:36] - Path: /saldo/cadastro 
+ Ocorreu um erro (500): An error occurred while saving the entity changes. See the inner exception for details.
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (335ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (339ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (338ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (Size = 255), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_saldo` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_saldo`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Error: 1 - An unhandled exception has occurred while executing the request.
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Projetos\Financ\PLDFNC\API\WebApiFinanc
+Information: 20101 - Executed DbCommand (360ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (Size = 255), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_saldo` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_saldo`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (337ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (339ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (339ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (331ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (330ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Error: 20102 - Failed executing DbCommand (450ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (Size = 255), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_saldo` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_saldo`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Error: 10000 - An exception occurred in the database while saving changes for context type 'WebApiFinanc.Context.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Cannot add or update a child row: a foreign key constraint fails (`dbfinanc`.`tb_saldo`, CONSTRAINT `FK_tb_saldo_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `AspNetUsers` (`Id`) ON DELETE CASCADE)
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in /_/src/MySqlConnector/MySqlCommand.cs:line 290
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Error: 0 - [01/05/2025 15:51:24] - Path: /saldo/cadastro 
+ Ocorreu um erro (500): An error occurred while saving the entity changes. See the inner exception for details.
+Error: 20102 - Failed executing DbCommand (447ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (Size = 255), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_saldo` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_saldo`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Error: 10000 - An exception occurred in the database while saving changes for context type 'WebApiFinanc.Context.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Cannot add or update a child row: a foreign key constraint fails (`dbfinanc`.`tb_saldo`, CONSTRAINT `FK_tb_saldo_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `AspNetUsers` (`Id`) ON DELETE CASCADE)
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in /_/src/MySqlConnector/MySqlCommand.cs:line 290
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Error: 0 - [01/05/2025 15:52:22] - Path: /saldo/cadastro 
+ Ocorreu um erro (500): An error occurred while saving the entity changes. See the inner exception for details.
+Information: 20101 - Executed DbCommand (341ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (Size = 255), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_saldo` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_saldo`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (331ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (331ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (331ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (330ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (Size = 255), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_saldo` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_saldo`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (335ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (331ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (331ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Projetos\Financ\PLDFNC\API\WebApiFinanc
+Information: 20101 - Executed DbCommand (363ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (335ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (336ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (330ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (333ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (406ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (336ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (352ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (335ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (325ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (330ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (330ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (338ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (Size = 255), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_debito` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_debito`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (329ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (325ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (324ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (338ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (324ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (326ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (322ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (331ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (Size = 255), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_debito` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_debito`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (326ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (326ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (324ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (336ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (336ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (338ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (335ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (338ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (336ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (337ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (336ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (336ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (336ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (336ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (335ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (334ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (331ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (331ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (338ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (Size = 255), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_debito` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_debito`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (339ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (351ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (344ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (342ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (331ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (332ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (345ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (330ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Projetos\Financ\PLDFNC\API\WebApiFinanc
+Error: 0 - [05/05/2025 19:45:32] - Path: /geral/retorno 
+ Ocorreu um erro (500): Connect Timeout expired.
+Information: 20101 - Executed DbCommand (552ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (397ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (365ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (352ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 14 - Now listening on: https://0.0.0.0:7171
+Information: 14 - Now listening on: http://0.0.0.0:5102
+Information: 0 - Application started. Press Ctrl+C to shut down.
+Information: 0 - Hosting environment: Development
+Information: 0 - Content root path: C:\Projetos\Financ\PLDFNC\API\WebApiFinanc
+Information: 20101 - Executed DbCommand (382ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Error: 20102 - Failed executing DbCommand (528ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Error: 10100 - An exception occurred while iterating over the results of a query for context type 'WebApiFinanc.Context.AppDbContext'.
+System.AggregateException: An error occurred while writing to logger(s). (The process cannot access the file 'C:\Projetos\Financ\PLDFNC\API\WebApiFinanc\log.txt' because it is being used by another process.)
+ ---> System.IO.IOException: The process cannot access the file 'C:\Projetos\Financ\PLDFNC\API\WebApiFinanc\log.txt' because it is being used by another process.
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamWriter.ValidateArgsAndOpenPath(String path, Boolean append, Encoding encoding, Int32 bufferSize)
+   at System.IO.StreamWriter..ctor(String path, Boolean append)
+   at WebApiFinanc.Logging.CustomerLogger.EscreverTextoNoArquivo(String mensagem) in C:\Projetos\Financ\PLDFNC\API\WebApiFinanc\Logging\CustomerLogger.cs:line 35
+   at WebApiFinanc.Logging.CustomerLogger.Log[TState](LogLevel logLevel, EventId eventId, TState state, Exception exception, Func`3 formatter) in C:\Projetos\Financ\PLDFNC\API\WebApiFinanc\Logging\CustomerLogger.cs:line 29
+   at Microsoft.Extensions.Logging.Logger.<Log>g__LoggerLog|14_0[TState](LogLevel logLevel, EventId eventId, ILogger logger, Exception exception, Func`3 formatter, List`1& exceptions, TState& state)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.Logging.Logger.ThrowLoggingError(List`1 exceptions)
+   at Microsoft.Extensions.Logging.Logger.Log[TState](LogLevel logLevel, EventId eventId, TState state, Exception exception, Func`3 formatter)
+   at Microsoft.Extensions.Logging.LoggerMessage.<>c__DisplayClass20_0`6.<Define>g__Log|0(ILogger logger, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, Exception exception)
+   at Microsoft.Extensions.Logging.LoggerMessage.<>c__DisplayClass20_0`6.<Define>b__1(ILogger logger, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, Exception exception)
+   at Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`6.Log[TLoggerCategory](IDiagnosticsLogger`1 logger, TParam1 arg1, TParam2 arg2, TParam3 arg3, TParam4 arg4, TParam5 arg5, TParam6 arg6)
+   at Microsoft.EntityFrameworkCore.Diagnostics.Internal.RelationalCommandDiagnosticsLogger.CommandReaderExecutedAsync(IRelationalConnection connection, DbCommand command, DbContext context, Guid commandId, Guid connectionId, DbDataReader methodResult, DateTimeOffset startTime, TimeSpan duration, CommandSource commandSource, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+Error: 0 - [05/05/2025 20:27:09] - Path: /geral/retorno 
+ Ocorreu um erro (500): An error occurred while writing to logger(s). (The process cannot access the file 'C:\Projetos\Financ\PLDFNC\API\WebApiFinanc\log.txt' because it is being used by another process.)
+Information: 20101 - Executed DbCommand (349ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Error: 1 - An unhandled exception has occurred while executing the request.
+Information: 20101 - Executed DbCommand (365ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (341ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (437ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (357ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (342ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (347ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (388ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (DbType = DateTime), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (Size = 255), @p6='?' (DbType = Decimal), @p7='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_credito` (`DataVencimento`, `Descricao`, `DthrReg`, `Titulo`, `TotalParcelas`, `UserId`, `Valor`, `ValorIntegral`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT `Id`
+FROM `tb_credito`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (364ms) [Parameters=[@p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (Size = 1), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32), @p13='?' (Size = 1), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32), @p16='?' (Size = 1), @p17='?' (DbType = Int32), @p18='?' (DbType = Int32), @p19='?' (Size = 1), @p20='?' (DbType = Int32), @p21='?' (DbType = Int32), @p22='?' (Size = 1), @p23='?' (DbType = Int32), @p24='?' (DbType = Int32), @p25='?' (Size = 1), @p26='?' (DbType = Int32), @p27='?' (DbType = Int32), @p28='?' (Size = 1), @p29='?' (DbType = Int32), @p30='?' (DbType = Int32), @p31='?' (Size = 1), @p32='?' (DbType = Int32), @p33='?' (DbType = Int32), @p34='?' (Size = 1)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p8, @p9, @p10);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p11, @p12, @p13);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p14, @p15, @p16);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p17, @p18, @p19);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p20, @p21, @p22);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p23, @p24, @p25);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p26, @p27, @p28);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p29, @p30, @p31);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p32, @p33, @p34);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (345ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (344ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (344ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (344ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (347ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (347ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (347ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (346ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (358ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (341ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (351ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (372ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (341ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (341ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (360ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (786ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (348ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (349ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (344ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (364ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (341ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (365ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (387ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (374ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (367ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (353ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (347ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (346ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (360ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (343ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (361ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (364ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (389ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (348ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (348ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (349ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (352ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (373ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (DbType = DateTime), @p3='?' (Size = 50), @p4='?' (DbType = Int32), @p5='?' (Size = 255), @p6='?' (DbType = Decimal), @p7='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_credito` (`DataVencimento`, `Descricao`, `DthrReg`, `Titulo`, `TotalParcelas`, `UserId`, `Valor`, `ValorIntegral`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT `Id`
+FROM `tb_credito`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (368ms) [Parameters=[@p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (Size = 1), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32), @p13='?' (Size = 1), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32), @p16='?' (Size = 1), @p17='?' (DbType = Int32), @p18='?' (DbType = Int32), @p19='?' (Size = 1), @p20='?' (DbType = Int32), @p21='?' (DbType = Int32), @p22='?' (Size = 1)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p8, @p9, @p10);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p11, @p12, @p13);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p14, @p15, @p16);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p17, @p18, @p19);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `tb_gastos_status` (`GPaiId`, `Parcela`, `Status`)
+VALUES (@p20, @p21, @p22);
+SELECT `Id`
+FROM `tb_gastos_status`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (363ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (363ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (360ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (367ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (385ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (387ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (382ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (385ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (383ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (388ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (392ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (386ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (368ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (372ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (370ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (363ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (355ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (343ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (341ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (346ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (348ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (348ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (346ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (347ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (343ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (378ms) [Parameters=[@p0='?' (Size = 400), @p1='?' (DbType = DateTime), @p2='?' (Size = 1), @p3='?' (Size = 50), @p4='?' (Size = 255), @p5='?' (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `tb_saldo` (`Descricao`, `DthrReg`, `Status`, `Titulo`, `UserId`, `Valor`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `tb_saldo`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+Information: 20101 - Executed DbCommand (370ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (374ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (362ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (356ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (357ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (349ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (342ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (341ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (354ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (354ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (358ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (359ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (342ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (341ms) [Parameters=[@__userId_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a0`.`Name`
+FROM `AspNetUserRoles` AS `a`
+INNER JOIN `AspNetRoles` AS `a0` ON `a`.`RoleId` = `a0`.`Id`
+WHERE `a`.`UserId` = @__userId_0
+Information: 20101 - Executed DbCommand (347ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information: 20101 - Executed DbCommand (348ms) [Parameters=[@p16='?' (Size = 255), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p0, `ConcurrencyStamp` = @p1, `Email` = @p2, `EmailConfirmed` = @p3, `LockoutEnabled` = @p4, `LockoutEnd` = @p5, `NormalizedEmail` = @p6, `NormalizedUserName` = @p7, `PasswordHash` = @p8, `PhoneNumber` = @p9, `PhoneNumberConfirmed` = @p10, `RefreshToken` = @p11, `RefreshTokenExpiryTime` = @p12, `SecurityStamp` = @p13, `TwoFactorEnabled` = @p14, `UserName` = @p15
+WHERE `Id` = @p16 AND `ConcurrencyStamp` = @p17;
+SELECT ROW_COUNT();
+Information: 20101 - Executed DbCommand (344ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (363ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (358ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (352ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (371ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (372ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (372ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (368ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (355ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (357ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (353ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (348ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`
+Information: 20101 - Executed DbCommand (359ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`DataVencimento`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Titulo`, `t`.`TotalParcelas`, `t`.`UserId`, `t`.`Valor`, `t`.`ValorIntegral`
+FROM `tb_credito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (361ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_debito` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (364ms) [Parameters=[@__ToString_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Descricao`, `t`.`DthrReg`, `t`.`Status`, `t`.`Titulo`, `t`.`UserId`, `t`.`Valor`
+FROM `tb_saldo` AS `t`
+WHERE `t`.`UserId` = @__ToString_0
+Information: 20101 - Executed DbCommand (350ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`GPaiId`, `t`.`Parcela`, `t`.`Status`
+FROM `tb_gastos_status` AS `t`

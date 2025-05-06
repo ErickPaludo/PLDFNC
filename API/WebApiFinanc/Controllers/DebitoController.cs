@@ -35,7 +35,8 @@ namespace WebApiFinanc.Controllers
         public ActionResult CadastraDebito([FromBody] Debito debito)
         {
             _gerenciamento.RegistraDebito(debito);
-            return CreatedAtAction(nameof(CadastraDebito), new { id = debito.Id }, debito);
+            // return CreatedAtAction(nameof(CadastraDebito), new { id = debito.Id }, debito);
+            return Ok();
         }
         [Authorize]
         [HttpDelete("deleta/{id:int}")]
