@@ -27,8 +27,7 @@ namespace WebApiFinanc.Controllers
         [HttpPost("cadastro")]
         public ActionResult<IEnumerable<CreditoFSG>> CadastraCredito([FromBody] CreditoFSG credito)
         {
-            //_gerenciamento.RegistraCredito(credito);
-            //return CreatedAtAction(nameof(CadastraCredito), new { id = credito.Id }, credito);
+            _gerenciamento.RegistraCredito(credito.credito);
             return Ok();
         }
     }
